@@ -1,0 +1,109 @@
+#+TITLE: tutorial-de-c
+#+AUTHOR: Patricio Martínez
+#+EMAIL: maxxcan@disroot.org
+
+* Introducción
+
+Este tutorial es una traducción del tutorial que podemos encontrar en [[https://www.tutorialspoint.com/cprogramming/index.htm][Tutorialspoint]]
+
+* Resumen
+
+C es un lenguaje de propósito general, un lenguaje de alto nivel que fue originalmente desarrollado por *Dennis M. Ritchie* para desarrollar el sistema operativo UNIX en los laboratorios Bell. C fue originalmente implementado para la computadora DEC PDP-11 en 1972. 
+
+En 1979, Brian Kerninghan y Dennis Ritchie produjeron la primera descripción de C para el público, ahora conocido como el estándar K&R. 
+
+El sistema operativo UNIX, el compilador de C y esencialmente todas las aplicaciones UNIX han sido escritas en C. C es un lenguaje ampliamente usado como lenguaje profesional por varias razones
+
++ Fácil de aprender
++ Lenguaje estructurado
++ Produce programas eficientes
++ Puede manejar actividades a bajo nivel
++ Se puede compilar para una amplia variedad de plataformas
+
+** Hechos sobre C 
+
+ + C fue inventado para escribir un sistema operativo llamado UNIX
+ + C es un sucesor del lenguaje B el cual fue introducido sobre los tempranos 1970
+ + El lenguaje fue formalizado en 1988 por el Instituto Nacional Americano de Estándares (ANSI)
+ + El sistema operativo UNIX está totalmente escrito en C
+ + A día de hoy C es el lenguaje más usado y popular como Lenguaje de Sistemas
+ + Muchos de los estados de arte han sido implementados usando C
+ + A día de hoy muchos de los populares Sistemas Operativos Linux o bases de datos como MySQL han sido escritos en C
+
+** Por qué usar C
+
+C fue inicialmente usado para el trabajo de desarrollo de sistemas, particularmente la programación de sistemas operativos. C fue adoptado como un lenguaje de desarrollo de sistemas porque producía código que corría casi tan rápido como código escrito en lenguaje ensamblador. Algunos ejemplos de uso de C podrían ser - 
+
++ Sistemas Operativos 
++ Compiladores de Lenguajes
++ Ensambladores
++ Editores de texto
++ Gestores de impresión
++ Controladores de Red
++ Programas modernos
++ Bases de datos
++ Lenguajes interpretados
++ Utilidades
+
+** Programas en C
+
+Un programa en C puede variar desde 3 líneas a millones de líneas y puede ser escrito en una o más ficheros de texto con la extensión *".c"*; por ejemplo, /hello.c/. Podemos usar "vi", "vim" o cualquier editor de texto para escribir tu programa C en un archivo.
+
+Este tutorial asume que conoces como editar un fichero de texto y escribir código fuente en un archivo de programa. 
+
+
+* C - Configurando el entorno
+
+Si queremos configurar nuestro entorno de para programar en el lenguaje C, necesitamos las dos siguientes herramientas de software en nuestro computador; un Editor y el Compilador de C.
+
+** Editor de texto
+
+Será usado para escribir nuestro programa. Ejemplos de algunos editores incluyen Windows Notepad, OS Edit command, Brief, Epsilon, EMACS, y vim o vi. 
+
+El nombre y la versión del editor de texto puede variar en diferentes sistemas operativos. Por ejemplo, Notepad será usado en Windows, y vim o vi puede ser usado en windows y también en Linux o UNIX.
+
+Los archivos que creemos con el editor de texto son llamados archivos fuente y ellos contienen los códigos fuente. Los archivos fuente para los programas C son típicamente nombrados con la extensión *".c"*. 
+
+Antes de empezar nuestro programa, tendremos que estar seguro que usamos un editor de texto con el cual tendremos suficiente experiencia para escribir programas, salvarlos, compilarlos y finalmente ejecutarlos.
+
+** El compilador C
+
+El código fuente escrito en el archivo fuente es la fuente humanamente leíble para nuestro programa. Pero necesita ser "compilado", en lenguaje máquina para que nuestra CPU puede realmente ejecutar el programa. 
+
+El compilador compila el código fuente en el programa ejecutable final. El compilador más frecuentemente usado y de libre acceso es el compilador de GNU C/C++, en caso distinto tenemos los compiladores de HP o Solaris si tenemos los sistemas operativos respectivos. 
+
+En la sección siguiente explicaremos como instalar el compilador GNU C/C++ en varios Sistemas Operativos. Mencionamos juntos C/C++ porque el compilador GNU Gcc funciona para ambos lenguajes. 
+
+** Instalación en UNIX/Linux
+
+Si estás usando *Linux o UNIX*, entonces comprobaremos si GCC está instalado en el sistema introduciendo el siguiente comando  - 
+
+: $ gcc -v
+
+Si el compilador  está instalado, entonces imprimirá el siguiente mensaje - 
+
+#+BEGIN_SRC shell
+Using built-in specs.
+Target: i386-redhat-linux
+Configured with: ../configure --prefix=/user ......
+Thread model: posix
+gcc version 4.1.2 200080704 (Red Hat 4.1.2-46)
+#+END_SRC
+
+Si GCC no está instalado, entonces tendremos que instalarlo por nosotros mismos usando las detalladas instrucciones disponibles en [[https://gcc.gnu.org/install/][la página de gcc]]. 
+
+Este tutorial ha sido escrito basado en Linux y todos los ejemplos han sido compilados  en la distribución Cent OS del sistema Linux.
+
+** Instalación en Mac OS
+
+Si usas un Mac OS X, la forma más sencilla de obtener GCC es descargándose el entorno de desarrollo Xcode desde la página de Apple y seguir las instrucciones. Una vez hayas configurado Xcode, serás capaz de usar el Compilador GNU C/C++.
+
+** Instalación en Windows
+
+Para instalar GCC en Windows, se necesita instalar MinGW. Para instalar MinGW, es necesario ir a su [[http://www.mingw.org/][página]], y seguir el enlace a su página de descarga.
+
+Mientras se instala Min GW, al mínimo, se debe instalar gcc-core, gcc-g++, binutils, y el MinGW runtime, pero se podrían instalar más cosas.
+
+Añadiremos el subdirectorio *bin* de la instalación a la variable *PATH*, así como especificar las herramientas a usar. 
+
+Después de que la instalación se haya completado, serás capaz de ejecutar gcc, g++, ranlib, diltool y varias otras herramientas de GNU en la línea de Comandos de Windows.
