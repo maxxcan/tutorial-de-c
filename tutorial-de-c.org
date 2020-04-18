@@ -107,3 +107,150 @@ Mientras se instala Min GW, al mínimo, se debe instalar gcc-core, gcc-g++, binu
 Añadiremos el subdirectorio *bin* de la instalación a la variable *PATH*, así como especificar las herramientas a usar. 
 
 Después de que la instalación se haya completado, serás capaz de ejecutar gcc, g++, ranlib, diltool y varias otras herramientas de GNU en la línea de Comandos de Windows.
+
+* C - Estructura del programa
+
+Antes de que estudiemos los bloques básicos del programa C, echemos un ojo la estructura mínima de un programa en C que tomaremos de referencia en los siguientes capítulos. 
+
+** Ejemplo - Hola Mundo - 
+
+Un programa en C básicamente consiste de las siguientes partes - 
+
++ Comandos de preprocesado
++ Funciones
++ Variables
++ Declaraciones y expresiones
++ Comentarios
+
+Echemos un vistazo a un simple código que puede dibujar las palabras "Hola Mundo" -  
+
+#+BEGIN_SRC C
+#include <stdio.h>
+
+int main() {
+/* mi primer programa en C*/
+printf("Hola, Mundo! \n");
+
+return 0
+}
+#+END_SRC
+
+Veamos las  distintas partes del programa - 
+
++ La primera línea del programa /#include<stdio.h>/ es  un comando preprocesador, el cual le dice al compilador de C incluir stdio.h antes de empezar a compilar. 
+
++ La siguiente línea /main()/ es la función principal donde la ejecución del programa comienza.
+
++ la siguiente línea /*..*/ será ignorada por el compilador y se usará para poner comentarios en el programa. Tales líneas son llamadas  comentarios en el programa.
+
++ La próxima línea /printf(...)/ es otra función disponible en C la cual causa que el mensaje "Hola Mundo!" sea mostrado en la pantalla. 
+
++ La siguiente línea *return 0*; termina la función main() y devuelve el valor 0.
+
+** Compilando y ejecutando el programa C
+
+Vamos a ver cómo salvar el código fuente en un archivo, como compilarlo y ejecutarlo. Siguiendo unos simples pasos - 
+
++ Abrir el editor de texto y añadir el código antes mencionado
+
++ Salvar el archivo como hola.c
+
++ Abrir una consola de comandos e ir al directorio donde se ha salvado el archivo
+
++ Escribir gcc hola.c y presionar intro para compilar el código
+
++ si no hay errores en el código, la línea de comandos generará un fichero ejecutable a.out
+
++ Ahora, escribimos a.out para ejecutar el programa
+
++ Veremos la salida "Hola Mundo" dibujado en la pantalla
+
+: $ gcc hello.c
+: $ ./a.out
+: Hola Mundo!
+
+* C - Sintáxis básica 
+
+Hemos visto la estructura de un programa C, así que será fácil entender otros bloques de construcción del lenguaje C. 
+
+** Tokens en C
+
+Un programa en C consiste en varios tokens y un token puede ser una palabra clave, un identificador, una constante, una cadena de texto, o un símbolo. Por ejemplo, la siguiente declaración consiste de cinco tokens. - 
+
+#+BEGIN_SRC C
+printf("Hola Mundo! \n");
+#+END_SRC
+
+Los tokens individuales son - 
+
+#+BEGIN_SRC C
+printf
+(
+"Hola Mundo! \n"
+)
+;
+#+END_SRC
+
+** Punto y coma
+
+En un programa C, el punto y coma es una declaración de fin. Eso es, cada declaración individual debe ser terminada con una punto y coma. Ello indica el final de una entidad lógica.
+
+Aquí vemos dos declaraciones diferentes - 
+
+#+BEGIN_SRC C
+printf("Hola, Mundo! \n");
+return 0;
+#+END_SRC
+
+** Comentarios
+
+Los comentarios son como textos de ayuda  en el programa y son ignorados por el compilador. Empiezan con /* y terminan con */ tal como se muestra a continuación.
+
+#+BEGIN_SRC C
+/* mi primer programa en C */
+#+END_SRC
+
+No podemos tener comentarios dentro de comentarios y no pueden ocurrir con una cadena de caracteres.
+
+** Identificadores 
+
+Un identificador en C es un nombre usado para identificar una variable, función, o cualquier otro item definido por el usuario. Un identificador empiezar con unal letra de la A a la Z, mayúsculo o minúscula o un guíon bajo '_' seguido por cero o más letras, guiones bajos y dígitos (de 0 a 9).
+
+C no permite caracteres de puntuación tales como @, $, y % en los identificadores. C es sensible a mayúsculas y minúsculas. Por lo que, Manpower y manpower son dos identificadores distintos en C. Aquí hay algunos ejemplos de identificadores aceptables - 
+
+: mohd  zara abc move_name a_123
+: myname50 _temp j a23b9 retVal
+
+** Palabras clave
+
+Las siguiente lista muestra las palabras reservadas en C. Esas palabras reservadas no deben ser usadas como constantes o variables o cualquier nombre de identificador. 
+
+
+| auto     | else   | long     | switch   |
+| break    | enum   | register | typedef  |
+| case     | extern | return   | union    |
+| char     | float  | short    | unsigned |
+| const    | for    | signed   | void     |
+| continue | goto   | sizeof   | volatile |
+| default  | if     | static   | while    |
+| do       | int    | struct   | _Packed  |
+| double   |        |          |          |
+
+
+** Espacios en blanco en C
+
+Una línea conteniendo solo espacios en blanco, posiblemente con un comentario, es conocida como línea en blanco y el compilador de C la ignora.
+
+Los espacios en blanco es el termino usado en C para describir espacio en blanco, tabulador, carácter de nueva línea y comentarios. Los espacios en blanco separa una parte de una declaración de otra y habilita al compilador a identificar donde un elemento en una declaración, tal como entero, finaliza y compieza el siguiente elemento.
+
+Por lo tanto, en la siguiente declaración - 
+
+: int edad;
+
+debe haber al menos un espacio en blanco (normalmente un espacio) entre int y edad para que el compilador sea capaz de distinguirlos. Por otro lado, en la siguiente declaración - 
+
+: frutas = manzanas + naranjas; //  obtener el total de frutas
+
+Los espacios en blanco no son necesarios entre fruta y el símbolo =, o entre el = y las manzanas, además somos libres de incluir alguno más si deseamos mayor legibilidad. 
+
+
