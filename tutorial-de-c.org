@@ -137,7 +137,7 @@ return 0
 
 Veamos las  distintas partes del programa - 
 
-+ La primera línea del programa /#include<stdio.h>/ es  un comando preprocesador, el cual le dice al compilador de C incluir stdio.h antes de empezar a compilar. 
++ La primera línea del programa #include<stdio.h> es  un comando preprocesador, el cual le dice al compilador de C incluir stdio.h antes de empezar a compilar. 
 
 + La siguiente línea /main()/ es la función principal donde la ejecución del programa comienza.
 
@@ -252,7 +252,6 @@ debe haber al menos un espacio en blanco (normalmente un espacio) entre int y ed
 : frutas = manzanas + naranjas; //  obtener el total de frutas
 
 Los espacios en blanco no son necesarios entre fruta y el símbolo =, o entre el = y las manzanas, además somos libres de incluir alguno más si deseamos mayor legibilidad. 
-
 
 * C - Tipos de datos 
 
@@ -403,3 +402,134 @@ Hay varias funciones en C las cuales no aceptan ningún parámetro. Una función
 
 + Punteros a void. 
 Un puntero de tipo void representa la dirección de un objeto, pero no su tipo. Por ejemplo, una función de asiganción *void \*malloc( size_t size);* devuelve un puntero a void el cual puede ser referenciado a cualquier tipo de dato.
+* C - Variables
+
+Una variable no es nada más que un nombre que se le da a un área de almacenamiento que nuestro programa puede manipular. Cada variable en C tiene un tipo específico, el cual determina el tamaño la capa de la variable de memoria; el ragon de valores que puede ser guardado en esa memoria; y el conjunto de operaciones que pueden ser aplicadas a la variable.
+
+El nombre de una variable puede estar compuesto de letras, dígitos, y guiones bajos. Deben empezar por una letra o un guión bajo. C distingue entre letras mayúsculas y minúsculas ya que C es case-sensitivo. Basandose en los tipos básicos explicados en el capítulo anterior, veremos los siguientes tipos de variables. 
+
+| Nº | Tipo     | Descripción                                          |
+|----+----------+------------------------------------------------------|
+|  1 | Caracter | Típicamente un octeto (un byte). Es un tipo entero   |
+|  2 | Entero   | El tipo más natural de tamaño entero para la máquina |
+|  3 | Flotante | Un simple precisión flotante Valor                   |
+|  4 | double   | Una doble precisión flotante valor                   |
+|  5 | void     | Representa la ausencia de tipo                       |
+
+El lenguaje C también permite definir otros varios tipos de variables, las cuales serán cubiertas en los subsecuentes capítulos como Enumeración, Punteros, Arrays, Estructuras, Uniones, etc. Por este capítulo, vamos a estudiar solo los tipos básicos.
+
+** Definición de variable en C 
+
+Una definición de variable le dice al compilador donde y cuanto de grande es el almacenamiento por crear para la variable. La definición de variable especifica un tipo de dato y contiene una lista de uno o más variables de esos tipos, como sigue -- 
+
+: tipo lista_de_variables;
+
+Aquí *tipo* debe ser un dato C válido incluyendo char, w_char, int, float, double, bool, o cualquier tipo de objeto definido por el usuario; una *lista_de_variables* que consistirá en uno o más nombres identificadores separados por comas. Algunas declaraciones válidas son mostradas aquí - 
+
+
+#+BEGIN_SRC C
+int i, j, k;
+char c, ch;
+float f, salario;
+double d;
+
+#+END_SRC
+
+En la primera línea declaramos las variables i,j y k; las cuales le damos las instrucciones al compilador el crear variables llamadas i,j y k del tipo entero.
+
+Las variables pueden ser inicializadas (asignándoles un valor inicial) en esa declaración.  La inicialización consiste en un signo igual seguido de una expresión constante tal como sigue -
+
+: tipo nombre_variable = valor;
+
+Algunos ejemplos serían --
+
+#+BEGIN_SRC C
+
+extern int d = 3, f = 5;  // declaración de d y f.
+int d = 3, f = 5;  // definición e inicialización de d y f.
+byte z = 22;   // definición e inicialización de z.
+char x = 'x';   // la variable x tiene el valor 'x'.
+
+#+END_SRC
+
+Para definir sin inicializar: las variables con almacenamiento de duración estático son implícitamente inicializados con NULL (todos los bytes tienen el valor 0); el valor inicial de todos las otras variables son indefinidos.
+
+** Declaración de variables en C 
+
+Una declaración de variable proporciona garantía al compilador de que existe una variable con el tipo dado y el nombre así que el compilador puede proceder más rápido a la compilación sin requerir el completo detalle sobre la variable. Una definición de variable tiene su significado en el momento de compilación solo, el compilador necesita una definición de variable en el momento del linkado del programa. 
+
+Una declaración de variable es muy útil cuando usamos múltiples archivos y definimos nuestra variable en uno de los archivos el cual debe ser accesible en el momento del linkado de el programa. Usaremos la palabra clave *extern* para declarar una variable en un lugar. Además podemos declarar una variable muchas veces en nuestro programa C, ello puede ser definido solo una vez en un archivo, una función o un bloque de código.
+
+*** Ejemplo   
+
+Veamos el siguiente ejemplo, donde las variables han sido declaradas al principio, pero han sido definidas e inicializadas dentro de la función principal - 
+
+#+BEGIN_SRC C
+#+inclue <stdio.h>
+
+// declaración de variables
+extern int a, b;
+extern int c;
+extern float f;
+
+int main() {
+
+/* definición de variables */
+int a, b;
+int c;
+float f;
+
+/* verdadera inicialización */
+a = 10;
+b = 20;
+
+c = a + b;
+printf("el valor de c : %d \n", c);
+
+f = 70.0/3.0;
+printf("el valor de f : %f \n", f);
+
+return 0;
+
+}
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, se producirá el siguiente resultado - 
+
+: el valor de c : 30
+: el valor de f : 23.3333334
+
+El mismo concepto aplicado en las declaraciones de funciones donde proveeremos el nombre de una función al mismo tiempo que su declaración y su verdadera definición puede ser dada en cualquier sitio más. Por ejemplo - 
+
+#+BEGIN_SRC C
+// declaración de función
+int func();
+
+int main() {
+
+//llamada a la función
+int i = func()
+}
+
+//definición de función
+int func(){
+return 0;
+}
+
+#+END_SRC
+
+Valor-L y Valor-R en C 
+
+Hay dos tipos de expresiones en C - 
+
+- l-valor - Las expresiones que se refieren a la posición de memoria son llamadas expresiones "l-valor". Una l-valor puede aparecer tanto como mano izquierda o mano derecha de una asignación.
+
+- r-valor - El termino r-valor se refiere a un valor de datos que es guardado en una dirección de memoria. Un r-valor es una expresión que no puede tener un valor asignado a ello lo cual significa que un r-valor puede aparecer a la derecha pero no a la izquierda de una asignación.
+
+Las variables son l-valores y así pueden aparecer en el lado izquierdo de una asignación. Los literales numéricos son r-valores y así ellos no deben ser asignados y no pueden aparecer en el lado izquierdo de una asignación. Echemos un vistazo a una declaración válida y a otra inválida.
+
+: int g = 20; //declaración válida
+: 10 = 20 // declaración inválida; generará un error en tiempo de compilación
+
+
