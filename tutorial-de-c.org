@@ -241,7 +241,7 @@ Las siguiente lista muestra las palabras reservadas en C. Esas palabras reservad
 
 Una línea conteniendo solo espacios en blanco, posiblemente con un comentario, es conocida como línea en blanco y el compilador de C la ignora.
 
-Los espacios en blanco es el termino usado en C para describir espacio en blanco, tabulador, carácter de nueva línea y comentarios. Los espacios en blanco separa una parte de una declaración de otra y habilita al compilador a identificar donde un elemento en una declaración, tal como entero, finaliza y compieza el siguiente elemento.
+Los espacios en blanco es el termino usado en C para describir espacio en blanco, tabulador, carácter de nueva línea y comentarios. Los espacios en blanco separa una parte de una declaración de otra y habilita al compilador a identificar donde un elemento en una declaración, tal como entero, finaliza y comienza el siguiente elemento.
 
 Por lo tanto, en la siguiente declaración - 
 
@@ -254,3 +254,152 @@ debe haber al menos un espacio en blanco (normalmente un espacio) entre int y ed
 Los espacios en blanco no son necesarios entre fruta y el símbolo =, o entre el = y las manzanas, además somos libres de incluir alguno más si deseamos mayor legibilidad. 
 
 
+* C - Tipos de datos 
+
+Los tipos de datos en C se refieren a un extensivo sistema usado para declarar variables o funciones de diferentes tipos. El tipo de variable determina cuanto espacio ocupará en memoria y como será el patrón de bits guardados interpretados. 
+
+Los tipos en C puede ser clasificados de las siguiente manera - 
+
+| Sr.No. | Tipos            | Descripción                                                                                             |
+|      1 | Tipos básicos    | Son tipos aritméticos y clasificados en: enteros y comas flotante.                                      |
+|      2 | Tipos enumerados | También son tipos aritméticos y son usados para definir variables que solo pueden ser valores discretos |
+|      3 | El tipo vacío    | El tipo vacío especifica que no tienen ningún valor                                                     |
+|      4 | Tipos derivados  | Incluyen punteros, arrays, estructuras, uniones y funciones                                             |
+
+
+Los arrays y las estructuras son referidos colectivamente como tipos agregados. Los tipos funciones especifican un tipo que devuelve la función. Veremos los tipos básicos en la siguiente sección, donde como otros tipos serán cubiertos en sucesivos capítulos. 
+
+** Tipos Enteros
+
+La siguiente tabla proporciona los detalles de los tipos enteros estándar con sus tamaños y rangos de valor - 
+
+| Tipo           | Tamaño      | Rango                                             |
+|----------------+-------------+---------------------------------------------------|
+| char           | 1 byte      | -128 a 127 o 0 a 255                              |
+| unsigned char  | 1 byte      | 0 a 255                                           |
+| signed char    | 1 byte      | -128 a 127                                        |
+| int            | 2 o 4 bytes | -32,768 a 32,768 o -2,147,483,648 a 2,147,483,647 |
+| unsigned it    | 2 o 4 bytes | 0 a 65,535 o 0 a 4,294,967,285                    |
+| short          | 2 bytes     | -32,768 a 32,767                                  |
+| unsigned short | 2 bytes     | 0 a 65,535                                        |
+| long           | 8 bytes     | -9223372036854775808 a 9223372036854775807        |
+| unsigned long  | 8 bytes     | 0 a 18446744073709551815                          |
+
+
+Para obtener exactamente el tamaño de un tipo de variable en una plataforma en particular, podemos usar el operador *sizeof*. La expresión /sizeof(type)/ produce el tamaño del objeto o tipo en bytes. Veremos un ejemplo para obtener el tamaño de varios tipos en una computadora usando diferentes constantes definidos en el archivo limits.h
+
+
+*** Demo 
+
+#+BEGIN_SRC C
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <float.h>
+
+int main(int argc, char** argv) {
+
+printf("CHAR_BIT    :    %d\n", CHAR_BIT);
+printf("CHAR_MAX    :    %d\n", CHAR_MAX);
+printf("CHAR_MIN    :    %d\n", CHAR_MIN);
+printf("INT_MAX     :    %d\n", INT_MAX);
+printf("INT_MIN     :    %d\n", INT_MIN);
+printf("LONG_MAX    :    %ld\n", (long) LONG_MAX);
+printf("LONG_MIN    :    %ld\n", (long) LONG_MIN);
+printf("SCHAR_MAX   :    %d\n", SCHAR_MAX);
+printf("SCHAR_MIN   :    %d\n", SCHAR_MIN);
+printf("SHRT_MAX    :    %d\n", SHRT_MAX);
+printf("SHRT_MIN    :    %d\n", SHRT_MIN);
+printf("UCHART_MAX  :    %d\n", UCHART_MAX);
+printf("UINT_MAX    :    %u\n", (unsigned int) UINT_MAX);
+printf("ULONG_MAX   :    %lu\n", (unsigned long) ULONG_MAX);
+printf("USHRT_MAX   :    %d\n", (unsigned short) USHRT_MAX);
+
+return 0;
+}
+#+END_SRC
+
+Cuando compilemos y ejecutemos el programa, producirá el siguiente resultado en Linux - 
+
+#+BEGIN_SRC 
+CHAR_BIT    :   8
+CHAR_MAX    :   127
+CHAR_MIN    :   -128
+INT_MAX     :   2147483647
+INT_MIN     :   -2147483648
+LONG_MAX    :   9223372036854775807
+LONG_MIN    :   -9223372036854775808
+SCHAR_MAX   :   127
+SCHAR_MIN   :   -128
+SHRT_MAX    :   32767
+SHRT_MIN    :   -32768
+UCHAR_MAX   :   255
+UINT_MAX    :   4294967295
+ULONG_MAX   :   18446744073709551615
+USHRT_MAX   :   65535
+#+END_SRC
+
+
+** Tipos Coma flotante
+
+La siguiente tabla proporciona los detalles de los tipos comas flotante estándar  con sus tamaños y los valores de sus rangos y su precisión - 
+
+| Tipo        | Tamaño  | Rango                 | Precisión     |
+|-------------+---------+-----------------------+---------------|
+| float       | 4 byte  | 1.2E-38 a 3.4E+38     | 6 decimales   |
+| double      | 8 byte  | 2.3E-308 a 1.7E+308   | 15 decimales  |
+| long double | 10 byte | 3.4E-4932 a 1.1E+4932 | 19  decimales |
+
+El fichero de cabecera float.h  define las macros que nos permite usar esas variables y otros detalles sobre la representación en binario de los números reales en nuestros programas. El siguiente ejemplo dibuja el espacio de guardado que toma los tipo coma flotante y su rango de valores. 
+
+--Demo 
+
+#+BEGIN_SRC C
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h> 
+#include <float.h>
+
+int main(int argc, char*** argv) {
+
+printf("Espacio para el punto flotante: %d \n", sizeof(float));
+printf("FLT_MAX     :   %g\n", (float) FLT_MAX);
+printf("FLT_MIN     :   %g\n", (float) FLT_MIN);
+printf("-FLT_MAX    :   %g\n", (float) -FLT_MAX);
+printf("-FLT_MIN    :   %g\n", (float) -FLT_MIN);
+printf("DBL_MAX     :   %g\n", (double) DBL_MAX);
+printf("DBL_MIN     :   %g\n", (double) DBL_MIN);
+printf("-DBL_MAX     :  %g\n", (double) -DBL_MAX);
+printf("Valor de precisión: %d\n", FLT_DIG );
+
+return 0;
+
+}
+#+END_SRC
+
+Cuando ejecutemos el programa obtendremos el siguiente resultado en Linux - 
+
+#+BEGIN_SRC
+Espacio para el punto flotante: 4 
+FLT_MAX      :   3.40282e+38
+FLT_MIN      :   1.17549e-38
+-FLT_MAX     :   -3.40282e+38
+-FLT_MIN     :   -1.17549e-38
+DBL_MAX      :   1.79769e+308
+DBL_MIN      :   2.22507e-308
+-DBL_MAX     :  -1.79769e+308
+Valor de precisión: 6
+#+END_SRC
+
+** El tipo void
+
+El tipo void especifica que ningún valor está disponible. Es usado en tres tipos de situaciones - 
+
++ La función devuelve void. 
+  Hay varias funciones en C las cuales no devuelven ningún valor o que podemos decir que devuelvan void. Una función con ningún valor de retorno tiene el tipo de retorno como void. Por ejemplo *void exit(int status);* 
+
++ Argumento de función como void. 
+Hay varias funciones en C las cuales no aceptan ningún parámetro. Una función sin ningún parámetro puede aceptar un void. Por ejemplo *int rand(void);* 
+
++ Punteros a void. 
+Un puntero de tipo void representa la dirección de un objeto, pero no su tipo. Por ejemplo, una función de asiganción *void \*malloc( size_t size);* devuelve un puntero a void el cual puede ser referenciado a cualquier tipo de dato.
