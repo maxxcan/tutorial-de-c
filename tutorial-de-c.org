@@ -533,3 +533,164 @@ Las variables son l-valores y así pueden aparecer en el lado izquierdo de una a
 : 10 = 20 // declaración inválida; generará un error en tiempo de compilación
 
 
+* C - Constantes y literales 
+
+
+Constantes se refire a valores fijos que el programa no puede alterar durante su ejecución. Esos valores fijos son también llamados *literales*. 
+
+Las constantes pueden ser cualquier tipo de dato básico como una /constante entera, una punto flotante, cadena de caractéres o un carácter/. Hay enumeraciones constantes también. 
+
+Las constantes son tratadas como variables normales excepto que sus valores no pueden sere modificados después de su definición. 
+
+** Literales enteros 
+
+Un literal entero puede ser una constante decimal, octal o hexadecimal. Un prefijo especifica la base o la base: 0x o 0X para hexadecimal, 0 para octal y nada para decimal. 
+
+Un literal entero puede tambijén tener un sufijo que es una combinación de U y L, para sin signo o largo, respectivamente. El sufijo puede ser uppercase o lowercase y puede estar en cualquier orden. 
+
+Aquí hay algunos ejemplos de literales enteros - 
+
+#+BEGIN_SRC C
+3.14159       /* Legal */
+314159E-5L    /* Legal */
+510E          /* Ilegal: exponente incompleto */
+210f          /* Ilegal: sin decimal o sin exponente */
+.e55          /* Ilegal: sin fracción o entero */
+#+END_SRC
+
+** Constantes carácter 
+
+Los literales carácter son encerrados con comillas simples, ejemplo, 'x' y pueden ser guardadas en una variable simple de tipo *char*. 
+
+Un literal carácter puede ser un carácter plano (ejemplo, 'x'), una secuencia de escape (ejemplo, '\t') o un carácter universal (ejemplo, '\u02C0).
+
+hay ciertos caracteres en C que representan un significado especial cuando son precedidos por una barra invertido, como una nueva linea (\n) o un tabulador (\t). 
+
+*** Lista de secuencias de escape 
+
+| Secuencia de escape | Significado                         |
+|---------------------+-------------------------------------|
+| \\                  | carácter \                          |
+| \'                  | carácter '                          |
+| \"                  | carácter "                          |
+| \?                  | carácter ?                          |
+| \a                  | alerta o campana                    |
+| \b                  | espacio para atrás                  |
+| \f                  | Alimentador de informe              |
+| \n                  | nueva línea                         |
+| \r                  | salto de carro                      |
+| \t                  | tabulador horizontal                |
+| \v                  | tabulador vertical                  |
+| \ooo                | número octal de 1 a 3 dígitos       |
+| \xhh                | número hexadecimal de 1 a 3 dígitos |
+
+En el siguiente ejemplo mostraremos unas pocas secuencias de escape 
+
+--demo 
+
+#+BEGIN_SRC C 
+#include <stdio.h>
+
+int main() {
+printf("Hola\tMundo\n\n");
+
+return 0
+}
+#+END_SRC
+
+Cuando ejecutemos el código y lo ejecutemos, producirá el siguiente resultado --
+
+: Hola Mundo 
+
+** Literales cadenas de caracteres
+
+
+Los literales cadena de texto o constantes son encerrados en dobles comillas "". Una cadena de texto contiene caracteres que son similares a los caracteres literales: caracteres planos, secuencias de escape y caracteres universales. 
+
+Vamos a ver algunos ejemplos de cadenad de texto literales. Estas tres formas son idénticas. 
+
+#+BEGIN_SRC C
+"hola, señor"
+
+"hola, \
+señor"
+
+"hola, " "s" "eñor"
+#+END_SRC
+
+** Definiendo constantes
+
+Hay dos simples formas en C de definir constantes - 
+
++ Usando el preprocesador *#define* 
+
++ Usando la palabra clave *const* 
+
+*** El preprocesador #define 
+
+Dado la siguiente forma de usar #define para definir una constante - 
+
+#+BEGIN_SRC C
+#define identificador valor
+#+END_SRC
+
+El siguiente ejemplo lo explica en detalle 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+#define LENGTH 10
+#define WIDTH 5
+#define NEWLINE '\n'
+
+int main(){
+
+int area;
+
+area = LENGTH * WIDTH;
+printf("el valor del area es: %d", area);
+printf("%c", NEWLINE)
+
+return 0;
+}
+
+#+END_SRC
+
+Cuando el código anterior es compilado y ejecutado, producirá el siguiente resultado. 
+
+: el valor del area es: 50
+
+***  La palabra clave const
+
+Podemos usar el prefijo *const* para declarar constantes con un tipo específico de la siguiente manera - 
+
+: const tipo variable = valor;
+
+El siguiente ejemplo lo explica en detalle - 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+int main(){
+const int LENGTH = 10;
+const int  WIDTH = 5;
+const char NEWLINE = '\n';
+int area;
+
+area = LENGTH * WIDTH;
+printf("el valor del area es: %d", area);
+printf("%c", NEWLINE);
+
+return 0;
+}
+
+#+END_SRC
+
+
+El código anterior una vez compilado y ejecutado producirá el siguiente resultado - 
+
+: el valor del area es : 50
+
+Es una practica de buen programador definir las constantes en mayúsculas 
