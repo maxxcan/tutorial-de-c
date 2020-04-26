@@ -694,3 +694,138 @@ El código anterior una vez compilado y ejecutado producirá el siguiente result
 : el valor del area es : 50
 
 Es una practica de buen programador definir las constantes en mayúsculas 
+
+* Clases de almacenamiento
+
+Una clase de almacenamiento define el ámbito (visibilidad) y tiempo de vida de una variable y/o función en un progama de C. Preceden el tipo que modifican. Hay cuatro diferentes clases de almacenamiento en C 
+
++ auto
+
++ register
+
++ static
+
++ extern 
+
+** La clase de almacenamiento auto 
+
+La clase de almacenamiento auto es la clase por defecto para todas la variables locales. 
+
+#+BEGIN_SRC C
+{
+int mount;
+auto in month;
+}
+#+END_SRC
+
+El ejemplo anterior define dos variables con la misma clase de almacenamiento. Solo se puede usar dentro de funciones, es decir, variables locales. 
+
+** La clase de almacenamiento register 
+
+La clase de almacenamiento *register* es usado para definir variables locales que podŕian ser guardadas en un registro en vez de en RAM. Esto significa que la variable tiene un tamaño máximo igual al tamaño del registro (normalmente una palabra) y no puede tener el operador unario '&' aplicado a él (como no tiene una dirección de memoria).
+
+#+BEGIN_SRC C
+{
+register int kilómetros;
+}
+#+END_SRC
+
+Register solo debería ser usado para variables que requiere un acceso rápido tales como contares. Esto podría ser también que definir un 'registro' no significa que la variable vaya a ser guardada en un registro. Esto significa que podría ser guardado en un registro dependiendo del hardware y las restricciones de la implementación.
+
+** La clase de almacenamiento static 
+
+La clase de almacenamiento *static* le da instrucciones al compilador de mantener una variable local en existencia durante el tiempo de vida del programa en vez de crear y destruir la cada vez que se sale o entra del ámbito. Además, haciendo variables locales estáticas les permiten mantener sus valores entre las llamadas a funciones.
+
+El modificador 'static' puede también ser aplicado a variables globales. Cuando se hace esto, causa que el ámbito de la variable sea restrictiva al archivo en el que se ha declarado. 
+
+En programación C, cuando *static* es usado en una variable global, causa solo una copia de el miembro que será compartido por todos los objetos de su clase. 
+
+*** Demo 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+/* declaracion de funciones */
+void function(void);
+
+static int conteo = 5; /* variable global */
+
+main(){
+while(count--){
+func();
+}
+
+return 0;
+}
+
+/* definicion de funciones */
+void func( void ) {
+
+static int i = 5; /* variable local static */
+i++;
+
+printf("i es %d y conteo es %d\n ", i, conteo);
+}
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
+
+#+BEGIN_SRC C
+i es 6 y conteo es 4
+i es 7 y conteo es 3
+i es 8 y conteo es 2
+i es 9 y conteo es 1
+i es 10 y conteo es 0
+
+#+END_SRC
+
+** La clase de almacenamiento extern 
+
+
+La clase de almacenamiento *extern* es usada para dar una referencia de una variable global que es visible para todos los archivos del programa. Cuando usamos 'extern', la variable no puede ser inicializada sin embargo, esto apunta el nombre de la variable a una dirección de memoria que ha sido previamente definida. 
+
+Cuando tenemos múltiples archivos y definimos una variable o función global, la cual es también usada en otros archivos, entonces /extern/ será usado en otro archivo para definir la referencia de la vairable o función definida. Para entender esto, /extern/ es usado para declara una variable o función global en otro archivo. 
+
+El modificador /extern/ es muy comúnmente usado cuando hay dos o más archivos compartiendo las mismas funciones o variables globales como se ha explicado anteriormente. 
+
+*Primer fichero: main.c* 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+int conteo;
+extern void write_extern();
+
+main() {
+conteo = 5;
+write_extern();
+}
+
+#+END_SRC
+
+*Segundo fichero: support.c* 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+extern int conteo;
+
+void write_extern(void) {
+printf("conteo es %d\n", conteo);
+}
+
+#+END_SRC
+
+Aquí /extern/, está siendo usado para declarar /conteo/ en el segundo archivo, donde tiene su definición en el primer archivo, main.c. Ahora, compila esos dos archivos como sigue -- 
+
+: $ gcc main.c support.c
+
+Esto producirá el programa ejecutable *a.out*. Cuando este programa sea ejecutado, producirá el siguiente resultado - 
+
+: conteo es 5
+
