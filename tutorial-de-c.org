@@ -2,11 +2,11 @@
 #+AUTHOR: Patricio Martínez
 #+EMAIL: maxxcan@disroot.org
 
-* Introducción
+* C - Introducción
 
 Este tutorial es una traducción del tutorial que podemos encontrar en [[https://www.tutorialspoint.com/cprogramming/index.htm][Tutorialspoint]]
 
-* Resumen
+* C - Resumen
 
 C es un lenguaje de propósito general, un lenguaje de alto nivel que fue originalmente desarrollado por *Dennis M. Ritchie* para desarrollar el sistema operativo UNIX en los laboratorios Bell. C fue originalmente implementado para la computadora DEC PDP-11 en 1972. 
 
@@ -50,7 +50,6 @@ C fue inicialmente usado para el trabajo de desarrollo de sistemas, particularme
 Un programa en C puede variar desde 3 líneas a millones de líneas y puede ser escrito en una o más ficheros de texto con la extensión *".c"*; por ejemplo, /hello.c/. Podemos usar "vi", "vim" o cualquier editor de texto para escribir tu programa C en un archivo.
 
 Este tutorial asume que conoces como editar un fichero de texto y escribir código fuente en un archivo de programa. 
-
 
 * C - Configurando el entorno
 
@@ -532,7 +531,6 @@ Las variables son l-valores y así pueden aparecer en el lado izquierdo de una a
 : int g = 20; //declaración válida
 : 10 = 20 // declaración inválida; generará un error en tiempo de compilación
 
-
 * C - Constantes y literales 
 
 
@@ -695,7 +693,7 @@ El código anterior una vez compilado y ejecutado producirá el siguiente result
 
 Es una practica de buen programador definir las constantes en mayúsculas 
 
-* Clases de almacenamiento
+* C - Clases de almacenamiento
 
 Una clase de almacenamiento define el ámbito (visibilidad) y tiempo de vida de una variable y/o función en un progama de C. Preceden el tipo que modifican. Hay cuatro diferentes clases de almacenamiento en C 
 
@@ -828,4 +826,517 @@ Aquí /extern/, está siendo usado para declarar /conteo/ en el segundo archivo,
 Esto producirá el programa ejecutable *a.out*. Cuando este programa sea ejecutado, producirá el siguiente resultado - 
 
 : conteo es 5
+
+* C - Operadores 
+
+Un operardor es un símbolo que le dice al compilador como realizar algunas funciones específicas matemáticas o lógicas. El lenguaje C es rico en operadores y proporciona los siguientes tipos - 
+
++ Operadores Aritméticos
+
++ Operadores Relacionales
+
++ Operadores Lógicos 
+
++ Operadores a nivel de Bits
+
++ Operadores de Asignación
+
++ Operadores varios 
+
+Veremos en este capítulo la forma en la que cada operador funciona. 
+
+** Operadores Aritméticos 
+
+La siguiente tabla  muestra todos los operadores aritméticos soportados por C. Asumimos la variable A guarda 10 y B guarda 20, entonces - 
+
+
+| Operador | Descripción                            | Ejemplo      |
+|----------+----------------------------------------+--------------|
+| +        | Suma dos operandos                     | A + B = 30   |
+| -        | Resta el segundo al primero            | A - B = -10  |
+| \*       | Multiplica ambos operandos             | A \* B = 200 |
+| \/       | Divide el numerador por el denominador | B\/A = 2     |
+| %        | Modulo operador                        | B % A = 0    |
+| ++       | Incrementa por uno                     | A++ = 11     |
+| --       | Decrementa por uno                     | A-- = 9      |
+
+*** Ejemplo 
+
+Veamos el siguiente ejemplo 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+main() {
+
+int a = 21;
+int b = 10;
+int c ;
+
+c = a + b;
+printf("Línea 1 - El valor de c es %d\n", c);
+
+c = a - b;
+printf("Línea 2 - El valor de c es %d\n", c);
+
+c = a * b;
+printf("Línea 3 - El valor de c es %d\n", c);
+
+c = a / b;
+printf("Línea 4 - El valor de c es %d\n", c);
+
+c = a  % b;
+printf("Línea 5 - El valor de c es %d\n", c);
+
+c = a++;
+printf("Línea 6 - El valor de c es %d\n", c);
+
+c = a--;
+printf("Línea 7 - El valor de c es %d\n", c);
+
+}
+
+#+END_SRC
+
+#+BEGIN_SRC C
+Línea 1  - El valor de c es 31
+Línea 2  - El valor de c es 11
+Línea 3  - El valor de c es 210
+Línea 4  - El valor de c es 2
+Línea 5  - El valor de c es 1
+Línea 6  - El valor de c es 21
+Línea 7  - El valor de c es 22
+#+END_SRC
+
+** Operadores Relacionales 
+
+La siguiente tabla muestra todos los operadores relacionales soportados por C. Asumimos que A es 10 y B es 20, entonces -- 
+
+| Operador | Descripción                                            | Ejemplo              |
+|----------+--------------------------------------------------------+----------------------|
+| \==      | Comprueba si dos operadores son iguales                | (A\==B) no es cierto |
+| \!=      | Compruebas si dos operadores no son iguales            | (A\!=B) es cierto    |
+| >        | Comprueba si un operador (izqda) es mayor que el otro  | (A>B) no es cierto   |
+| <        | Comprueba si un operador (izqda) es menor que el otro  | (A<B) es cierto      |
+| >=       | Comprueba si un operador es mayor o igual que el otro  | (A>=B) no es cierto  |
+| <=       | Compruebas si un operador es menor o igual que el otro | (A<=B) es cierto     |
+
+
+
+*** Ejemplo 
+
+En el siguiente ejemplo entenderemos todos los operadores relacionales en C - 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+main(){
+
+int a = 20;
+int b = 10;
+int c ;
+
+if (a == b) {
+printf("A es igual a B\n");
+} else {
+printf("A no es igual a B\n");
+}
+
+if (a < b) {
+printf("A es menor que B\n");
+} else {
+printf("A no es menor que B\n");
+}
+
+if (a > b) {
+printf("A es mayor que B\n");
+}else {
+printf("A no es mayor que B\n");
+}
+
+/* cambiaremos los valores de a y b */
+
+a = 5;
+b = 20;
+
+if (a <= b) {
+printf("A es al menos menor o igual que B\n");
+}
+
+if (b >= a) {
+printf("A es al menos mayor o igual que B");
+}
+}
+
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el siguiente programa, producirá el siguiente resultado - 
+
+: A no es igual a B
+: A no es menor que B
+: A es mayor que B
+: A es al menos menor o igual que B
+: B es al menos mayor o igual que B
+
+
+
+** Operadores lógicos 
+
+La siguiente tabla muestra todos los operadores lógicos soportados por C. Asumimos que A es 1 y B es 0, entonces - 
+
+| Operador | Descripción                                                                         | Ejemplo           |
+| &&       | Llamado AND, si los dos operadores son no cero,entonces la condición es verdadera   | (A&&B) es falso   |
+| ¦¦       | Llamado OR, si los cualquier operador es no cero,entonces la condición es verdadera | (AB) es verdadero |
+| \!       | Llamado NOT. Es usado para revertir el estado lógico de su operador.                |                   |
+
+
+*** Ejemplo 
+
+Veremos el siguiente ejemplo para intentar entender todos los operadores lógicos en C -- 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+main(){
+
+int a = 5;
+int b = 20;
+int c ;
+
+if (a && b) {
+printf("La condición es verdadera\n");
+}
+
+if (a || b) {
+printf("La condición es verdadera\n");
+}
+
+/* vamos a cambiar los valores de a y b */
+a = 0;
+b = 10;
+
+if (a && b) {
+printf("La condición es verdadera\n");
+} else {
+printf("La condición no es verdadera\n");
+}
+
+if (!(a && b) ) {
+pirntf("La condición es verdadera\n")
+}
+}
+
+#+END_SRC
+
+
+Cuando compilemos  y ejecutemos el programa anterior, tendremos el siguiente resultado -- 
+
+: La condición es verdadera
+: La condición es verdadera 
+: La condición no es verdadera
+: La condición es verdadera 
+
+** Operadores a nivel de bits
+
+ Los operadores a nivel de bits funcionan sobre bits y producen operaciones bit a bit. Las verdaderas tablas para &, | y ^ son las siguientes -- 
+
+ | p | q | p&q | p¦q | p^q |
+ | 0 | 0 |   0 |   0 |   0 |
+ | 0 | 1 |   0 |   1 |   1 |
+ | 1 | 1 |   1 |   1 |   0 |
+ | 1 | 0 |   0 |   1 |   1 |
+
+
+ Si asumimos que A = 60 y B = 13 en formato binario, entonces -- 
+
+ A = 0011 1100
+ B = 0000 1101
+
+ --------------
+
+ A&B = 0000 1100
+ A|B = 0011 1101
+
+ A^B = 0011 0001
+ ~A = 1100 0011
+
+ La siguiente tabla listas los operadores soportados por C. Asumimos que A es 60 y B es 13, entonces -- 
+
+ | Operador | descripción                                                   | Ejemplo                 |
+ |----------+---------------------------------------------------------------+-------------------------|
+ | &        | Binario AND copia 1 bit si existe en ambos operadores         | (A&B) = 12, 0000 1100   |
+ | ¦        | Binario OR copia 1 bit si existe en cualquier operador        | (A¦B) = 61, 0011 1101   |
+ | \^       | Binario XOR copia 1 bit si está en uno pero no en ambos       | (A\^B) = 49, 0011 0001  |
+ | ~        | Binario 1 complemento tiene el efecto de invertir bits        | (~A) =  1100 0011       |
+ | <<       | Binario desplazamiento izquierda. Mueve un valor a la izqda   | A << 2 = 240 1111 0000  |
+ | >>       | Binario desplazamiento a la derecha. Mueve un valor a la dcha | A >> 2 = 151, 0000 1111 |
+
+
+
+*** Ejemplo 
+
+Vamos a probar el siguiente ejemplo para entender todos los operadores a nivel de bits de C --
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+main(){
+
+unsigned int a = 60; /* 60 = 0011 1100 */
+unsigned int b = 13; /* 13 = 0000 1101 */
+int c = 0;
+
+c = a & b;  /* 12 = 0000 1100 */
+printf("El valor de c es %d\n", c); 
+
+c = a | b; /* 61 = 0011 1101 */
+printf("El valor de c es %d\n", c);
+
+c = a ^ b;  /* 49 = 0011 0001 */
+printf("El valor de c es %d\n", c);
+
+c = ~a; /* 61 = 1100 0011 */
+printf("El valor de c es %d\n", c);
+
+c = a << 2;  /* 240 = 1111 0000 */
+printf("El valor de c es %d\n", c);
+
+c = a >> 2; /* 15 = 0000 1111 */
+printf("El valor de c es %d\n", c);
+}
+
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el programa este producirá el siguiente resultado --- 
+
+: El valor de c es 12
+: El valor de c es 61
+: El valor de c es 49
+: El valor de c es -61
+: El valor de c es 240
+: El valor de c es 15
+
+** Operadores de asignación 
+
+La siguiente tabla lista todos los operaciones de asignación que soporte C -- 
+
+| Operador | Descripción                       | Ejemplo              |
+|----------+-----------------------------------+----------------------|
+| \=       | Operador simple de asignación     | C = A + B. A + B = C |
+| +=       | Añadimos y asignamos              | C += A. C = C + A    |
+| -=       | Sustraemos y asignamos            | C -= A. C = C - A    |
+| *=       | Multiplicamos y asignamos         | C *= A. C = C * A    |
+| \/=      | Dividimos y asignamos             | C \/= A. C = C / A   |
+| %=       | Modulo y asignación               | C %= A. C = C % A    |
+| <<=      | Desplazamiento y asignación izqda | C <<= 2. C = C << 2  |
+| >>=      | Desplazamiento y asignación dcha  | C >>= 2. C = C >> 2  |
+| &=       | AND Bit y asignación              | C &= 2. C = C & 2    |
+| \^=      | Exclusive OR Bit y asignación     | C ^= 2. C = C ^ 2    |
+| ¦=       | Inclusive OR Bit y asignación     | C ¦= 2. C = C ¦ 2    |
+
+*** Ejemplo 
+
+Veamos el siguiente ejemplo para entender todos los operadores de asignación de C -- 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+main() {
+
+int a = 21;
+int c ;
+
+c = a;
+printf("Operador =. Valor de c = %d\n", c);
+
+c += a;
+printf("Operador +=. Valor de c = %d\n", c);
+
+c -= a;
+printf("Operador -=. Valor de c = %d\n", c);
+
+c *= a;
+printf("Operador *=. Valor de c = %d\n", c);
+
+c /= a;
+printf("Operador /=. Valor de c = %d\n", c);
+
+c %= a;
+printf("Operador %=. Valor de c = %d\n", c);
+
+c <<= 2;
+printf("Operador <<=. Valor de c = %d\n", c);
+
+c >>= 2;
+printf("Operador >>=. Valor de c = %d\n", c);
+
+c &= 2;
+printf("Operador &=. Valor de c = %d\n", c);
+
+c ^= 2;
+printf("Operador ^=. Valor de c = %d\n", c);
+
+c |= 2;
+printf("Operador |=. Valor de c = %d\n", c) 
+
+
+}
+
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el programa anterior, producirá el siguiente resultado -- 
+
+: Operador =. Valor de c 21  
+: Operador +=. Valor de c 42 
+: Operador -=. Valor de c 21 
+: Operador *=. Valor de c 441 
+: Operador /=. Valor de c 21 
+: Operador %=. Valor de c 11 
+: Operador <<=. Valor de c 44 
+: Operador >>=. Valor de c 11 
+: Operador &=. Valor de c 2 
+: Operador ^=. Valor de c 0 
+: Operador |=. Valor de c 2 
+
+** Operadores mixtos &map; sizeof y ternary
+
+Además de los Operador ya vistos hay unos pocos importantes operadores incluyendo *sizeof* y *?* : soportados por C
+
+| Operador | Descripción                          | Ejemplo                                    |
+|----------+--------------------------------------+--------------------------------------------|
+| sizeof() | Devuelve el valor de la variable     | sizeof(a), devolverá 4                     |
+| &        | Devuelve la dirección de la variable | &a, devolverá su dirección                 |
+| ,*       | Puntero a una variable               | *a;                                        |
+| ? :      | Expresión condicional                | Si la condición es true entonces X, sino Y |
+
+*** Ejemplo 
+
+Vamos a ver el siguiente ejemplo para entender todos los operadores mixtos disponibles en C -- 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+main(){
+
+int a = 4;
+short b;
+double c;
+int* ptr;
+
+/* ejemplo del operador sizeof */
+printf("El tamaño de la variable a es %d\n", sizeof(a));
+printf("El tamaño de la variable b es %d\n", sizeof(b));
+printf("El tamaño de la variable c es %d\n", sizeof(c));
+
+/* ejemplo de los operadores & y * */
+
+ptr = &a; /* 'ptr' ahora contiene la dirección de 'a' */
+printf("El valor de a es %d\n", a);
+printf("*ptr es %d.\n", *ptr);
+
+/*ejemplo de operadores ternarios */
+a = 10;
+b = (a == 1) ? 20: 30;
+printf("El valor de b es %d\n, b");
+
+b = (a == 10) ? 20: 30;
+printf("El valor de b es %d\n", b);
+}
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el programa anterior, obtendremos el siguiente resultado -- 
+
+: El tamaño de la variable a es 4
+: El tamaño de la variable b es 2
+: El tamaño de la variable c es 8
+: El valor de a es 4
+: *ptr es 4.
+: El valor de b es 30
+: El valor de b es 20
+
+
+** Precedencia de operadores 
+
+La precedencia de operadores determina el agrupamiento de terminos en una expresión y decide cómo una expresión es evaluada. Ciertos operadores tienen mayor precedencia que otros; por ejemplo, el operador de multiplicación tiene mayor precedencia que el operador de suma. 
+
+Por ejemplo, x = 7 + 3 * 2; aquí, x es asignado a 13, no 20 porque el operador * tiene mayor precedencia que +, así primero se multiplica 3*2 y después se añade 7.
+
+Aquí, operadores con mayor precedencia aparecen arriba de la tabla, y los que tienen menos aparecen al fondo. En una expresión, los de más alta precedencia será evaluados primero. 
+
+| Categoria       | Operador                         | Asociatividad       |
+|-----------------+----------------------------------+---------------------|
+| Sufijos         | ()[]->.++--                      | Izquierda a Derecha |
+| Unarios         | + - ! ~ ++ -- (type)* & sizeof   | Derecha a Izquierda |
+| Multiplicativos | * / %                            | Izquierda a Derecha |
+| Aditivos        | + -                              | Izquierda a Derecha |
+| Desplazamiento  | << >>                            | Izquierda a Derecha |
+| Relacionales    | < <= > >=                        | Izquierda a Derecha |
+| Equidad         | \== !=                           | Izquierda a Derecha |
+| AND Bit         | &                                | Izquierda a Derecha |
+| XOR Bit         | ^                                | Izquierda a Derecha |
+| OR Bit          | ¦                                | Izquierda a Derecha |
+| AND Logico      | &&                               | Izquierda a Derecha |
+| OR Logico       | ¦¦                               | Izquierda a Derecha |
+| Condicional     | ?:                               | Derecha a Izquierda |
+| Asignación      | \= += -= *= /= %=>>= <<= &= ^=¦= | Derecha a Izquierda |
+| Coma            | ,                                | Izquierda a Derecha |
+
+*** Ejemplo
+
+Veremos el siguiente ejemplo para entender la precedencia en los operadores en C -- 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+main(){
+
+int a = 20;
+int b = 10;
+int c = 15;
+int d = 5;
+int e;
+
+e = (a + b) * c / d; // (30 * 15 ) / 5
+printf("El valor de (a + b) * c / d es : %d\n", e);
+
+e = ((a + b) * c) / d;  // (30 * 15) / 5
+printf("El valor de ((a +  b) * c) / d es : %d\n", e);
+
+e = (a + b) * (c / d); // (30) * (15/5)
+printf("El valor de (a + b) * (c / d) es : %d\n", e);
+
+e = a + (b * c) / d; // 20 + (150/5)
+printf("El valor de a + (b * c) / d es : %d\n", e);
+
+return 0;
+
+}
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el programa anterior producirá el siguiente resultado -- 
+
+
+: El valor de  (a + b) * c / d  es : 90
+: El valor de  ((a + b) * c) /  es : 90
+: El valor de  (a + b) * (c / d es : 90
+: El valor de  a + (b * c) / d  es : 50
+
+* C - Tomando decisiones 
+
 
