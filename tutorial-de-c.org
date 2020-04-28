@@ -1339,4 +1339,228 @@ Cuando compilemos y ejecutemos el programa anterior producirá el siguiente resu
 
 * C - Tomando decisiones 
 
+Las estructuras  para tomar decisiones requieren que el programador especifique una o más condiciones para ser evaluadas o testadas por el programa, a lo largo con una declaracón o declaraciones para ser ejecutadas si la condición es determinadas a ser cierta, y opcionalmente, otra declaración para ser ejecutada si la condición es determinada a ser falsa. 
 
+Mostramos abajo un forma general de la estructura de toma de decisiones encontrada en la mayoría de los lenguajes de programación - 
+
+# image
+
+El lenguaje de programación C proporciona los siguientes tipos de declaraciones para toma de decisiones. 
+
+| Nº | Declaración           | Descripción                                                                        |
+|----+-----------------------+------------------------------------------------------------------------------------|
+|  1 | declaración if        | consiste en una expresión buleana seguida de una o más declaraciones               |
+|  2 | declaración if...else | Es un if con un else opcional que ejecuta una declaración si la expresión es falsa |
+|  3 | if anidados           | Se pueden usar if o else if anidados                                               |
+|  4 | declaración switch    | Se compara contra una lista de valores                                             |
+|  5 | switch anidados       | se puede usar un switch dentro de otro                                             |
+
+
+** El operador ?:
+
+Ya hemos cubierto el *operador condicional ?:* en el capítulo anterior el cual puede ser usado para reemplazar la declaración *if...else*. Su forma general es -- 
+
+: Exp1 ? Exp2 : Exp3;
+
+Donde Exp1, Exp2 y Exp3 son expresiones. 
+
+El valor de la expresión ? es determinadas como esto - 
+
++ Exp1 es evaludada. Si es verdadera, entonces Exp2 es evaluada y se convierte el valor de la expresión ?
+
++ Si Exp1 es falso, entonces Exp3 es evaludado y su valor se convierte en el valor de la expresión
+
+* C - Bucles 
+
+
+Nos podemos encontrar situaciones, donde un bloque de código necesita ser ejecutado un cierto número de veces. En general, las declaraciones son ejecutadas secuencialmente: la primera declaración en una función es ejecutada primero, seguido de la segunda y así. 
+
+Los lenguajes de programación proporcionan varias estructuras de control que permiten caminos de ejecución más complicados. 
+
+Una declaración bucle nos permite ejecutar una declaración o grupo de ellas muchas veces. Dado la siguiente forma general de una declaración bucle en la mayoría de lenguajes de programación  -- 
+
+# imagen 
+
+El lenguaje de programación C proporciona los siguientes tipos de bucles - 
+
+| Nº | Tipo de Bucle    | Descripción                                                                                |
+|----+------------------+--------------------------------------------------------------------------------------------|
+|  1 | bucle while      | repite una declaración mientras una condición dada sea cierta.                             |
+|  2 | bucle for        | Ejecuta una secuncia de declaraciones muchas veces y abrevia el código que maneja el bucle |
+|  3 | bucle do...while | Es más como un bucle while, solo que se testea la condición al final del bucle             |
+|  4 | bucles anidados  | Se puede usar un bucle dentro de otro                                                      |
+
+** Declaraciones para el control de bucles 
+
+Las declaraciones de control de bucles cambian la ejecución de su secuencia normal. Cuando la ejecución deja un ámbito, todos los objetos automáticamente que son creados en ese ámbito son destruidos. 
+
+C soporta las siguientes declaraciones de control 
+
+| Nº | Declaración de Control | Descripción                                                |
+|----+------------------------+------------------------------------------------------------|
+|  1 | declaración break      | Termina el bucle o switch y lo transfiere al siguiente     |
+|  2 | declaración continue   | Causa que el bucle salga de su cuerpo y vuelva a testearse |
+|  3 | declaración goto       | Transfiere el control a una declaración nombrada           |
+
+** Bucle infinito 
+
+Un bucle se vuelve un bucle infinito si una condición nuna se convierte en falsa. El bucle *for* es tradicionalmente usado para este propósito. Desde que ninguna de las tres expresiones que forma el bucle 'for' son requeridos, podemos hacer un bucle sin fin dejando la expresión condicional vacía. 
+
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+int main(){
+
+for( ; ; ){
+printf("Este bucle no tiene fin.\n");
+}
+
+return 0;
+
+}
+
+
+#+END_SRC
+
+
+Cuando una expresión condicional está ausente, se asume que es cierta. Se podría tener una expresión de inicialización e incremento, pero los programadores de C más comúnmente usan el constructor for significar un bucle infinito. 
+
+ 
+*  C - Funciones 
+
+
+Una función es un grupo de declaraciones que juntas realizan una tarea. Cada programa de C tiene al menos una función, la cual es *main()*, y todos la mayoría de programas triviales pueden definir funciones adicionales. 
+
+Podemos dividir nuestro código en funciones separadas. Cómo dividir nuestro código en diferentes funciones es cosa nuestra, pero lógicamente la división es de tal forma que cada función realice una tarea específica.
+
+Una función *declaración* le dice al compilador sobre el nombre de la función, devuelve el tipo, y los parámetros. Una función *definición* proporcional el verdadero cuerpo de la función.
+
+La biblioteca estándar de C proporciona numerosas funciones construidas que nuestro programa puede llamar. Por ejemplo, *strcat()* concatena dos cadenas de caracteres, *memcpy()* copia una locación de memoria a otra, y muchas más funciones. 
+
+Una función puede también referirse como un método o una sub-rutina o un procedimiento, etc. 
+
+** Definiendo una función
+
+La forma general de la definición de una función en C es como sigue -- 
+
+#+BEGIN_SRC C
+
+tipo_a_devolver nombre_funcion (lista de parámetros) {
+cuerpo de la función
+}
+
+#+END_SRC
+
+La definición de una función consiste en la cabecera de la función y su cuerpo. Aquí están todas las partes de una función - 
+
++  *Tipo de retorno* - Una función puede devolver un valor. Un *tipo_retorno* es el tipo de dato de el valor que la función devuelve. Algunas funciones realizan la operación deseada sin devolver un valor. En este caso, el tipo_retorno es la palabra clave *void*. 
+
++ *Nombre de la función* - Este es el verdadero nombre de la función. El nombre de la función y la lista de los parámetros juntos constituyen la firma de la función.
+
++ *Parámetros* - Un parámetro es como un marcador. Cuando una función es invocada, le pasamos un valor al parámetro. Este valor es referido como el verdadero parámetro o argumento. La lista de parámetros se refiere al tipo, orden y número de parámetros de una función. Los parámetros son opcionales; esto es, una función puede no contener parámetros.
+
+*** Ejemplo 
+
+Dado el siguiente código fuente para una función llamada *max()*. Esta función toma dos parámetros num1 y num2 y devuelve el valor máximo entre los dos - 
+
+#+BEGIN_SRC C
+
+/* la función devuelve el máxido de dos números */
+int max((int num1, int num2){
+
+/* declaración de variables locales */
+int resultado;
+
+if(num1 > num2)
+result = num1;
+else
+resultado = num2;
+
+return result;
+}
+#+END_SRC
+
+
+** Declaración de función
+
+Una declaración de función le dice al compilador sobre el nombre de la función y como llamar a la función. El verdadero cuerpo de la funcion puede ser definido separadamente. 
+
+Una declaración de función tiene las siguientes partes - 
+
+: int max(int num1, int num2);
+
+Los nombres de los parámetros no son importantes en la declaración de la función solo su tipo es requerido, así lo siguiente también es válido - 
+
+:int max(int, int);
+
+La declaración de la función es  requerida cuando definimos una función en un archivo fuente y llamamos a la función desde otro archivo. En tal caso, podríamos declarar la función arriba del archivo llamando a la función.
+
+** Llamando a una función
+
+Mientras creamos un función en C, le damos una definición de lo que la fucnión tiene que hacer. Para usar una función, llamaremos a esa función para realizar una tarea definida. 
+
+Cuando un programa llama a una función, el control de programa es transferido a la función llamada. Una función llamada realiza una tarea definida y cuando es devuelta la declaración es ejecutada o cuando la función alcanza el final, se devuelve el control al programa principal.
+
+Para llamar a una función,, simplemente necesitamos pasar el los parámetros requeridos con el nombre de la función, y si la función devuelve un valor, entonces podemos guardar el valor devuelto. Por ejemplo - 
+
+#+BEGIN_SRC C
+
+#include <stdio.h>
+
+/* declaración de la función */
+int max(int num1, int num2);
+
+int main(){
+
+/*definiendo las variables locales*/
+int a = 100;
+int b = 200;
+int ret;
+
+/*llamando a la función que obtiene el valor máximo*/
+ret = max(a,b);
+
+printf("El valor máximo es: %d\n", ret);
+
+return 0;
+}
+
+/* función que devuelve el máximo número de dos */
+int max(int num1, int num2) {
+
+/* declaración de variables locales */
+int result;
+
+if (num1 > num2)
+result = num1;
+else
+result = num2;
+
+return result;
+}
+
+
+#+END_SRC
+
+
+Una vez compilado y ejecutado el código fuente obtendremos el siguiente resultado - 
+
+: El valor máximo es: 200
+
+*** Argumentos de la función
+
+Si una función va a usar argumentos, se deberán declarar las variables que aceptaran los valores de los argumentos. Esas variables son llamadas los *parámetros formales* de la función.
+
+Los parámetros formales se comportan como otras variables locales dentro de la función y son creadas cuando se entra en la función y se destruyen al salir.
+
+Mientras llamamos a una función, hay dos formas en las cuales los argumentos pueden ser pasados a la función - 
+
+| Nº | Tipo llamada           | Descripción                                                                                                                                                                                                                                                |
+|----+------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  1 | Llamada por valor      | Este método copia el valor verdadero de un argumento en el parámetro formal de la función. En este caso, los cambios hechos a el parámetro dentro de la función no tiene efecto en el argumento                                                            |
+|  2 | Llamada por referencia | Este método copia la dirección de un argumento dentro del parámetro formal. Dentro de la función, la dirección es usada para acceder al verdadero argumento usado en al llamada. Esto significa que los cambios hechos a el parámetro afectan al argumento |
+|                                                                                                                                                                                                                                                            |
+
+Por defecto, C usa *llamada por valor* para pasar los argumentos. En general, significa que el código en la función no puede alterar el argumento usado para llamar a la función.
