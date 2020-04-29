@@ -124,14 +124,14 @@ Un programa en C básicamente consiste de las siguientes partes -
 Echemos un vistazo a un simple código que puede dibujar las palabras "Hola Mundo" -  
 
 #+BEGIN_SRC C
-#include <stdio.h>
+  #include <stdio.h>
 
-int main() {
-/* mi primer programa en C*/
-printf("Hola, Mundo! \n");
+  int main() {
+    /* mi primer programa en C*/
+    printf("Hola, Mundo! \n");
 
-return 0
-}
+    return 0
+      }
 #+END_SRC
 
 Veamos las  distintas partes del programa - 
@@ -290,31 +290,31 @@ Para obtener exactamente el tamaño de un tipo de variable en una plataforma en 
 *** Demo 
 
 #+BEGIN_SRC C
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <float.h>
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <limits.h>
+  #include <float.h>
 
-int main(int argc, char** argv) {
+  int main(int argc, char** argv) {
 
-printf("CHAR_BIT    :    %d\n", CHAR_BIT);
-printf("CHAR_MAX    :    %d\n", CHAR_MAX);
-printf("CHAR_MIN    :    %d\n", CHAR_MIN);
-printf("INT_MAX     :    %d\n", INT_MAX);
-printf("INT_MIN     :    %d\n", INT_MIN);
-printf("LONG_MAX    :    %ld\n", (long) LONG_MAX);
-printf("LONG_MIN    :    %ld\n", (long) LONG_MIN);
-printf("SCHAR_MAX   :    %d\n", SCHAR_MAX);
-printf("SCHAR_MIN   :    %d\n", SCHAR_MIN);
-printf("SHRT_MAX    :    %d\n", SHRT_MAX);
-printf("SHRT_MIN    :    %d\n", SHRT_MIN);
-printf("UCHART_MAX  :    %d\n", UCHART_MAX);
-printf("UINT_MAX    :    %u\n", (unsigned int) UINT_MAX);
-printf("ULONG_MAX   :    %lu\n", (unsigned long) ULONG_MAX);
-printf("USHRT_MAX   :    %d\n", (unsigned short) USHRT_MAX);
+    printf("CHAR_BIT    :    %d\n", CHAR_BIT);
+    printf("CHAR_MAX    :    %d\n", CHAR_MAX);
+    printf("CHAR_MIN    :    %d\n", CHAR_MIN);
+    printf("INT_MAX     :    %d\n", INT_MAX);
+    printf("INT_MIN     :    %d\n", INT_MIN);
+    printf("LONG_MAX    :    %ld\n", (long) LONG_MAX);
+    printf("LONG_MIN    :    %ld\n", (long) LONG_MIN);
+    printf("SCHAR_MAX   :    %d\n", SCHAR_MAX);
+    printf("SCHAR_MIN   :    %d\n", SCHAR_MIN);
+    printf("SHRT_MAX    :    %d\n", SHRT_MAX);
+    printf("SHRT_MIN    :    %d\n", SHRT_MIN);
+    printf("UCHART_MAX  :    %d\n", UCHART_MAX);
+    printf("UINT_MAX    :    %u\n", (unsigned int) UINT_MAX);
+    printf("ULONG_MAX   :    %lu\n", (unsigned long) ULONG_MAX);
+   printf("USHRT_MAX   :    %d\n", (unsigned short) USHRT_MAX);
 
-return 0;
-}
+   return 0;
+  }
 #+END_SRC
 
 Cuando compilemos y ejecutemos el programa, producirá el siguiente resultado en Linux - 
@@ -353,26 +353,26 @@ El fichero de cabecera float.h  define las macros que nos permite usar esas vari
 --Demo 
 
 #+BEGIN_SRC C
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h> 
-#include <float.h>
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <limits.h> 
+  #include <float.h>
 
-int main(int argc, char*** argv) {
+  int main(int argc, char*** argv) {
 
-printf("Espacio para el punto flotante: %d \n", sizeof(float));
-printf("FLT_MAX     :   %g\n", (float) FLT_MAX);
-printf("FLT_MIN     :   %g\n", (float) FLT_MIN);
-printf("-FLT_MAX    :   %g\n", (float) -FLT_MAX);
-printf("-FLT_MIN    :   %g\n", (float) -FLT_MIN);
-printf("DBL_MAX     :   %g\n", (double) DBL_MAX);
-printf("DBL_MIN     :   %g\n", (double) DBL_MIN);
-printf("-DBL_MAX     :  %g\n", (double) -DBL_MAX);
-printf("Valor de precisión: %d\n", FLT_DIG );
+    printf("Espacio para el punto flotante: %d \n", sizeof(float));
+    printf("FLT_MAX     :   %g\n", (float) FLT_MAX);
+    printf("FLT_MIN     :   %g\n", (float) FLT_MIN);
+    printf("-FLT_MAX    :   %g\n", (float) -FLT_MAX);
+    printf("-FLT_MIN    :   %g\n", (float) -FLT_MIN);
+    printf("DBL_MAX     :   %g\n", (double) DBL_MAX);
+    printf("DBL_MIN     :   %g\n", (double) DBL_MIN);
+    printf("-DBL_MAX     :  %g\n", (double) -DBL_MAX);
+    printf("Valor de precisión: %d\n", FLT_DIG );
 
-return 0;
+    return 0;
 
-}
+  }
 #+END_SRC
 
 Cuando ejecutemos el programa obtendremos el siguiente resultado en Linux - 
@@ -464,33 +464,33 @@ Una declaración de variable es muy útil cuando usamos múltiples archivos y de
 Veamos el siguiente ejemplo, donde las variables han sido declaradas al principio, pero han sido definidas e inicializadas dentro de la función principal - 
 
 #+BEGIN_SRC C
-#+inclue <stdio.h>
+  #inclue <stdio.h>
 
-// declaración de variables
-extern int a, b;
-extern int c;
-extern float f;
+  // declaración de variables
+  extern int a, b;
+  extern int c;
+  extern float f;
 
-int main() {
+  int main() {
 
-/* definición de variables */
-int a, b;
-int c;
-float f;
+    /* definición de variables */
+    int a, b;
+    int c;
+    float f;
 
-/* verdadera inicialización */
-a = 10;
-b = 20;
+    /* verdadera inicialización */
+    a = 10;
+    b = 20;
 
-c = a + b;
-printf("el valor de c : %d \n", c);
+    c = a + b;
+    printf("el valor de c : %d \n", c);
 
-f = 70.0/3.0;
-printf("el valor de f : %f \n", f);
+    f = 70.0/3.0;
+    printf("el valor de f : %f \n", f);
 
-return 0;
+    return 0;
 
-}
+  }
 
 #+END_SRC
 
@@ -502,19 +502,19 @@ Cuando compilemos y ejecutemos el código anterior, se producirá el siguiente r
 El mismo concepto aplicado en las declaraciones de funciones donde proveeremos el nombre de una función al mismo tiempo que su declaración y su verdadera definición puede ser dada en cualquier sitio más. Por ejemplo - 
 
 #+BEGIN_SRC C
-// declaración de función
-int func();
+  // declaración de función
+  int func();
 
-int main() {
+  int main() {
 
-//llamada a la función
-int i = func()
-}
+    //llamada a la función
+    int i = func()
+      }
 
-//definición de función
-int func(){
-return 0;
-}
+  //definición de función
+  int func(){
+    return 0;
+  }
 
 #+END_SRC
 
@@ -587,13 +587,13 @@ En el siguiente ejemplo mostraremos unas pocas secuencias de escape
 --demo 
 
 #+BEGIN_SRC C 
-#include <stdio.h>
+  #include <stdio.h>
 
-int main() {
-printf("Hola\tMundo\n\n");
+  int main() {
+    printf("Hola\tMundo\n\n");
 
-return 0
-}
+    return 0
+      }
 #+END_SRC
 
 Cuando ejecutemos el código y lo ejecutemos, producirá el siguiente resultado --
@@ -636,22 +636,22 @@ El siguiente ejemplo lo explica en detalle
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-#define LENGTH 10
-#define WIDTH 5
-#define NEWLINE '\n'
+  #define LENGTH 10
+  #define WIDTH 5
+  #define NEWLINE '\n'
 
-int main(){
+  int main(){
 
-int area;
+    int area;
 
-area = LENGTH * WIDTH;
-printf("el valor del area es: %d", area);
-printf("%c", NEWLINE)
+    area = LENGTH * WIDTH;
+    printf("el valor del area es: %d", area);
+    printf("%c", NEWLINE)
 
-return 0;
-}
+      return 0;
+  }
 
 #+END_SRC
 
@@ -669,20 +669,20 @@ El siguiente ejemplo lo explica en detalle -
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-int main(){
-const int LENGTH = 10;
-const int  WIDTH = 5;
-const char NEWLINE = '\n';
-int area;
+  int main(){
+    const int LENGTH = 10;
+    const int  WIDTH = 5;
+    const char NEWLINE = '\n';
+    int area;
 
-area = LENGTH * WIDTH;
-printf("el valor del area es: %d", area);
-printf("%c", NEWLINE);
+    area = LENGTH * WIDTH;
+    printf("el valor del area es: %d", area);
+    printf("%c", NEWLINE);
 
-return 0;
-}
+    return 0;
+  }
 
 #+END_SRC
 
@@ -710,10 +710,10 @@ Una clase de almacenamiento define el ámbito (visibilidad) y tiempo de vida de 
 La clase de almacenamiento auto es la clase por defecto para todas la variables locales. 
 
 #+BEGIN_SRC C
-{
-int mount;
-auto in month;
-}
+  {
+    int mount;
+    auto in month;
+  }
 #+END_SRC
 
 El ejemplo anterior define dos variables con la misma clase de almacenamiento. Solo se puede usar dentro de funciones, es decir, variables locales. 
@@ -723,9 +723,9 @@ El ejemplo anterior define dos variables con la misma clase de almacenamiento. S
 La clase de almacenamiento *register* es usado para definir variables locales que podŕian ser guardadas en un registro en vez de en RAM. Esto significa que la variable tiene un tamaño máximo igual al tamaño del registro (normalmente una palabra) y no puede tener el operador unario '&' aplicado a él (como no tiene una dirección de memoria).
 
 #+BEGIN_SRC C
-{
-register int kilómetros;
-}
+  {
+    register int kilómetros;
+  }
 #+END_SRC
 
 Register solo debería ser usado para variables que requiere un acceso rápido tales como contares. Esto podría ser también que definir un 'registro' no significa que la variable vaya a ser guardada en un registro. Esto significa que podría ser guardado en un registro dependiendo del hardware y las restricciones de la implementación.
@@ -742,29 +742,29 @@ En programación C, cuando *static* es usado en una variable global, causa solo 
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-/* declaracion de funciones */
-void function(void);
+  /* declaracion de funciones */
+  void function(void);
 
-static int conteo = 5; /* variable global */
+  static int conteo = 5; /* variable global */
 
-main(){
-while(count--){
-func();
-}
+  main(){
+    while(count--){
+      func();
+    }
 
-return 0;
-}
+    return 0;
+  }
 
-/* definicion de funciones */
-void func( void ) {
+  /* definicion de funciones */
+  void func( void ) {
 
-static int i = 5; /* variable local static */
-i++;
+    static int i = 5; /* variable local static */
+    i++;
 
-printf("i es %d y conteo es %d\n ", i, conteo);
-}
+    printf("i es %d y conteo es %d\n ", i, conteo);
+  }
 
 #+END_SRC
 
@@ -793,15 +793,15 @@ El modificador /extern/ es muy comúnmente usado cuando hay dos o más archivos 
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-int conteo;
-extern void write_extern();
+  int conteo;
+  extern void write_extern();
 
-main() {
-conteo = 5;
-write_extern();
-}
+  main() {
+    conteo = 5;
+    write_extern();
+  }
 
 #+END_SRC
 
@@ -809,13 +809,13 @@ write_extern();
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-extern int conteo;
+  extern int conteo;
 
-void write_extern(void) {
-printf("conteo es %d\n", conteo);
-}
+  void write_extern(void) {
+    printf("conteo es %d\n", conteo);
+  }
 
 #+END_SRC
 
@@ -866,36 +866,36 @@ Veamos el siguiente ejemplo
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-main() {
+  main() {
 
-int a = 21;
-int b = 10;
-int c ;
+    int a = 21;
+    int b = 10;
+    int c ;
 
-c = a + b;
-printf("Línea 1 - El valor de c es %d\n", c);
+    c = a + b;
+    printf("Línea 1 - El valor de c es %d\n", c);
 
-c = a - b;
-printf("Línea 2 - El valor de c es %d\n", c);
+    c = a - b;
+    printf("Línea 2 - El valor de c es %d\n", c);
 
-c = a * b;
-printf("Línea 3 - El valor de c es %d\n", c);
+    c = a * b;
+    printf("Línea 3 - El valor de c es %d\n", c);
 
-c = a / b;
-printf("Línea 4 - El valor de c es %d\n", c);
+    c = a / b;
+    printf("Línea 4 - El valor de c es %d\n", c);
 
-c = a  % b;
-printf("Línea 5 - El valor de c es %d\n", c);
+    c = a  % b;
+    printf("Línea 5 - El valor de c es %d\n", c);
 
-c = a++;
-printf("Línea 6 - El valor de c es %d\n", c);
+    c = a++;
+    printf("Línea 6 - El valor de c es %d\n", c);
 
-c = a--;
-printf("Línea 7 - El valor de c es %d\n", c);
+    c = a--;
+    printf("Línea 7 - El valor de c es %d\n", c);
 
-}
+  }
 
 #+END_SRC
 
@@ -930,45 +930,45 @@ En el siguiente ejemplo entenderemos todos los operadores relacionales en C -
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-main(){
+  main(){
 
-int a = 20;
-int b = 10;
-int c ;
+    int a = 20;
+    int b = 10;
+    int c ;
 
-if (a == b) {
-printf("A es igual a B\n");
-} else {
-printf("A no es igual a B\n");
-}
+    if (a == b) {
+      printf("A es igual a B\n");
+    } else {
+      printf("A no es igual a B\n");
+    }
 
-if (a < b) {
-printf("A es menor que B\n");
-} else {
-printf("A no es menor que B\n");
-}
+    if (a < b) {
+      printf("A es menor que B\n");
+    } else {
+      printf("A no es menor que B\n");
+    }
 
-if (a > b) {
-printf("A es mayor que B\n");
-}else {
-printf("A no es mayor que B\n");
-}
+    if (a > b) {
+      printf("A es mayor que B\n");
+    }else {
+      printf("A no es mayor que B\n");
+    }
 
-/* cambiaremos los valores de a y b */
+    /* cambiaremos los valores de a y b */
 
-a = 5;
-b = 20;
+    a = 5;
+    b = 20;
 
-if (a <= b) {
-printf("A es al menos menor o igual que B\n");
-}
+    if (a <= b) {
+      printf("A es al menos menor o igual que B\n");
+    }
 
-if (b >= a) {
-printf("A es al menos mayor o igual que B");
-}
-}
+    if (b >= a) {
+      printf("A es al menos mayor o igual que B");
+    }
+  }
 
 
 #+END_SRC
@@ -1000,36 +1000,36 @@ Veremos el siguiente ejemplo para intentar entender todos los operadores lógico
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-main(){
+  main(){
 
-int a = 5;
-int b = 20;
-int c ;
+    int a = 5;
+    int b = 20;
+    int c ;
 
-if (a && b) {
-printf("La condición es verdadera\n");
-}
+    if (a && b) {
+      printf("La condición es verdadera\n");
+    }
 
-if (a || b) {
-printf("La condición es verdadera\n");
-}
+    if (a || b) {
+      printf("La condición es verdadera\n");
+    }
 
-/* vamos a cambiar los valores de a y b */
-a = 0;
-b = 10;
+    /* vamos a cambiar los valores de a y b */
+    a = 0;
+    b = 10;
 
-if (a && b) {
-printf("La condición es verdadera\n");
-} else {
-printf("La condición no es verdadera\n");
-}
+    if (a && b) {
+      printf("La condición es verdadera\n");
+    } else {
+      printf("La condición no es verdadera\n");
+    }
 
-if (!(a && b) ) {
-pirntf("La condición es verdadera\n")
-}
-}
+    if (!(a && b) ) {
+      pirntf("La condición es verdadera\n")
+        }
+  }
 
 #+END_SRC
 
@@ -1084,32 +1084,32 @@ Vamos a probar el siguiente ejemplo para entender todos los operadores a nivel d
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-main(){
+  main(){
 
-unsigned int a = 60; /* 60 = 0011 1100 */
-unsigned int b = 13; /* 13 = 0000 1101 */
-int c = 0;
+    unsigned int a = 60; /* 60 = 0011 1100 */
+    unsigned int b = 13; /* 13 = 0000 1101 */
+    int c = 0;
 
-c = a & b;  /* 12 = 0000 1100 */
-printf("El valor de c es %d\n", c); 
+    c = a & b;  /* 12 = 0000 1100 */
+    printf("El valor de c es %d\n", c); 
 
-c = a | b; /* 61 = 0011 1101 */
-printf("El valor de c es %d\n", c);
+    c = a | b; /* 61 = 0011 1101 */
+    printf("El valor de c es %d\n", c);
 
-c = a ^ b;  /* 49 = 0011 0001 */
-printf("El valor de c es %d\n", c);
+    c = a ^ b;  /* 49 = 0011 0001 */
+    printf("El valor de c es %d\n", c);
 
-c = ~a; /* 61 = 1100 0011 */
-printf("El valor de c es %d\n", c);
+    c = ~a; /* 61 = 1100 0011 */
+    printf("El valor de c es %d\n", c);
 
-c = a << 2;  /* 240 = 1111 0000 */
-printf("El valor de c es %d\n", c);
+    c = a << 2;  /* 240 = 1111 0000 */
+    printf("El valor de c es %d\n", c);
 
-c = a >> 2; /* 15 = 0000 1111 */
-printf("El valor de c es %d\n", c);
-}
+    c = a >> 2; /* 15 = 0000 1111 */
+    printf("El valor de c es %d\n", c);
+  }
 
 
 #+END_SRC
@@ -1148,48 +1148,48 @@ Veamos el siguiente ejemplo para entender todos los operadores de asignación de
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-main() {
+  main() {
 
-int a = 21;
-int c ;
+    int a = 21;
+    int c ;
 
-c = a;
-printf("Operador =. Valor de c = %d\n", c);
+    c = a;
+    printf("Operador =. Valor de c = %d\n", c);
 
-c += a;
-printf("Operador +=. Valor de c = %d\n", c);
+    c += a;
+    printf("Operador +=. Valor de c = %d\n", c);
 
-c -= a;
-printf("Operador -=. Valor de c = %d\n", c);
+    c -= a;
+    printf("Operador -=. Valor de c = %d\n", c);
 
-c *= a;
-printf("Operador *=. Valor de c = %d\n", c);
+    c *= a;
+    printf("Operador *=. Valor de c = %d\n", c);
 
-c /= a;
-printf("Operador /=. Valor de c = %d\n", c);
+    c /= a;
+    printf("Operador /=. Valor de c = %d\n", c);
 
-c %= a;
-printf("Operador %=. Valor de c = %d\n", c);
+    c %= a;
+    printf("Operador %=. Valor de c = %d\n", c);
 
-c <<= 2;
-printf("Operador <<=. Valor de c = %d\n", c);
+    c <<= 2;
+    printf("Operador <<=. Valor de c = %d\n", c);
 
-c >>= 2;
-printf("Operador >>=. Valor de c = %d\n", c);
+    c >>= 2;
+    printf("Operador >>=. Valor de c = %d\n", c);
 
-c &= 2;
-printf("Operador &=. Valor de c = %d\n", c);
+    c &= 2;
+    printf("Operador &=. Valor de c = %d\n", c);
 
-c ^= 2;
-printf("Operador ^=. Valor de c = %d\n", c);
+    c ^= 2;
+    printf("Operador ^=. Valor de c = %d\n", c);
 
-c |= 2;
-printf("Operador |=. Valor de c = %d\n", c) 
+    c |= 2;
+    printf("Operador |=. Valor de c = %d\n", c) 
 
 
-}
+      }
 
 
 #+END_SRC
@@ -1226,34 +1226,34 @@ Vamos a ver el siguiente ejemplo para entender todos los operadores mixtos dispo
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-main(){
+  main(){
 
-int a = 4;
-short b;
-double c;
-int* ptr;
+    int a = 4;
+    short b;
+    double c;
+    int* ptr;
 
-/* ejemplo del operador sizeof */
-printf("El tamaño de la variable a es %d\n", sizeof(a));
-printf("El tamaño de la variable b es %d\n", sizeof(b));
-printf("El tamaño de la variable c es %d\n", sizeof(c));
+    /* ejemplo del operador sizeof */
+    printf("El tamaño de la variable a es %d\n", sizeof(a));
+    printf("El tamaño de la variable b es %d\n", sizeof(b));
+    printf("El tamaño de la variable c es %d\n", sizeof(c));
 
-/* ejemplo de los operadores & y * */
+    /* ejemplo de los operadores & y * */
 
-ptr = &a; /* 'ptr' ahora contiene la dirección de 'a' */
-printf("El valor de a es %d\n", a);
-printf("*ptr es %d.\n", *ptr);
+    ptr = &a; /* 'ptr' ahora contiene la dirección de 'a' */
+    printf("El valor de a es %d\n", a);
+    printf("*ptr es %d.\n", *ptr);
 
-/*ejemplo de operadores ternarios */
-a = 10;
-b = (a == 1) ? 20: 30;
-printf("El valor de b es %d\n, b");
+    /*ejemplo de operadores ternarios */
+    a = 10;
+    b = (a == 1) ? 20: 30;
+    printf("El valor de b es %d\n, b");
 
-b = (a == 10) ? 20: 30;
-printf("El valor de b es %d\n", b);
-}
+    b = (a == 10) ? 20: 30;
+    printf("El valor de b es %d\n", b);
+  }
 
 #+END_SRC
 
@@ -1300,31 +1300,31 @@ Veremos el siguiente ejemplo para entender la precedencia en los operadores en C
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-main(){
+  main(){
 
-int a = 20;
-int b = 10;
-int c = 15;
-int d = 5;
-int e;
+    int a = 20;
+    int b = 10;
+    int c = 15;
+    int d = 5;
+    int e;
 
-e = (a + b) * c / d; // (30 * 15 ) / 5
-printf("El valor de (a + b) * c / d es : %d\n", e);
+    e = (a + b) * c / d; // (30 * 15 ) / 5
+    printf("El valor de (a + b) * c / d es : %d\n", e);
 
-e = ((a + b) * c) / d;  // (30 * 15) / 5
-printf("El valor de ((a +  b) * c) / d es : %d\n", e);
+    e = ((a + b) * c) / d;  // (30 * 15) / 5
+    printf("El valor de ((a +  b) * c) / d es : %d\n", e);
 
-e = (a + b) * (c / d); // (30) * (15/5)
-printf("El valor de (a + b) * (c / d) es : %d\n", e);
+    e = (a + b) * (c / d); // (30) * (15/5)
+    printf("El valor de (a + b) * (c / d) es : %d\n", e);
 
-e = a + (b * c) / d; // 20 + (150/5)
-printf("El valor de a + (b * c) / d es : %d\n", e);
+    e = a + (b * c) / d; // 20 + (150/5)
+    printf("El valor de a + (b * c) / d es : %d\n", e);
 
-return 0;
+    return 0;
 
-}
+  }
 
 #+END_SRC
 
@@ -1366,7 +1366,7 @@ Donde Exp1, Exp2 y Exp3 son expresiones.
 
 El valor de la expresión ? es determinadas como esto - 
 
-+ Exp1 es evaludada. Si es verdadera, entonces Exp2 es evaluada y se convierte el valor de la expresión ?
++ Exp1 es evaluada. Si es verdadera, entonces Exp2 es evaluada y se convierte el valor de la expresión ?
 
 + Si Exp1 es falso, entonces Exp3 es evaludado y su valor se convierte en el valor de la expresión
 
@@ -1390,6 +1390,183 @@ El lenguaje de programación C proporciona los siguientes tipos de bucles -
 |  3 | bucle do...while | Es más como un bucle while, solo que se testea la condición al final del bucle             |
 |  4 | bucles anidados  | Se puede usar un bucle dentro de otro                                                      |
 
+** Bucle while en C 
+
+Un bucle *while* en C repetidamente ejecuta una declaración objetivo mientras la condición sea verdadera. 
+
+*** Sintaxis 
+
+La sintaxis de un bucle *while* en C es - 
+
+#+BEGIN_SRC C
+
+  while(condicion) {
+    declaracion(es);
+  }
+
+#+END_SRC
+
+
+Aquí, *declaracion(es) puede ser una sola declaración o un bloque de declaraciones. La *condición* puede ser cualquier expresión, y verdadero es cualquier valor no cero. El bucle itera mientras la condición sea cierta.
+
+Cuando la condición se convierte en falsa, el programa pasa el control a la linea inmediatamente después del bucle.
+
+*** Diagrama de Flujo 
+
+
+# imagen
+
+
+Aquí, el punto clave a notar es que un bucle while puede que no se ejecute. Cuando la condición es comprobada y su resutado es falso, el cuerpo del bucle será omitido y la primera declaración después de que el bucle while sea ejecutado. 
+
+*** Ejemplo  
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main() {
+
+    /* definimos las variables locales */
+    int a = 10;
+
+    /* ejecución del bucle while */ 
+    while( a < 20 ) {
+      printf("el valor de a es: %d\n", a);
+      a++;
+    }
+
+  return 0;
+  }
+#+END_SRC
+
+Cuando compilamos el código y lo ejecutamos producirá el siguiente resultado - 
+
+: el valor de a es : 10
+: el valor de a es : 11
+: el valor de a es : 12
+: el valor de a es : 13
+: el valor de a es : 14
+: el valor de a es : 15
+: el valor de a es : 16
+: el valor de a es : 17
+: el valor de a es : 18
+: el valor de a es : 19
+
+** Bucle For en C 
+
+Un bucle *for* es una estructura de control de repetición que permiete eficazmente escribir bucles que se necesiten ejecutar un número específico de veces. 
+
+*** Sintaxis 
+
+La sintaxis de un bucle *for* en C es - 
+
+#+BEGIN_SRC C
+
+  for (inicio; condición; incremento) {
+    declaracion(es);
+   }
+
+#+END_SRC
+
+Vamos a ver el flujo de control de un bucle 'for' - 
+
++ El paso *inicial* es ejecutado primero, y solo una vez. Este paso nos permite declarar e inicializar cualquier variable de control del bucle. No es obligatorio poner una declaración aquí, así como un punto y como aparece.
+
++ Siguiente, la *condición* es evaluada. Si es verdadero, el cuerpo del bucle es ejecutado. Si es falso, no se ejecuta y el flujo de control salta a la siguiente declaración justo después del bucle 'for'. 
+
++ Después de que el cuerpo del bucle es ejecutado, el flujo de control salta atrás a la declaración *incremento*. Esta declaración nos permite actualizar las variables de control del bucle. Esta declaración se puede dejar en blanco, poniendo un punto y como después de la condición.
+
++ La condición ahora es evaluada de nuevo. Si es verdadero, el bucle se ejecuta y el proceso se repite de nuevo. Después de que la condición se convierta en falso, el bucle 'for' termina.
+
+*** Diagrama de Flujo 
+
+# imagen
+
+*** Ejemplo 
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main () {
+
+    int a;
+
+    /* ejecución del bucle for */
+    for (a = 10; a < 20; a = a + 1){
+      printf("el valor de a es: %d\n", a);
+    }
+
+  return 0;
+  }
+
+#+END_SRC
+
+
+** Bucle do...while 
+
+A diferencia de los bucles *for* y *while*, los cuales comprueban la condición del bucle al principio del bucle, el bucle *do...while* comprueba la condicion al final. 
+
+Un bucle *do...while* es similar a un bucle *while*, excepto por el hecho de que está garantizado que se ejecute al menos una vez.
+
+*** Sintaxis 
+
+La sintaxis del bucle *do...while* es la siguiente - 
+
+#+BEGIN_SRC C
+
+  do {
+    declaracion(es);
+   } while (condición);
+
+#+END_SRC
+
+Vamos a fijarnos que la expresión de la condición aparece al final del bucle, así la declaración(es) en el bucle se ejecuta al menos una vez antes de que la condición sea comprobada. 
+
+Si la condición es verdadera, el flujo de control salta para atrás al principio del bucle, y así la declaración se ejecuta de nuevo. Este proceso se repite hasta que la condición dada sea falsa. 
+
+*** Diagrama de Flujo 
+
+# imagen 
+
+*** Ejemplo 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main() {
+    /* definición de variables locales */
+    int a = 10;
+
+    /* ejecutar el bucle */
+    do {
+      printf("el valor de a es: %d\n", a);
+      a = a + 1;
+    }while( a < 20 );
+
+    return 0;
+
+  }
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior tendremos el siguiente resultado - 
+
+: el valor de a es: 10
+: el valor de a es: 11
+: el valor de a es: 12
+: el valor de a es: 13
+: el valor de a es: 14
+: el valor de a es: 15
+: el valor de a es: 16
+: el valor de a es: 17
+: el valor de a es: 18
+: el valor de a es: 19
+
+
+
 ** Declaraciones para el control de bucles 
 
 Las declaraciones de control de bucles cambian la ejecución de su secuencia normal. Cuando la ejecución deja un ámbito, todos los objetos automáticamente que son creados en ese ámbito son destruidos. 
@@ -1400,8 +1577,7 @@ C soporta las siguientes declaraciones de control
 |----+------------------------+------------------------------------------------------------|
 |  1 | declaración break      | Termina el bucle o switch y lo transfiere al siguiente     |
 |  2 | declaración continue   | Causa que el bucle salga de su cuerpo y vuelva a testearse |
-|  3 | declaración goto       | Transfiere el control a una declaración nombrada           |
-
+|  3 | declaración goto       | Transfiere el control a una declaración nombrada           
 ** Bucle infinito 
 
 Un bucle se vuelve un bucle infinito si una condición nuna se convierte en falsa. El bucle *for* es tradicionalmente usado para este propósito. Desde que ninguna de las tres expresiones que forma el bucle 'for' son requeridos, podemos hacer un bucle sin fin dejando la expresión condicional vacía. 
@@ -1409,17 +1585,17 @@ Un bucle se vuelve un bucle infinito si una condición nuna se convierte en fals
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-int main(){
+  int main(){
 
-for( ; ; ){
-printf("Este bucle no tiene fin.\n");
-}
+    for( ; ; ){
+      printf("Este bucle no tiene fin.\n");
+    }
 
-return 0;
+    return 0;
 
-}
+  }
 
 
 #+END_SRC
@@ -1427,8 +1603,7 @@ return 0;
 
 Cuando una expresión condicional está ausente, se asume que es cierta. Se podría tener una expresión de inicialización e incremento, pero los programadores de C más comúnmente usan el constructor for significar un bucle infinito. 
 
- 
-*  C - Funciones 
+* C - Funciones 
 
 
 Una función es un grupo de declaraciones que juntas realizan una tarea. Cada programa de C tiene al menos una función, la cual es *main()*, y todos la mayoría de programas triviales pueden definir funciones adicionales. 
@@ -1447,9 +1622,9 @@ La forma general de la definición de una función en C es como sigue --
 
 #+BEGIN_SRC C
 
-tipo_a_devolver nombre_funcion (lista de parámetros) {
-cuerpo de la función
-}
+  tipo_a_devolver nombre_funcion (lista de parámetros) {
+    cuerpo de la función
+  }
 
 #+END_SRC
 
@@ -1467,19 +1642,19 @@ Dado el siguiente código fuente para una función llamada *max()*. Esta funció
 
 #+BEGIN_SRC C
 
-/* la función devuelve el máxido de dos números */
-int max((int num1, int num2){
+  /* la función devuelve el máxido de dos números */
+  int max((int num1, int num2){
 
-/* declaración de variables locales */
-int resultado;
+      /* declaración de variables locales */
+      int resultado;
 
-if(num1 > num2)
-result = num1;
-else
-resultado = num2;
+      if(num1 > num2)
+        result = num1;
+      else
+        resultado = num2;
 
-return result;
-}
+      return result;
+    }
 #+END_SRC
 
 
@@ -1507,39 +1682,39 @@ Para llamar a una función,, simplemente necesitamos pasar el los parámetros re
 
 #+BEGIN_SRC C
 
-#include <stdio.h>
+  #include <stdio.h>
 
-/* declaración de la función */
-int max(int num1, int num2);
+  /* declaración de la función */
+  int max(int num1, int num2);
 
-int main(){
+  int main(){
 
-/*definiendo las variables locales*/
-int a = 100;
-int b = 200;
-int ret;
+    /*definiendo las variables locales*/
+    int a = 100;
+    int b = 200;
+    int ret;
 
-/*llamando a la función que obtiene el valor máximo*/
-ret = max(a,b);
+    /*llamando a la función que obtiene el valor máximo*/
+    ret = max(a,b);
 
-printf("El valor máximo es: %d\n", ret);
+    printf("El valor máximo es: %d\n", ret);
 
-return 0;
-}
+    return 0;
+  }
 
-/* función que devuelve el máximo número de dos */
-int max(int num1, int num2) {
+  /* función que devuelve el máximo número de dos */
+  int max(int num1, int num2) {
 
-/* declaración de variables locales */
-int result;
+    /* declaración de variables locales */
+    int result;
 
-if (num1 > num2)
-result = num1;
-else
-result = num2;
+    if (num1 > num2)
+      result = num1;
+    else
+      result = num2;
 
-return result;
-}
+    return result;
+  }
 
 
 #+END_SRC
