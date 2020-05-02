@@ -1390,11 +1390,11 @@ El lenguaje de programación C proporciona los siguientes tipos de bucles -
 |  3 | bucle do...while | Es más como un bucle while, solo que se testea la condición al final del bucle             |
 |  4 | bucles anidados  | Se puede usar un bucle dentro de otro                                                      |
 
-** Bucle while en C 
+*** Bucle while en C 
 
 Un bucle *while* en C repetidamente ejecuta una declaración objetivo mientras la condición sea verdadera. 
 
-*** Sintaxis 
+**** Sintaxis 
 
 La sintaxis de un bucle *while* en C es - 
 
@@ -1411,7 +1411,7 @@ Aquí, *declaracion(es) puede ser una sola declaración o un bloque de declaraci
 
 Cuando la condición se convierte en falsa, el programa pasa el control a la linea inmediatamente después del bucle.
 
-*** Diagrama de Flujo 
+**** Diagrama de Flujo 
 
 
 # imagen
@@ -1419,7 +1419,7 @@ Cuando la condición se convierte en falsa, el programa pasa el control a la lin
 
 Aquí, el punto clave a notar es que un bucle while puede que no se ejecute. Cuando la condición es comprobada y su resutado es falso, el cuerpo del bucle será omitido y la primera declaración después de que el bucle while sea ejecutado. 
 
-*** Ejemplo  
+**** Ejemplo  
 
 #+BEGIN_SRC C
 
@@ -1453,11 +1453,11 @@ Cuando compilamos el código y lo ejecutamos producirá el siguiente resultado -
 : el valor de a es : 18
 : el valor de a es : 19
 
-** Bucle For en C 
+*** Bucle For en C 
 
 Un bucle *for* es una estructura de control de repetición que permiete eficazmente escribir bucles que se necesiten ejecutar un número específico de veces. 
 
-*** Sintaxis 
+**** Sintaxis 
 
 La sintaxis de un bucle *for* en C es - 
 
@@ -1479,11 +1479,11 @@ Vamos a ver el flujo de control de un bucle 'for' -
 
 + La condición ahora es evaluada de nuevo. Si es verdadero, el bucle se ejecuta y el proceso se repite de nuevo. Después de que la condición se convierta en falso, el bucle 'for' termina.
 
-*** Diagrama de Flujo 
+**** Diagrama de Flujo 
 
 # imagen
 
-*** Ejemplo 
+**** Ejemplo 
 
 
 #+BEGIN_SRC C
@@ -1505,13 +1505,13 @@ Vamos a ver el flujo de control de un bucle 'for' -
 #+END_SRC
 
 
-** Bucle do...while 
+*** Bucle do...while 
 
 A diferencia de los bucles *for* y *while*, los cuales comprueban la condición del bucle al principio del bucle, el bucle *do...while* comprueba la condicion al final. 
 
 Un bucle *do...while* es similar a un bucle *while*, excepto por el hecho de que está garantizado que se ejecute al menos una vez.
 
-*** Sintaxis 
+**** Sintaxis 
 
 La sintaxis del bucle *do...while* es la siguiente - 
 
@@ -1527,11 +1527,11 @@ Vamos a fijarnos que la expresión de la condición aparece al final del bucle, 
 
 Si la condición es verdadera, el flujo de control salta para atrás al principio del bucle, y así la declaración se ejecuta de nuevo. Este proceso se repite hasta que la condición dada sea falsa. 
 
-*** Diagrama de Flujo 
+**** Diagrama de Flujo 
 
 # imagen 
 
-*** Ejemplo 
+**** Ejemplo 
 
 #+BEGIN_SRC C
 
@@ -1567,6 +1567,102 @@ Cuando compilemos y ejecutemos el código anterior tendremos el siguiente result
 
 
 
+*** Bucles anidados 
+
+C permite el uso de bucles anidados. La siguiente sección muestra unos pocos ejemplos para ilustrar este concepto. 
+
+**** Sintaxis 
+
+La sintaxis para un  *bucles anidados for* es la siguiente - 
+
+#+BEGIN_SRC C
+  for ( inicialización; condición; incremento) {
+    for (inicialización; condición; incremento) {
+      declaraciones;
+    }
+    declaraciones;
+   }
+
+#+END_SRC
+
+La sintaxis para un *bucle anidado while* es  la siguiente -
+
+#+BEGIN_SRC C
+  while(condición){
+    while(condición){
+      declaraciones;
+    }
+    declaraciones;
+   }
+#+END_SRC
+
+La sintaxis para un *bucle anidado do...while* es la siguiente - 
+
+#+BEGIN_SRC C
+
+  do {
+    declaraciones;
+    do {
+      declaraciones;
+    }while (condición);
+   } while (condición);
+
+#+END_SRC
+
+Una nota final acerca de los bucles anidados es que podemos poner cualquier tipo de bucle dentro de otro.Por ejemplo un bucle 'for' dentro de un bucle 'while' o viceversa. 
+
+**** Ejemplo 
+
+El siguiente programa usa un bucle anidado for para encontrar los números primos desde 2 a 100 - 
+
+#+BEGIN_SRC C
+
+    #include <stdio.h>
+
+    int main () {
+      /* definiendo las variables locales */
+      int  i, j;
+
+      for(i = 2; i<100; i++){
+        for(j = 2; j <= (i/j); j++)
+          if(!(i%j)) break; // si se encuentra el factor no es primo
+        if(j > (i/j)) printf("%d es primo/n", i);
+      }
+
+      return 0;
+    }
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el siguiente código producirá el siguiente resultado - 
+
+: 2 es primo 
+: 3 es primo 
+: 5 es primo 
+: 7 es primo 
+: 11 es primo 
+: 13 es primo 
+: 17 es primo 
+: 19 es primo 
+: 23 es primo 
+: 29 es primo 
+: 31 es primo 
+: 37 es primo 
+: 41 es primo 
+: 43 es primo 
+: 47 es primo 
+: 53 es primo 
+: 59 es primo 
+: 61 es primo 
+: 67 es primo 
+: 71 es primo 
+: 73 es primo 
+: 79 es primo 
+: 83 es primo 
+: 89 es primo 
+: 97 es primo 
+
+
 ** Declaraciones para el control de bucles 
 
 Las declaraciones de control de bucles cambian la ejecución de su secuencia normal. Cuando la ejecución deja un ámbito, todos los objetos automáticamente que son creados en ese ámbito son destruidos. 
@@ -1578,6 +1674,190 @@ C soporta las siguientes declaraciones de control
 |  1 | declaración break      | Termina el bucle o switch y lo transfiere al siguiente     |
 |  2 | declaración continue   | Causa que el bucle salga de su cuerpo y vuelva a testearse |
 |  3 | declaración goto       | Transfiere el control a una declaración nombrada           
+** Declaración break
+La declaración *break* en C tiene dos usos - 
+
++ Cuando una declaración *break* es encontrada dentro de un bucle, el bucle termina de forma inmediata y el control del programa pasa a la siguiente declaración que sigue al bucle.
++ Puede ser usado para terminar un caso en la declaración *switch* (que veremos en el próximo capítulo).
+
+Si estamos usando bucles anidados, la declaración break parará la ejecución de bucle más interno y pasará a la siguiente línea del siguiente bloque. 
+
+*** Sintaxis 
+La sintaxis para *break* es la siguiente - 
+
+#+BEGIN_SRC C
+  break;
+#+END_SRC
+
+*** Diagrama de Flujo 
+
+# imagen 
+*** Ejemplo  
+
+
+#+BEGIN_SRC C
+  #include <stdio.h>
+
+  int main(){
+    /* definiendo las variables locales */
+    int a = 10;
+
+    /* ejecución del bucle while */
+    while(a < 20 ) {
+      printf("El valor de a: %d\n", a);
+      a++;
+
+      if( a > 15) {
+        /* terminando el bucle con break */
+        break;
+      }
+    }
+
+    return 0;
+  }
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
+
+: El valor de a: 10
+: El valor de a: 11
+: El valor de a: 12
+: El valor de a: 13
+: El valor de a: 14
+: El valor de a: 15
+
+
+** Declaración continue 
+
+La declaración *continue* en C funciona algo como la declaración *break*. En vez de forzar el fin, fuerza que la próxima iteración del bucle tome lugar, saltando el código entre ello.
+
+Para el bucle *for*, *continue* causa que la comparación condicional y el incremento sean ejecutados. Para el bucled *do...while*, *continue* causa que el control del programa pase al chequeo condicional.
+
+*** Sintaxis  
+ 
+
+ La sintaxis para *continue* es la siguiente - 
+
+ #+BEGIN_SRC C
+ continue;
+ #+END_SRC
+
+*** Diagrama de flujo 
+
+# imagen 
+
+*** Ejemplo 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main () {
+    /* definimos la variables locales */
+    int a = 10;
+
+    /* ejecutamos el bucle */
+    do {
+
+      if( a == 15 ) {
+        /*salimos de la iteracion*/
+        a = a + 1;
+        continue;
+      }
+
+      printf("El valor de a es: %d\n", a);
+      a++;
+    } while ( a < 20);
+
+    return 0;
+
+  }
+
+#+END_SRC
+
+
+Cuando el código anterior sea compilado y ejecutado tendremos el siguiente resultado - 
+
+: El valor de a es: 10
+: El valor de a es: 11
+: El valor de a es: 12
+: El valor de a es: 13
+: El valor de a es: 14
+: El valor de a es: 15
+: El valor de a es: 16
+: El valor de a es: 17
+: El valor de a es: 18
+: El valor de a es: 19
+
+ 
+
+
+** Declaración goto
+
+
+La declaración *goto* en C proporciona un salto incondicional desde 'goto' hasta la declaracion nombrada en la misma función. 
+
+*NOTA* - Usar la declaración *goto** es altamente desaconsejado en cualquier lenguaje de programación porque hace difícil tracer el flujo de control de un programa, haciendo el programa difícil de entender y de modificar. Cualquier programa que use un goto puede ser reescrito sin ellos. 
+
+*** Sintaxis    
+
+La sintaxis de la declaración *goto* en C es tal como sigue - 
+
+#+BEGIN_SRC C
+goto label;
+..
+.
+label: declaración;
+#+END_SRC
+
+Aquí *etiqueta* puede ser cualquier texto plano excepto las palabras claves de C y puede estar en cualquier sitio en el programa antes o después de la declaración *goto*. 
+*** Diagrama de Flujo 
+
+# imagen 
+
+*** Ejemplo 
+
+#+BEGIN_SRC C
+
+    #include <stdio.h>
+
+  int main () {
+    /* definición de las variables locales */
+    int a = 10;
+
+    /* ejecución del bucle */
+   LOOP:do {
+
+      if(a == 15){
+        /*salida de la interacción */
+        a = a + 1;
+        goto LOOP;
+      }
+
+      printf("El valor de a es: %d\n", a);
+      a++;
+    }while(a < 20 );
+
+    return 0;
+  }
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
+
+
+: El valor de a es: 10
+: El valor de a es: 11
+: El valor de a es: 12
+: El valor de a es: 13
+: El valor de a es: 14
+: El valor de a es: 15
+: El valor de a es: 16
+: El valor de a es: 17
+: El valor de a es: 18
+: El valor de a es: 19
+
+ 
 ** Bucle infinito 
 
 Un bucle se vuelve un bucle infinito si una condición nuna se convierte en falsa. El bucle *for* es tradicionalmente usado para este propósito. Desde que ninguna de las tres expresiones que forma el bucle 'for' son requeridos, podemos hacer un bucle sin fin dejando la expresión condicional vacía. 
@@ -1601,8 +1881,7 @@ Un bucle se vuelve un bucle infinito si una condición nuna se convierte en fals
 #+END_SRC
 
 
-Cuando una expresión condicional está ausente, se asume que es cierta. Se podría tener una expresión de inicialización e incremento, pero los programadores de C más comúnmente usan el constructor for significar un bucle infinito. 
-
+Cuando una expresión condicional está ausente, se asume que es cierta. Se podría tener una expresión de inicialización e incremento, pero los programadores de C más comúnmente usan el constructor for significar un bucle infinito.
 * C - Funciones 
 
 
@@ -1724,7 +2003,7 @@ Una vez compilado y ejecutado el código fuente obtendremos el siguiente resulta
 
 : El valor máximo es: 200
 
-*** Argumentos de la función
+** Argumentos de la función
 
 Si una función va a usar argumentos, se deberán declarar las variables que aceptaran los valores de los argumentos. Esas variables son llamadas los *parámetros formales* de la función.
 
@@ -1739,3 +2018,138 @@ Mientras llamamos a una función, hay dos formas en las cuales los argumentos pu
 |                                                                                                                                                                                                                                                            |
 
 Por defecto, C usa *llamada por valor* para pasar los argumentos. En general, significa que el código en la función no puede alterar el argumento usado para llamar a la función.
+
+** Llamada por valor 
+
+El método *llamada por valor*  de pasar argumentos a una función copia el valor actual de un argumento en el parámetro formal de la función. En este caso, los cambios hechos al parámetro dentro de la función no tienen efecto en el argumento.
+
+Por defecto, los programas en C usar por defecto /la llamada por valor/. En general, esto significa que el código en la función no puede alterar los argumentos usados para llamar a la función. Vamos a considerar la función *intercambio()* como sigue 
+
+#+BEGIN_SRC C
+
+  /* definición de la función para intercambiar los valores */
+  void intercambio(int x, int y) {
+
+    int temp;
+
+    temp = x; /* salvamos el valor de x */ 
+    x = y;  /* ponemos y en x */
+    y = temp; /* ponemos temp en y */
+
+    return;
+
+  }
+
+#+END_SRC
+
+Ahora, vamos a llamar a la función *intercambio()* para pasarle los valores reales como sigue - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  /* declaración de la función */ 
+  void intercambio(int x, int y);
+
+  int main() {
+
+    /* definición de las variables locales */
+    int a = 100;
+    int b = 200;
+
+    printf("Antes del intercambio, el valor de a es: %d\n", a);
+    printf("Antes del intercambio, el valor de b es: %d\n", b);
+
+    /* llamada al intercambio de valores */
+    swap(a, b);
+
+    printf("Después del intercambio, el valor de a es: %d\n", a);
+    printf("Después del intercambio, el valor de b es: %d\n", b);
+
+    return 0;
+
+  }
+
+#+END_SRC
+
+
+Una vez compilado y ejecutado el código anterior tendremos el resultado - 
+
+
+: Antes del intercambio, el valor de a es: 100
+: Antes del intercambio, el valor de b es: 200
+: Después del intercambio, el valor de a es: 100 
+: Después del intercambio, el valor de b es: 200
+
+
+Esto muestra que no hay cambio en los valores, una vez que ellos han sido cambiados dentro de la función. 
+
+
+** Llamada por referencia 
+
+
+El método *llamada por referencia* de pasar argumentos a una función copia la dirección de un argumento dentro del parámetro formal. Dentro de la función, la dirección es usada para acceder al verdadero argumento usado en la llamada. Esto significa que los cambios hechos al parámetro afecta al argumento pasado. 
+
+Para pasar por referencia, los punteros a argumentos son pasados a la función solo como otro valor. Así en consecuencia, necesitamos declarar los parámetros de la función como tipo punteros en la siguiente función *intercambio()*, la cual cambiará el valor de las dos variables enteras, por sus argumentos. 
+
+#+BEGIN_SRC C
+
+    /* definición de función para cambiar los valores */ 
+  void intercambio(int *x, int *y) {
+
+    int temp;
+    temp = *x;  /* salvamos el valor de la dirección x */
+    ,*x = *y;    /* ponemos y en x */
+    ,*y = temp;  /* ponemos temp en y */
+
+    return;
+
+  }
+
+#+END_SRC
+
+Ahora vamos a llamar a la función *intercambio()* pasándole los valores por referencias --
+
+#+BEGIN_SRC C
+
+
+  #include <stdio.h>
+
+  /* declaración de la función */
+  void intercambio(int *x, int *y);
+
+  int main(){
+
+    /* definición de las variables locales */
+    int a = 100;
+    int b = 200;
+
+    printf("Antes del intercambio, el valor de a es: %d\n", a);
+    printf("Antes del intercambio, el valor de a es: %d\n", b);
+
+    /* llamando a la función a cambiar los valores.
+       • &a indica puntero a a, e.i. la dirección de la variable a y
+       • &b indica puntero a b, e.i. la dirección de la variable b.
+    ,*/
+    intercambio(&a, &b);
+
+    printf("Después del intercambio, el valor de a es: %d\n", a);
+    printf("Después del intercambio, el valor de b es: %d\n", a);
+
+    return 0;
+
+  }
+
+
+#+END_SRC
+
+
+Una vez compilado y ejecutado el código anterior, tendremos el siguiente resultado - 
+
+: Antes del intercambio, el valor de a es: 100
+: Antes del intercambio, el valor de b es: 200
+: Después del intercambio, el valor de a es: 200
+: Después del intercambio, el valor de b es: 100
+
+Esto muestra que los cambios se reflejan fuera de la función también, a diferencia de la llamada por valor donde los cambios no se reflejan fuera de la función. 
+
