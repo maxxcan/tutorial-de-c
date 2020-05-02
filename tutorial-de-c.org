@@ -2152,4 +2152,158 @@ Una vez compilado y ejecutado el código anterior, tendremos el siguiente result
 : Después del intercambio, el valor de b es: 100
 
 Esto muestra que los cambios se reflejan fuera de la función también, a diferencia de la llamada por valor donde los cambios no se reflejan fuera de la función. 
+* C - Reglas de ámbito
+
+Un ámbito en programación es una región del programa donde una variable definida puede tener su existencia y más allá de eso la variable no puede ser accedida. Hay tres lugares donde las variables pueden ser declaradas en C -
+
++ Dentro de una función o un bloque las cuales son llamadas variables *locales*.
++ Fuera de todas las funciones las cuales son llamadas variables *globales*.
++ En la definición de una función las cuales son llamados parámetros *formales*.
+
+Entenderemos lo que son variables *locales* y *globales* y parámetros *formales*. 
+
+** Variables locales 
+
+Las variables que son declaradas dentro de una función o bloque son llamadas variables locales. Ellas pueden ser usadas solo por declaraciones que están dentro de esa función o bloque de código. Las variables locales no son conocidas por funciones de fuera. El siguiente ejemplo mostrará como las variables locales son usadas. 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main(){
+
+    /* declaración de variables locales */
+    int a, b;
+    int c;
+
+    /* inicialización real */
+    a = 10;
+    b = 20;
+    c = a + b;
+
+    printf("El valor de a = %d, b = %d y c = %d\n", a, b, c);
+
+    return 0;
+
+  }
+
+#+END_SRC
+
+** Variables globales 
+
+Las variables globales son definidas fueras de las funciones, normalmente al principio del programa. Las variables globales mantienen sus valores a través del tiempo de vida del programa y pueden ser accedidas dentro de cualquier función definida por el programa. 
+
+Una variable global puede ser accedida por cualquier función. Esto es, una variable global está disponible para el uso a través de todo el programa después de su declaración. El siguiente programa muestra como las variables globales son usadas. 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  /*declaración de variables globales */
+  int g;
+
+  int main(){
+    /*declaración de variables locales */
+    int a, b;
+
+    /*verdadera inicialización */
+    a = 10;
+    b = 20;
+    g = a + b;
+
+    printf("El valor de a = %d, b = %d y g = %d\n", a, b, g);
+
+    return 0;
+  }
+
+#+END_SRC
+
+
+En un programa puede haber variables locales y globales con el mismo nombre pero el valor de las variables locales dentro de una función tomarán preferencia. Aquí un ejemplo - 
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  /*declaración de variable global */
+  int g = 20;
+
+  int main(){
+    /* declaración de variable local */
+    int g = 10;
+
+    printf("El valor de g = %d\n", g);
+
+    return 0
+
+      }
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado -
+
+: El valor de g = 10
+
+** Parámetros formales*
+
+Los parámetros formales, son tratados como variables locales en una función y se toman precedidos sobre las variables globales. Veamos el siguiente ejemplo - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  /* declaración de la variable global */
+  int a = 20;
+
+  int main() {
+
+    /* declaración de la variable local en la función main */
+    int a = 10;
+    int b = 20;
+    int c = 0;
+
+    printf ("El valor de a en main() es %d\n", a);
+    c = sum(a, b);
+    printf ("El valor de c en main() es %d\n", c);
+
+    return 0;
+
+  }
+
+  /*función para añadir dos enteros */
+  int sum(int a, int b) {
+
+    printf("El valor de a en sum() es %d\n", a);
+    printf("El valor de b en sum() es %d\n", b);
+
+    return a + b;
+  }
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el código anterior, tendremos el siguiente resultado - 
+
+: El valor de a en main() es  10
+: El valor de a en sum() es 10
+: El valor de b en sum() es 20
+: El valor de c en main() es 30 
+
+** Inicialización de variables Locales y Globales 
+
+
+Cuando una variable local es definida, no es inicializada por el sistema, hay que inicializarla por uno mismo. Las variables Globales son inicializadas por el sistema automáticamente cuando las definimos de la siguiente forma 
+
+| Tipo de Dato | Valor inicial por defecto |
+|--------------+---------------------------|
+| int          |                         0 |
+| char         |                      '\0' |
+| float        |                         0 |
+| double       |                         0 |
+| pointer      |                      NULL |
+
+
+* C - Arrays 
+
 
