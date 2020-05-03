@@ -2306,4 +2306,468 @@ Cuando una variable local es definida, no es inicializada por el sistema, hay qu
 
 * C - Arrays 
 
+Los Arrays son un tipo de estrucutra de datos que pueen guardar una colección secuencial de tamaño fijo de elementos del mismo tipo. Un array es usado para guardar una colección de atos, pero esto ofrece más utilidades de lo que se pueda imaginar de un array como una colección de variables del mismo tipo. 
+
+En vez de declarar variables individuales, tal como numero1, numero2, ... y número99, podemos declarar un array de variables tals como números y usar números[0], números[1], y ... número[99] para  representar variables individuales. Un elemento específico en una rray es accedido a través de un índice. 
+
+Todo array consiste en locaciones de memoria contiguas. Las direcciones más bajas corresponde al primer elemento y las más altas al último elemento 
+
+# imagen 
+
+** Declarando Arrays 
+
+Para declarar un array en C, un programador especifica el tipo de elementos y su número requeridos por el array de la siguiente manera - 
+
+: tipo nombreArray [ tamañoArray ];
+
+Esto es llamado un array /uni-dimensional/. el *tamañoArray* debe ser un entero constante mayor de cero y el *tipo* puede ser cualquier tipo de dato C válido. Por ejemplo, para declarar un array de 10 elementos llamado *balance* de tipos dobles, usaremos esta declaración - 
+
+: double balance[10];
+
+Aquí balance es el array de variables el cual es suficente para guardar 10 números dobles.
+
+
+** Inicializando Arrays 
+
+Podemos inicializar un array en C yendo uno por uno o usando una única declaración como sigue - 
+
+: double balace[5] = {1000.0, 2.0, 3.4, 7.0, 50.0};
+
+Crearemos exactamente el mismo array que hicimos en el capítulo anterior. Lo siguiente es un ejemplo de asignar un único elemento al array - 
+
+: balance[4] = 50.0;
+
+La declaración anterior asigna al quinto elemento del array el valor de 50.0. Todos los arrays empiezan con 0 como su primer elemento el cual es también llamado el índice base y el último índice del array es el tamaño total menos 1. Veremos la siguiente imagen:
+
+# imagen 
+
+** Accediendo a Elementos del Array
+
+Un elemento es accesible por el índice del array. Esto es poniendo el índice del elemento dentro de corchetes después del nombre del array. Por ejemplo - 
+
+: double salario = balance[9];
+
+Esta declaración tomará el elemento 10 del array y lo asignará el valor a la variable salario. El siguiente ejemplo muestra como usar todos los tres conceptos mencionados, declaración, asignación y accesibilidad al array. --
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main() {
+    int n[ 10 ]; /* n es un array de 10 enteros */
+    int i,j;
+
+    /* inicializar los elementos del array n a 0 */
+    for ( i = 0; i < 10; i++) {
+      n[ i ] = i + 100; /* establecemos los elementos en la localización i a i + 100 */
+    }
+
+    /* salida del valor de cada elemento */
+    for (j = 0; j < 10; j++ ) {
+      printf("Elemento[%d] = %d\n", j, n[j] );
+    }
+
+    return 0;
+
+  }
+
+#+END_SRC
+
+
+Una vez compilado y ejecutado el código, producirá el siguiente resultado - 
+
+: Elemento[0] = 100
+: Elemento[1] = 101
+: Elemento[2] = 102 
+: Elemento[3] = 103
+: Elemento[4] = 104
+: Elemento[5] = 105
+: Elemento[6] = 106
+: Elemento[7] = 107
+: Elemento[8] = 108
+: Elemento[9] = 109
+
+** Arrays en detalle 
+
+Los arrays son importantes en C y deberían necesitar algo más de atención. Los siguientes importantes concepots relacionados con los arrays serán clarificadores a los programadores de C - 
+
+| No | Concepto                         | Descripción                                                  |
+|----+----------------------------------+--------------------------------------------------------------|
+|  1 | Arrays Multi-dimensionales       | Son arrays en dos dimensiones                                |
+|  2 | Pasando Arrays a funciones       | Podemos pasar a una función un puntero que apunte a un array |
+|  3 | Devolver un array de una función | C permite a una función devolver un array                    |
+|  4 | Punteros a un array              | Se puede genera un puntero al 1 elemento de un array         |
+
+
+*** Arrays Multi-dimensionales 
+
+C permite arrays multidimensionales. La declaración general para formar arrays multidimensionales es - 
+
+: tipo nombre[tamaño1][tamaño2]..[tamañoN];
+
+Por ejemplo, la siguiente declaración crea un array tridimensional de enteros- 
+
+: int tresdim[5][10][4];
+
+**** Arrays en dos dimensiones 
+
+La forma más simple de array multidimensional es el array dos-dimensional. Un array dos-dimensional es, en esencia, una lista de arrays unidimensionales. Para declarar un array de enteros de dos-dimensional [x][y], habrá que escribir algo como lo que sigue 
+
+: tipo nombreArray [ x ][ y ];
+
+Donde *tipo** puede ser cualquier tipo de dato válido en C y *nombreArray* será un identificador de C válido. Un array dos-dimensional puede ser considerado como una tabla la cual tendrá un número x de filas y un número y de columnas. Un array dos-dimensional *a*, el cual contiene tres filas y cuatro columnas puede ser como el mostrado a continuación - 
+
+# imagen 
+
+
+Así, cada elemento en el array *a* es identificado por un nombre en la forma *a[i][j]*, donde 'a' es el nombre del array, e 'i' y 'j' son los subíndices que identifican cada elemento en 'a'. 
+
+**** Inicializando un Array Dos-Dimensional 
+
+
+Los arrays multidimensionales pueden ser inicializados por valores específicos entre corchetes para cada fila. Lo siguiente es un array con tres filas y cada fila tiene 4 columnas. 
+
+#+BEGIN_SRC C
+  int a[3][4] = {
+                 {0, 1, 2, 3} , /*inicializamos para la fila con el índice 0 */
+                 {4, 5, 6, 7} , /*inicializamos para la fila con el índice 1 */
+                 {8, 9, 10, 11} /*inicializamos para la fila con el índice 2 */
+  };
+
+#+END_SRC
+
+
+Las llaves anidadas, las cuales indican la fila destinada, son opcionales.La siguiente inicialización es equivalente al ejemplo anterior 
+
+#+BEGIN_SRC C
+int a[3]{4} ={0,1,2,3,4,5,6,7,8,9,10,11};
+#+END_SRC
+
+**** Accediendo a un Array Dos-Dimensional 
+
+Un elemento en un array dos-dimensional es accesible usando subíndices, es decir, el índice de la fila y el índice de la columna. Por ejemplo - 
+
+: int val = a[2][3];
+
+La declaración anterior tomará el cuarto elemento de la tercera fila del array. Lo podemos verificar en la figura anterior. Comprobemos el siguiente programa donde hemos usado un bucle anidado para manejar un array en  dos-dimensiones. 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main(){
+
+    /* un array con 5 filas y 2 columnas*/
+    int a[5][2] = { {0,0}, {1,2},{2,4}, {3,6}, {4,8}};
+    int i, j;
+
+    /* salida de los valores de cada elemento en el array */
+    for (i = 0; i < 5; i++) {
+
+      for( j = 0;j < 2; j++ ) {
+        printf("a[%d][%d] = %d\n", i,j, a[i][j] );
+      } 
+
+    }
+
+    return 0;
+  }
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado 
+
+: a[0][0]: 0
+: a[0][1]: 0
+: a[1][0]: 1
+: a[1][1]: 2
+: a[2][0]: 2
+: a[2][1]: 4
+: a[3][0]: 3
+: a[3][1]: 6
+: a[4][0]: 4
+: a[4][1]: 8
+
+Como explicamos anteriormente, podemos tener un array con cualquier número de dimensiones, a pesar de que la mayoría de los arrays que creemos serán una o dos dimensiones. 
+
+
+*** Pasando Arrays a funciones 
+
+Si queremos pasar un array uni-dimensional como argumento de una función, deberíamos tener que declarar un parámetro formal en uno de los siguientes tres métodos de declaración que producen similares resultados poruqe cada uno le dice al compilador qeu un puntero entero va a ser recibido. Similarmente, podemos pasar arrays multidimensionales como parámetros formales. 
+
+**** Forma 1 
+
+Parámetros formales como un puntero - 
+
+#+BEGIN_SRC C
+
+  void miFuncion(int *param) {
+    .
+    .
+    .
+
+  }
+
+#+END_SRC
+
+**** Forma 2 
+
+Parámetro formal como un array de tamaño fijo -
+
+#+BEGIN_SRC C
+
+  void miFuncion(int param[10]) {
+    .
+    .
+    .
+  }
+
+#+END_SRC
+
+**** Forma 3
+
+Parámetro forma como un array sin tamaño fijo - 
+
+#+BEGIN_SRC C
+
+  void miFuncion(int param[]) {
+    .
+    .
+    .
+  }
+
+#+END_SRC
+
+**** Ejemplos 
+
+
+Ahora, consideremos la siguiente función, la cual toma un array como argumento a lo largo con otro argumento como base de los argumentos pasados, que devolverá la media de los números pasados a través del array de la siguiente forma - 
+
+
+#+BEGIN_SRC C
+
+  double obtenerMedia(int arr[], int tamaño) {
+
+    int i;
+    double mda;
+    double sum = 0;
+
+    for (i = 0; i < tamaño; ++i) {
+      sum += arr[i];
+    }
+
+    mda = sum /tamaño;
+
+    return mda
+
+      }
+
+#+END_SRC
+
+
+Ahora, llamaremos a la función anterior como sigue - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  /*declaración de la función */
+  double obtenerMedia(int arr[], int tamaño);
+
+  int main(){
+
+    /*  un array de enteros con 5 elementos */
+    int balance[5] = {1000, 2, 3, 17, 50};
+    double mda;
+
+    /*  pasamos un  puntero al array como un argumento */
+    mda = obtenerMedia( balance, 5 );
+
+    /* salida del valor devuelto */
+    printf("El valor medio es: %f", mda);
+
+    return 0;
+
+  }
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
+
+: El valor medio es: 214.400000
+
+Como podemos ver, la longitud del array no importa como tan lejos la función le concierne porque C no produce comprobaciones a las uniones para los parámetros formales <-- ver esto después 
+
+
+*** Devolviendo un array desde una función en C 
+
+El lenguaje C no permite devolver un array entero como un argumento a una función. Sin embargo, podemos devolver un puntero a un  array especificando el nombre del array sin el índice. 
+
+Si queremos retornar un array unidimensional desde una función, tenemos que declarar una función devolviendo un puntero como en el siguiente ejemplo - 
+
+#+BEGIN_SRC C
+
+  int * miFuncion() {
+    .
+    .
+    .
+
+  }
+
+#+END_SRC
+
+El segundo punto a recordar es que C no es partidario de devolver la dirección de una variable local fuera de la función, así que hay que definir las variables locales como variables *estáticas*. 
+
+Ahora, consideremos la siguiente función la cual genera 10 números aleatorios y los devuelve usando un array y llamamos a esta función de la siguiente forma - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  /* función que genera y devuelve números aleatorios */
+  int * obtenerAleatorio( ) {
+
+    static int r[10];
+    int i;
+
+    /* establecer la semilla */
+    srand( (unsigned)time( NULL ) );
+
+    for (i = 0; i < 10; ++i) {
+      r[i] = rand();
+      printf( "r[%d] = %d\n", i, a[i]);
+    }
+
+    return r;
+
+  }
+
+  /* función principal para llamar la función que hemos definido */
+  int main() {
+
+    /* un puntero a un entero */
+    int *p;
+    int i;
+
+    p = obtenerAleatorio();
+
+    for ( i= 0; i < 10; i++) {
+      printf("*(p + %d) : %d\n", i, *(p + i));
+    }
+
+    return 0;
+
+  }
+
+#+END_SRC 
+
+
+Una vez compilado y ejecutado el código anterior, se producirá el siguiente resultado - 
+
+
+: r[0] = 313959809
+: r[1] = 1759055877
+: r[2] = 1113101911
+: r[3] = 2133832223
+: r[4] = 2073354073
+: r[5] = 167288147
+: r[6] = 1827471542
+: r[7] = 834791014
+: r[8] = 1901409888
+: r[9] = 1990469526
+: *(p + 0) : 313959809
+: *(p + 1) : 1759055877
+: *(p + 2) : 1113101911
+: *(p + 3) : 2133832223
+: *(p + 4) : 2073354073
+: *(p + 5) : 167288147
+: *(p + 6) : 1827471542
+: *(p + 7) : 834791014
+: *(p + 8) : 1901409888
+: *(p + 9) : 1990469526
+
+
+*** Puntero a un array 
+
+ 
+Esta parte  igual no se va a entender bien hasta que no veamos mejor las sección de 'Punteros'. 
+
+Asumiendo lo que son los punteros en C, vamos a empezar: El nombre de un array es un puntero constante al primer elemento de un array. Por lo tanto, en la declaración - 
+
+: double balance[50];
+
+*balance* es un puntero a &balance[0], el cual es la dirección del primer elemento del array balance. Además, el fragmento del siguiente programa asigna *p* a la dirección del primer elemento de *balance*. 
+
+
+#+BEGIN_SRC C
+
+double *p;
+duble balance[10];
+
+p = balance;
+
+#+END_SRC
+
+Es legal usar el nombre de un array como puntero constante, y viceversa. Por lo tanto, *(balance &plus; 4) es una forma legítima de acceder a los datos de balance[4].
+
+Una vez guardamos la dirección del primer elemento en 'p', podemos acceder a los elementos del array usando *p, *(p&plus;1), *(p&plus;2) y así. Vamos a verlo en un ejemplo. 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main () {
+
+    /* un array con 5 elementos */
+    double balance[5] = { 1000.0, 2.0, 3.4, 17.0, 50.0};
+    double *p;
+    int i;
+
+    p = balance
+
+      /* salida del valor de cada elemento del array */
+      printf("Valores del array usando punteros\n";
+
+             for (i = 0; i < 5; i++) {
+               printf("*(p + %d) : %f\n", i, *(p + i) );
+
+             }
+
+             printf("Valores del array usando balance como dirección\n");
+
+             for ( i = 0; i < 5; i++) {
+               printf("*(balance + %d) : %f\n", i, *(balance + i) );
+             }
+
+             return 0;
+
+             }
+
+#+END_SRC
+
+
+cuando compilemos y ejecutemos el código anterior, obtendremos  el siguiente resultado - 
+
+
+: Valores del array usando punteros
+: *(p + 0) : 1000.000000
+: *(p + 1) : 2.000000
+: *(p + 2) : 3.400000
+: *(p + 3) : 17.000000
+: *(p + 4) : 50.000000
+: Valores del array usando balance como dirección
+: *(balance + 0) : 1000.000000
+: *(balance + 1) : 2.000000
+: *(balance + 2) : 3.400000
+: *(balance + 3) : 17.000000
+: *(balance + 4) : 50.000000
+
+En el ejemplo anterior, p es un puntero a doble, lo cual significa que puede guardar la dirección de variables de tipo doble. Una vez que tenemos la dirección en p, *p nos dará el valor disponible en la dirección guardada en p, tal como hemos mostrado en el ejemplo. 
+
+
+
+* C - Punteros
+
+
 
