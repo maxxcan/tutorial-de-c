@@ -3386,3 +3386,96 @@ Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resu
 
 
 
+* C - Cadenas de texto 
+
+Las cadenas de texto son arrays unidimensionales de caracteres terminados por un carácter *null* '\0'. Además una cadena de texto null-terminada contiene los caracteres que comprenden la cadena de texto seguido por un *null*. 
+
+La siguiente declaración e inicialización crea una cadena de caracteres consistenten en la palabra "Hola". Para mantener el carácter null al final del array, el tamaño del array de caracteres que contiene la cadana de caracters es uno más que el número de caracteres de la palabra "Hola". 
+
+: char saludo[4] ={'H', 'o', 'l', 'a', '\0'};
+
+Si seguimos la regla de inicialización de los arrays entonces podemos escribir la declaración anterior de la siguiente forma 
+
+: char saludo[4] = "Hola";
+
+Lo siguiente es la representación de memoria de lo anterior definido en C/C++
+
+
+# imagen 
+
+Realmente, no se pone el carácter /null/ al final de una cadena de texto constante. El compilador C automáticamente lo hace cuando se inicializa el array. Veamos este ejemplo 
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main() {
+
+    char saludo[4] = {'H', 'o', 'l', 'a', '\0'};
+    printf("Mensaje de saludo: %s\n", saludo);
+    return 0;
+
+  }
+
+#+END_SRC
+
+Cuando el código anterior sea compilado y ejecutado, mostrará el siguiente resultado -
+
+: Mensaje de saludo: Hola
+
+C soporta un amplio rango de funciones para manipular cadenas de texto terminadas en null 
+
+| No | Función       | Propósito                                                 |
+|----+---------------+-----------------------------------------------------------|
+|  1 | strcpy(s1,s2) | Copiar la cadena s2 en s1                                 |
+|  2 | strcat(s1,s2) | Concatenar la cadena s2 en s1                             |
+|  3 | strlen(s1 )   | Devuelve la longitud de s1                                |
+|  4 | strcmp(s1,s2) | Devuelve 0 s1 y s2 son iguales. -0 si s1< s2; +0 si s1>s2 |
+|  5 | strchr(s1,ch) | Devuelve un puntero a la primera ocurrencia de ch en s1   |
+|  6 | strstr(s1,s2) | Devuelve un puntero a la primera ocurrencia de s2 en s1   |
+
+
+El siguiente ejemplo usa algunos de las funciones antes mencionadas 
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <string.h>
+
+  int main(){
+
+    char str1[12] = "Hello";
+    char str2[12] = "World";
+    char str3[12];
+    int len;
+
+    /* copiar str1 en str3 */
+    strcpy(str3, str1);
+    printf("strcpy( str3, str1): %s\n", str3);
+
+    /* concatenar str1 y str2 */
+    strcat(str1, str2);
+    printf("strcat(str1, str2): %s\n", str1);
+
+    /* longitud total de str1 después de la concatenación */
+    len = strlen(str1);
+    printf("strlen(str1) : %d\n", len);
+
+    return 0;
+
+
+  }
+
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado -
+
+
+: strcpy( str3, str1) :  Hello
+: strcat( str1, str2):   HelloWorld
+: strlen(str1) :  10
+
