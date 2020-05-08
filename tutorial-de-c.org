@@ -3385,7 +3385,6 @@ Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resu
 : *(p + [9]) : 149169022
 
 
-
 * C - Cadenas de texto 
 
 Las cadenas de texto son arrays unidimensionales de caracteres terminados por un carácter *null* '\0'. Además una cadena de texto null-terminada contiene los caracteres que comprenden la cadena de texto seguido por un *null*. 
@@ -3478,4 +3477,269 @@ Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resu
 : strcpy( str3, str1) :  Hello
 : strcat( str1, str2):   HelloWorld
 : strlen(str1) :  10
+
+* C - Estructuras 
+
+Los arrays nos permiten definir tipos de variables que pueden guardar varios tipos de datos del mismo tipo. Similarmente las *estructuras* es otro tipo de dato definido por el usuario disponible en C que permite combinar elementos de distintos tipos de datos. 
+
+Las estructuras son usadas para representar un registro. Supongamos que queremos  guardar los registros de libros en una biblioteca. Podríamos querer seguir los siguientes atributos de cada libro - 
+
+: * Titulo
+: * Autor
+: * Asignatura
+: * ID del libro
+
+** Definiendo una estructura 
+
+Para definir una estructura, debemos usar la declaración *struct*. La declaración *struct* define un nuevo tipo de dato, con más de un miembro. El formato de la declaración struct es el siguiente 
+
+#+BEGIN_SRC C
+
+  struct [etiquetas de la estructura] {
+
+    definición del miembro;
+    definición del miembro;
+    ...
+      definición del miembro;
+
+  } [una o más variables de la estructura]
+
+
+#+END_SRC
+
+La *etiqueta de la estructura* es opcional y cada definición del miembro es una definición normal de variable, tal como int i; o float f; o cualquier otro tipo de definición de variable válida. Al final de la definición de la estructura, antes del punto y como final, podemos especificar una o más variables de la estructura pero es opcional. 
+
+Aquí vamos a ver como declararíamos la estructura Libro - 
+
+#+BEGIN_SRC C
+
+  struct Libros{
+    char titulo[50];
+    char autor[50];
+    char asignatura[100];
+    int id_libro;
+  } libro;
+
+#+END_SRC
+
+** Accediendo a los miembros de la estructura 
+
+Para acceder a cualquier miembro de una estructura, usamos el *operador para acceso a miembros (.)*. Este operador es codeado como un periodo entre el nombre de la estructura y los miembros a los que queremos acceder. Podríamos usar la palabra clave *struct* para definir variables del tipo estructura. El siguiente ejemplo nos muestra como usar una estructura en un programa - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <string.h>
+
+  struct Libros {
+    char titulo[50];
+    char autor[50];
+    char asignatura[100];
+    int libro_id;
+  };
+
+  int main(){
+
+    struct Libros Libro1;    /* Declaramos Libro1 como un tipo de Libro */
+    struct Libros Libro2;
+
+    /* especificaciones del libro 1 */
+    strcpy( Libro1.titulo, "C Programming");
+    strcpy( Libro1.autor, "Nuha Ali");
+    strcpy( Libro1.asignatura "C programming Tutorial");
+    Libro1.libro_id = 6495407;
+
+    /* especificaciones del libro 2 */
+    strcpy( Libro2.titulo, "Telecom Billing");
+    strcpy( Libro2.autor, "Zara Ali");
+    strcpy( Libro2.asignatura, "Telecom Billing Tutorial");
+    Libro2.libro_id = 6495700;
+
+    /* mostrando la información del libro 1 */
+    printf( "Titulo Libro 1: %s\n", Libro1.titulo);
+    printf( "Autor Libro 1: %s\n", Libro1.autor);
+    printf( "Asignatura Libro 1: %s\n", Libro1.asignatura);
+    printf( "ID del Libro 1: %d\n", Libro1.libro_id);
+
+    /* mostrando la información del libro 2 */
+    printf( "Titulo Libro 2: %s\n", Libro2.titulo);
+    printf( "Autor Libro 2: %s\n", Libro2.autor);
+    printf( "Asignatura Libro 2: %s\n", Libro2.asignatura);
+    printf( "ID del Libro 2: %d\n", Libro2.libro_id);
+
+    return 0;
+
+  }
+
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado 
+
+
+** Estructuras como argumentos de funciones 
+
+Podemos pasar estructuras como argumentos de funciones de la misma forma en la que le pasamos cualquier otra variable o punteros. 
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <string.h>
+
+  struct Libros {
+    char titulo[50];
+    char autor[50];
+    char asignatura[100];
+    int libro_id;
+  };
+
+  /* declaración de la función */
+  void imprimirLibro ( struct Libros libro);
+
+  int main() {
+
+    struct Libros Libro1;   /* Declaramos Libro1 como un tipo de Libro */
+    struct Libros Libro2;
+
+    /* especificaciones de libro 1 */
+    strcpy( Libro1.titulo, "C Programming");
+    strcpy( Libro1.autor, "Nuha Ali");
+    strcpy( Libro1.asignatura, "C Programming Tutorial");
+    Libro1.libro_id = 6495407;
+
+    /* especificaciones de libro 2 */
+    strcpy( Libro2.titulo, "Telecom Billing");
+    strcpy( Libro2.autor, "Zara Ali");
+    strcpy( Libro2.asignatura, "Telecom Billing Tutorial");
+    Libro2.libro_id = 6495700;
+
+    /* mostrar información del Libro 1 */
+    imprimirLibro( Libro1 );
+
+    /* mostrar información del Libro 2 */
+    imprimirLibro ( Libro2 );
+
+    return 0;
+
+  }
+
+  void imprimirLibro ( struct Libros Libro) {
+
+    printf("Titulo del Libro: %s\n", libro.titulo);
+    printf("Autor del libro: %s\n", libro.autor);
+    printf("Asignatura del libro: %s\n", libro.asignatura);
+    printf("Id del libro: %d\n", libro.libro-id);
+
+  }
+
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, resultará el siguiente código - 
+
+
+
+
+
+** Punteros a estructuras 
+
+Podemos definir punteros a estructuras de la misma forma que definimos un puntero a cualquier otra variable - 
+
+: struct Libros *struct_pointer;
+
+Ahora, podemos guardar la dirección de una estructura en el siguiente puntero. Para encontrar la dirección de una estructura, pondremos el operador '&' antes del nombre de la estructura de la siguiente manera - 
+
+: struct_pointer = &Libro1;
+
+Para acceder a los miembros de una estructura usando un puntero a esa estructura, debemos usar el operador -> de la siguiente manera - 
+
+: struct_pointer->titulo;
+
+Vamos a reescribir el ejemplo anterior usando punteros - 
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <string.h>
+
+  struct Libros {
+    char titulo[50];
+    char autor[50];
+    char asignatura[100];
+    int id_libro;
+
+  };
+
+  /* declaración de función */
+  void imprimirLibro( struct Libros *libro);
+  int  main(){
+
+
+    struct Libros Libro1;  /* Declaramos Libro1 como un tipo de Libro */
+    struct Libros Libro2;
+
+    /* especificación de libro 1 */
+    strcpy( Libro1.titulo, "C Programming");
+    strcpy( Libro1.autor, "Nuha Ali");
+    strcpy( Libro1.asignatura, "C Programming Tutorial");
+    Libro1.libro_id = 6495407;
+
+    /* especificación de libro 2 */
+    strcpy( Libro2.titulo, "Telecom Billing");
+    strcpy( Libro2.autor, "Zara Ali");
+    strcpy( Libro2.asignatura, "Telecom Billing Tutorial");
+    Libro2.libro_id = 6495700;
+
+    /* muestra la ifnormación de Libro 1 pasando la dirección de libro 1 */
+    imprimirLibro( &Libro1 );
+
+    /* muestra la información de Libro2 pasando la dirección de Libro 2 */
+    imprimirLibro( &Libro2 );
+
+    return 0;
+
+  }
+
+  void imprimirLibro( struct Libros *libro ){
+
+    printf("Título del libro: %s\n", libro->titulo);
+    printf("Autor del libro: %s\n", libro->autor);
+    printf("Asignatura del libro: %s\n", libro->asignatura);
+    printf("Id del libro: %d\n", libro->libro_id);
+
+  }
+
+#+END_SRC
+
+** Campos Bit
+
+Los campos bit nos permite el empaquetado de datos en una estructura. Esto es especialmente útil cuando la memoria o el guardado de datos premian. Los típicos ejemplos incluyen - 
+
++ Empaquetar varios objetos en una palabra máquina, por ejemplo, un bit bandera que puede ser compactado.
+
++ Leyendo formatos de fichero externos -- formatos de fichero no estándar pueden ser leídos, por ejemplo, enteros de 9-bit.
+
+C permite hacer esto en una definición de estructura poniendo la longitud del bit después de la variable. Por ejemplo 
+
+#+BEGIN_SRC C
+
+  struct estructura_empaquetada {
+    unsigned int f1:1;
+    unsigned int f2:1;
+    unsigned int f3:1;
+    unsigned int f4:1;
+    unsigned int type:4;
+    unsigned int my_int:9:
+  } paquete;
+
+
+#+END_SRC
+
+Aquí la estructura empaquetada contiene 6 miembros: 4 banderas de 1 bit f1..f3, 4-bit type y 9-bit my_int.
+
+C automáticamente empaqueta los siguientes campos de bits tan compactos como sea posible, proporcionando que la máxima longitud de campo sea menor o igual que la longitud de una palabra entera de la computadora. En este caso, algunos compiladores pueden permitir que la memoria se colapse para los campos mientras otros campos se guardarán en la siguiente palabra. 
+
 
