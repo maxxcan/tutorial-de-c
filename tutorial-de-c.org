@@ -3384,7 +3384,6 @@ Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resu
 : *(p + [8]) : 1604461820
 : *(p + [9]) : 149169022
 
-
 * C - Cadenas de texto 
 
 Las cadenas de texto son arrays unidimensionales de caracteres terminados por un carácter *null* '\0'. Además una cadena de texto null-terminada contiene los caracteres que comprenden la cadena de texto seguido por un *null*. 
@@ -3742,4 +3741,152 @@ Aquí la estructura empaquetada contiene 6 miembros: 4 banderas de 1 bit f1..f3,
 
 C automáticamente empaqueta los siguientes campos de bits tan compactos como sea posible, proporcionando que la máxima longitud de campo sea menor o igual que la longitud de una palabra entera de la computadora. En este caso, algunos compiladores pueden permitir que la memoria se colapse para los campos mientras otros campos se guardarán en la siguiente palabra. 
 
+* C - Uniones 
 
+Una *unión* es un tipo especial de dato en C que permite guardar diferentes tipos de datos en la misma dirección de memoria. Podemos definir una unión con  muchos miembros, pero solo un miembro puede contener un valor en un tiempo dado. Las Uniones proporcionan un forma eficiente de usar la misma dirección de memoria para diferentes propósitos.
+
+** Definiendo una Unión 
+
+Para definier una unión, se debe usar la declaración *union* de la misma forma que hemos hecho para definir una estructura. La declaración unión define un nuevo tipo de dato con más de un miembro para tu programa. El formato de la declaración de la unión es el siguiente - 
+
+#+BEGIN_SRC C
+
+union [ etiqueta union] {
+miembro definición;
+miembro definición;
+...
+miembro definición;
+} [ una o más variables de unión]
+
+#+END_SRC
+
+
+La *etiqueta unión* es opcional y cada definición de miembro es una definicióln normal de variable, tal como un entero, un punto flotante, o cualuqier otra variable válido. Al final de la definición de unión, antes del punto y coma, podemos especiar una o más variables de unión pero también es opcional. Aquí vemos  la forma en la que podemos definir un tipo de Dato Unión con tres miembros - 
+
+#+BEGIN_SRC C
+
+  union Data {
+    int i;
+    float f;
+    char str[20];
+  } data;
+
+#+END_SRC
+
+Ahora, la variable *Data* puede guardar un entero, un coma flotante o una cadena de caracteres. Esto significa qeu una sola variable, es decir, la misma dirección de memoria, puede ser usada para guardar múltiples tipos de datos. Podemos usar cualquier tipo de tipo de dato definido por el usuario dentro de una unión con nuestros propios requerimientos. 
+
+La memoria ocupada por una unión será lo suficientemente grande para guardar el miembro mayor de la unión. Por ejemplo, en el ejemplo anterior, el tipo Data ocupará 20 bytes de memoria poruqe es el máximo necesario que necesita ocupar una cadena de caracteres. El siguiente ejemplo muestra la memoria total ocupada por la unión anterior. - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <string.h>
+
+  union Data {
+    int i;
+    float f;
+    char str[20];
+  };
+
+  int main(){
+
+    union Data data;
+
+    printf(" El tamaño de memoria usado por data es: %d\n", sizeof(data));
+
+    return 0;
+
+  }
+
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
+
+: El tamaño de memoria usado por data es: 20
+
+** Accediendo a los miembros de la Unión
+
+Para acceder a cualquier miembro de la unión, usaremos el *operador para acceso a miembos (.)*. Este operador es un punto entre el nombre de la unión y el nombre del miembro de la unión al cual queremos acceder. Veamos el siguiente ejemplo - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <string.h>
+
+  union Data {
+    int i;
+    float f;
+    char str[20];
+  };
+
+  int main(){
+
+    union Data data;
+
+    data.i = 10;
+    data.f = 220.5;
+    strcpy( data.str, "C Programming");
+
+    printf( "data.i : %d\n", data.i);
+    printf( "data.f : %f\n", data.f);
+    printf( "data.str : %s\n", data.str);
+
+    return 0;
+
+  }
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el código anterior, se producirá el siguiente resultado - 
+
+: data.i : 1917853763
+: data.f : 4122360580327794860452759994368.000000
+: data.str : C Programming
+
+Aquí, podemos ver que el valor de los miembros *i* y *f* de la unión están corrompidos porque el valor final asignado a la variable ha ocupado la dirección de memoria y esta es la razón por la que le valor del miembro *str* está dibujado bien.
+
+Ahora veamos el mismo código en el cual usaremos una variable a la vez con el mismo propósito de tener uniones - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <string.h>
+
+  union Data {
+    int i;
+    float f;
+    char str[20];
+  };
+
+  int main(){
+
+    union Data data;
+
+    data.i = 10;
+    printf( "data.i : %d\n", data.i);
+
+    data.f = 220.5;
+    printf( "data.f : %f\n", data.f);
+
+    strcpy( data.str, "C Programming");
+    printf( "data.str : %s\n, data.str");
+
+    return 0;
+
+
+  }
+
+
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, este producirá el siguiente resultado - 
+
+: data.i : 10
+: data.f : 220.500000
+: data.str : C Programming
+
+Aquí, todos los miembros están bien escritos porque cada miembro ha sido usado a la vez. 
