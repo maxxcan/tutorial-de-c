@@ -3890,3 +3890,123 @@ Cuando compilemos y ejecutemos el código anterior, este producirá el siguiente
 : data.str : C Programming
 
 Aquí, todos los miembros están bien escritos porque cada miembro ha sido usado a la vez. 
+* C - Campos Bit 
+
+Supongamos que nuestro programa C contiene un número de variables VERDADERO/FALSO agrupadas en una estructura llamada estatus de la siguiente manera - 
+
+#+BEGIN_SRC C
+
+  struct {
+    unsigned int anchuraValidada;
+    unsigned int alturaValidada;
+  } estatus;
+
+
+#+END_SRC
+
+Esta estrucutura requiere 8 bytes de memoria pero en realidad, vamos a guardar entre 0 y 1 en cada variable. C ofrece una mejor forma de usar el espacio de memoria en estas situaciones. 
+
+Si hemos usando estas variables dentro de una estructura entonces podemos definir la anchura de una variable diciéndole al compilador que vamos a usar solo esos cantidad de bytes. Por ejemplo, vamos a escribir la estructura anterior. 
+
+#+BEGIN_SRC C
+
+  struct {
+    unsigned int anchuraValidadad : 1;
+    unsigned int alturaValidada : 1;
+  } estatus;
+
+
+
+#+END_SRC
+
+La estructura anterior requiere 4 bytes de memoria para la variable estatus, pero solo 2 bits serán usados. 
+
+Si usamos 32 variables cada una con una anchura de 1 bit, entonces también la estructura usará 4 bytes. Sin embargo, tan pronto como tengamos 33 variables, será localizada en el siguiente slot de memoria y empezará a usar 8 bytes. Veamos el siguiente ejemplo y entendamos el concepto - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <string.h>
+
+  /*  definiendo una simple estructura */
+  struct {
+    unsigned int anchuraValidada;
+    unsigned int alturaValidada;
+  } estatus1;
+
+  /* definiendo una estructura con campos bit */
+  struct {
+    unsigned int anchuraValidada : 1;
+    unsigned int alturaValidada : 1;
+  } estatus2;
+
+  int main(){
+    printf("La memoria usada por estatus1 es: %d\n", sizeof(estatus1));
+    printf("La memoria usada por estatus2 es: %d\n", sizeof(estatus2));
+    return 0;
+  }
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, se producirá el siguiente resultado - 
+
+: La memoria usada por estatus1 es : 8
+: La memoria usada por estatus2 es : 4
+
+
+** Declaración de Campos Bit
+
+La declaración de un campo bit tiene la siguiente forma dentro de una estructura - 
+
+#+BEGIN_SRC C
+
+  struct {
+    tipo [nombre_miembro] : anchura;
+  };
+
+#+END_SRC
+
+
+La siguiente tabla describe los elementos variables de un campo bit 
+
+| No | Elemento       | Descripción                                                                      |
+|----+----------------+----------------------------------------------------------------------------------|
+|  1 | tipo           | Un tipo entero que determina como el valor será interpretado                     |
+|  2 | nombre_miembro | El nombre del campo bit                                                          |
+|  3 | anchura        | El número de bits del campo bit. Debe ser menor o igual que el tipo especificado |
+
+
+Las variables definidas con una anchura predefinida  son llamadas *campos bit* . Un campo bit puede mantener más de un único bit; por ejemplo, si necesitamos una variable que guarde un valor de 0 a 7,entonces podemos deifnir un campo bit con una anchura de 3 bits como sigue - 
+
+#+BEGIN_SRC C
+
+    #include <stdio.h>
+    #include <string.h>
+
+    struct {
+  unsigned int edad : 3;
+    } Edad;
+
+  int main(){
+
+Edad.edad = 4;
+printf("Tamaño de (Edad): %d\n", sizeof(Edad));
+printf ("Edad.edad : %d\n", Edad.edad);
+
+Edad.edad = 7;
+printf ("Edad.edad : %d\n", Edad.edad);
+
+Edad.edad = 8;
+printf ("Edad.edad : %d\n", Edad.edad);
+
+return 0;
+  }
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, mostrará una advertencia y producirá el siguiente resultado - 
+
+: Tamaño de (Edad): 4
+: Edad.edad = 4
+: Edad.edad = 7
+: Edad.edad = 0
