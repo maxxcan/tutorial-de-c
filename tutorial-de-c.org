@@ -4010,3 +4010,248 @@ Cuando compilemos y ejecutemos el código anterior, mostrará una advertencia y 
 : Edad.edad = 4
 : Edad.edad = 7
 : Edad.edad = 0
+* C - Typedef
+
+C proporciona una palabra clave llamada *typedef*, la cual puede usarse para darle un nuevo tipo de nombre. El siguiente ejemplo define un termino *BYTE*  para un número de un byte. 
+
+: typedef unsigned char BYTE;
+
+Después de este tipo de definición, el identificador BYTE puede ser usado como una abreviación para el tipo *unsigned char*, por ejemplo 
+
+: BYTE b1, b2;
+
+Por convención, las palabras en mayúsculas son usadas para esas definiciones para recordar al usuario que el nombre del tipo es en realidad una abrevicación simbólica, pero se puede poner en minúscula, como sigue - 
+
+: typedef unsigned char byte; 
+
+Se puede usar *typedef* para darle el nombre a un tipo definido por el usuario también. Por ejemplo, podemmos usar typedef con una estructura para definir un nuevo tipo de datos y entonces usar ese tipo de datos para definir estructuras directamente de la siguiente manera - 
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <string.h>
+
+  typedef struct Libros {
+    char titulo[50];
+    char autor[50];
+    char titulo[50]
+    char asignatura[100];
+    int id_libro;
+  } Libro;
+
+  int main(){
+
+    Libro libro;
+
+    strcpy( libro.titulo, "C Programming");
+    strcpy( libro.autor, "Muha Ali");
+    strcpy( libro.asignatura, "C Programming tutorial");
+    book.id_libro = 6495407;
+
+    printf( "Titulo libro: %s\n", libro.titulo);
+    printf( "Autor libro: %s\n", libro.autor);
+    printf( "Asignatura libro: %s\n", libro.Asignatura);
+    printf( "Id del libro : %d\n", libro.id_libro);
+
+    return 0;
+
+  }
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el código anterior, éste producirá el siguiente resultado - 
+
+: Titulo libro: C Programming
+: Autor libro: Nuha Ali
+: Asignatura libro: C Programming Tutorial
+: Id del libro: 6495407
+
+** typedef vs #define 
+* C - Entrada y Salida 
+
+Cuando uno dice *Entrada*, significa alimentar con datos al programa. Una entrada puede ser dada en la forma de un archivo o desde un comando en línea. C  proporciona un conjunto de funciones para leer entradas y alimentarlas al programar cuando sean requeridas. 
+
+Cuando uno dice *Salidas*, significa mostrar algunos de esos datos en pantalla, impresora o en cualquier archivo. C proporciona un conjunto de funciones para la salida de datos en la pantalla de la computadora al igual que para salvarlos en un archivo de texto o binario. 
+
+** Archivos estándar 
+
+C trata todos los dispositivos como archivos. Así dispositivos tale como pantallas son direccionados de la misma forma que un archivo y los siguientes tres archivos son automáticamente abiertos cuando un programa ejecutado proporcional acceso al teclado y la pantalla. 
+
+| Archivo estándar | Archivo al que apunta | Dispositivo |
+|------------------+-----------------------+-------------|
+| Entrada estándar | stdin                 | Teclado     |
+| Salidas estándar | stdout                | Pantalla    |
+| Error estándar   | stderr                | Tu pantalla |
+
+Los archvios al que apunta son los principales para acceder al archivo con propósito de lectura y escritura. Esta sección explica como se leen los valores desde la pantalla y como se imprime los resultados en la pantalla. 
+
+** Funciones getchar() y putchar()
+
+
+La función *getchar(void) entero*  lee el siguiente carácter disponible de la pantalla y lo devuelve como un entero. Esta función lee solo un carácter a la vez. Podemos usar este método en bucle en caso de que querer leer más de un carácter de la pantalla. 
+
+La función *entero putchar(entero c)* pone el carácter pasado en la pantalla y devuelve el mismo carácter. Esta función pone solo un carácter a la vez. Podemos usar este método en bucle en el caso de que queramos mostrar más de un carácter  en la pnatalla. Veamos el siguiente ejemplo.
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  int main(){
+
+    int c;
+
+    printf( "Introduce un valor: ");
+    c = getchar();
+
+    printf( "\nHas introducido: ");
+    putchar( c );
+
+    return 0;
+  }
+
+#+END_SRC 
+
+
+Cuando el código anterior sea compilado y ejecutado, esperará a que escribas algún texto. Cuando introduzcas un texto y presiones enter, entonces el programa procederá a leer solo un carácter y mostrarlo de la siguiente forma - 
+
+
+: $./a.out
+: Introduce un valor: esto es un texto
+: Has introducido:  t
+
+** Las funciones gets() y puts()
+
+La función *char gets(char \*s)* lee una línea desde *stdin* en el buffer apuntado desde la *s* hasta la aparición de una nueva línea o un EOF(Fin de Fichero).
+
+La función *int puts(const char \*s)* escribe la cadena 's' y 'a'. 
+
+*NOTA*: gets ya es una función obsoleta. En vez de usar gets, se usará *fgets()*. 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  int main(){
+
+    char str[100];
+
+    printf( "Introduce un valor: ");
+    gets( str );
+
+    printf("\nHas introducido: ");
+    puts( str );
+
+    return 0;
+
+  }
+
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, e introduzcamos un texto, esto mostrará - 
+
+
+: $./a.out
+: Introduce un valor: esto es un texto
+: Has introducido: esto es un texto
+
+*** La función fgets()
+
+la función de C *char \*fgets(char \*str, int n, FILE \*stream)* lee una línea dentro de un específico flujo y lo guarda en la cadena de caracteres apuntada por *str*. Se para cuando cualquier *(n-1)* caracteres son leídos, el carácter de nueva línea es leído, o se alcanza el final del archivo, lo que llegue primero. 
+
+**** Declaración
+
+La siguiente declaración para la función fgets() es como sigue - 
+
+: char *fgets(char *str, int n, FILE *stream)
+
+**** Parámetros 
+
++ *str* - Este es el puntero a un array de caracteres donde la cadena leída es guardada
+
++ *n* - Este es el máximo número de caracteres para ser leídos (incluyendo el carácter final null). Normalmente, la longitud del array pasado como str es usado. 
+
++ *stream* - Este es el puntero a un archivo objeto que identifica el flujo desde donde los caracteres son leídos. 
+
+**** Valor de retorno 
+
+En éxito, la función devuelve el mismo parámetro str. Si el final del archivo es encontrado y ningún carácter ha sido leído, el contenido de str se mantendrá sin cambios y el puntero null será devuelto. 
+
+Si un error ocurre, un puntero null será devuelto. 
+
+
+
+**** Ejemplo 
+
+
+El siguiente ejemplo muestra el uso de la función fgets()
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main(){
+    FILE *fp;
+    char str[60];
+
+    /* abriendo el archivo para lectura */
+    fp = fopen("file.txt", "r");
+    if(fp == NULL){
+      perror("Error abriendo archivo");
+      return(-1);
+    }
+    if( fgets (str, 60, fp)!=NULL) {
+      /* escribiendo el contenido de stdout */
+      puts(str);
+    }
+    fclose(fp);
+
+    return(0);
+  }
+
+#+END_SRC
+
+
+Si asumimos que tenemos un archivo de texto *file.txt* con el contenido "Estamos en el año 2020", cuando compilemos y ejecutemos el código anterior obtendremos el siguiente resultado - 
+
+: Estamos en el año 2020
+
+
+
+** Las funciones scanf() y printf() 
+
+La función *int scanf(const char \*format, ...)* lee la entrada desde el flujo de la entrada estándar *stdin* y escanea la entrada acorde con el *formato* proporcionado. 
+L función *int printf(const char \*format, ..)* escribe la salida al flujo de la salida estándar *stdout* y produce la salida acorde con el formato proporcionado. 
+
+El *formato* puede ser un simple cadena de caracteres constantes, pero podemos especificar %s, %d, %c, %f, etc, para imprimir o leer cadenas de caracteres, enteros, caracteres, o coma flotante respectivamente. Hay muchos otros formatos disponibles los cuales puede ser usados según la necesidad. Vamos a proceder con un ejemplo simple para entender el concepto mejor - 
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  int main(){
+
+    char str[100];
+    int i;
+
+    printf( "Introduce un valor: ");
+    scanf("%s %d, str, &i");
+
+    printf( "\nHas introducido: %s %d", str, i);
+
+    return 0;
+
+
+  }
+
+#+END_SRC
+
+
+Una vez compilado y ejecutado el código anterior e introducido algún texto, esto producirá  - 
+
+
+: $./a.out
+: Introduce un valor: siete 7
+: Has introducido: siete 7
+
