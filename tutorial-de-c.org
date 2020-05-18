@@ -4218,7 +4218,6 @@ Si asumimos que tenemos un archivo de texto *file.txt* con el contenido "Estamos
 : Estamos en el año 2020
 
 
-
 ** Las funciones scanf() y printf() 
 
 La función *int scanf(const char \*format, ...)* lee la entrada desde el flujo de la entrada estándar *stdin* y escanea la entrada acorde con el *formato* proporcionado. 
@@ -4254,4 +4253,134 @@ Una vez compilado y ejecutado el código anterior e introducido algún texto, es
 : $./a.out
 : Introduce un valor: siete 7
 : Has introducido: siete 7
+
+* C - Entrada/Salida de Archivos 
+
+En el último capítulo hemos explicado los dispositivos estándares de entrada y salida manejados por C. En este capítulo cubriremos el cómo C puede crear, abrir y cerrar ficheros de texto y binarios para su guardado. 
+
+Un archivo representa una secuencia de bytes, a pesar de un fichero de texto o binario. C proporciona acceso a funciones de alto nivel al igual que de bajo nivel (nivel de Sistema Operativo) para manejar los ficheros en los dispositivos de guardado. En este capítulo veremos a través de importantes llamadas para manejar archivos. 
+
+** Abriendo archivos 
+
+
+Podemos usar la función *fopen()* para crear un nuevo archivo o abrir uno existente. Esta llamada inicializará un objeto el tipo *FILE*, el cual contiene toda la información necesaria para controlar el flujo. El prototipo de esta llamada a fucnión es como sigue - 
+
+: FILE *fopen( const char * filename, const char * mode);
+
+Aquí, *filename* es una cadena literal, la cual usará el nombre del fichero, y el *modo* de acceso puede tener uno de los siguiente valores - 
+
+| Nº | Modo | Descripción                                                                            |
+|----+------+----------------------------------------------------------------------------------------|
+|  1 | r    | Abre un archivo existente para lectura                                                 |
+|  2 | w    | Abre un archivo existente para escritura. Si no existe lo crea                         |
+|  3 | a    | Abre un archivo para escritura en modo añadir. Si no existe lo crea                    |
+|  4 | r+   | Abre un archivo para lectura y escritura                                               |
+|  5 | w+   | Abre un archivo para lectura y escritura. Si existe lo trunca a cero sino lo crea.     |
+|  6 | a+   | Abre un archivo para lectura y escritura. Si no exite lo crea y lo abre en modo añadir |
+
+Si vamos a manejar archivos binarios, entonces usaremos los siguientes modos de acceso en de los mencionados antes - 
+
+"rb", "wb", "ab", "rb+", "r+b", "wb+", "w+b", "ab+", "a+b"
+
+
+** Cerrando un archivo 
+
+Para cerrar un archivo, usamos la función fclose(). El prototipo de esta función es - 
+
+: int fclose( FILE *fp );
+
+La función *fclose(-)* devuelve cero si hay éxito, o *EOF* si hay algún error cerrando el archivo. Esta función realmente graba cualquier dato que todavía esté pendiente en el buffer en el fichero, cierra el fichero, y actualiza cualquier memoria usada en el fichero. El EOF es  una constante definida en la cabecera del archivo stdio.h 
+
+Hay varias funciones proporcionadas por la biblioteca estándar de C para leer y escribir un archivo, carácter por carácter, o en la forma de un cadena de longitud fija. 
+
+** Escribiendo un archivo 
+
+La siguiente es la forma más sencilla para escribir un carácter individual en un flujo - 
+
+: int fputc(int c, FILE *fp);
+
+La función *fputc()* escribe el valor del carácter del argumento c y lo pone en el flujo de salida referenciado por fp. Esto devuelve el carácter escrito si hay éxito y EOF si hay algún error. Podemos usar la siguiente función para escribir una cadena null terminada a un flujo - 
+
+: int fputs( const char *s, FILE *fp);
+
+La función *fputs* escribe el valor carácter s al flujo de salida referenciado por fp. Si devuelve un valor no negativo si hay éxito, en cambio devolverá EOF en caso de error. Podemos usar la función *int fprint(FILE *fp,const char *format, ...)* también para escribir una cadena en un archivo. Veamos el siguiente ejemplo: 
+
+
+Vamos a asegurarnos primero que tenemos un directorio */tmp*. Si no, deberemos crearlo. 
+
+#+BEGIN_SRC C
+
+  main(){
+    FILE *fp;
+
+    fp = fopen("/tmp/test.txt", "w+");
+    fprintf(fp, "Esto es una prueba para fprintf...\n");
+    fputs("Esto es una prueba para fputs...\n", fp);
+    fclose(fp);
+  }
+
+#+END_SRC
+
+Cuando el código anterior sea compilado y ejecutado, creará un nuevo archivo *test.txt* en el directorio /tmp y escribirá dos líneas usando las dos funciones distintas. Vamos a leer el archivo en la siguiente sección.
+
+** Leyendo un archivo 
+
+Lo siguiente es la función más sencilla para un solo carácter desde un archivo - 
+
+: int fgetc( FILE * fp);
+
+La función *fgetc()* lee un carácter desde el fichero de entrada referenciado por fp. El valor de vuelta es el carácter leído, o en caso de algún error, devolverá *EOF*. La siguiente función permite leer una cadena desde un flujo - 
+
+: char *fgets( char *buf, int n, FILE *fp);
+
+La función *fgets()* lee un n-1 carácter desde el flujo de entrada referenciado por fp. Éste copia la cadena leída en el buffer *buf*, y añade un carácter *null* al terminar la cadena.
+
+Si esta función encuentra un carácter de salto de línea '\n' o el final del archivo antes de que se haya leído el máximo de caracteres , entonces solo devolverá los caracteres leídos hasta ese momento. Podemos usar también la fucnión *int fscan(FILE *fp, const char *format, ...)* para leer cadenas desde un archivo, pero dejará de leer  después de encontrar el primer caracter de espacio.
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  main(){
+
+    FILE *fp;
+    char buff[255];
+
+    fp = fopen("/tmp/test.txt", "r");
+    fscanf(fp, "%s", buff);
+    printf("1 : %s\n", buff);
+
+    fgets(buff, 255, (FILE*)fp);
+    printf("2: %s\n", buff);
+
+    fgets(buff, 255, (FILE*)fp);
+    printf("e: %s\n", buff);
+    fclose(fp);
+
+  }
+
+
+
+#+END_SRC
+
+Cuando el código anterior sea compilado y ejecutado, leerá el archivo creado en la sección anterior y producirá el siguiente resultado - 
+
+: 1: Esto
+: 2: es una prueba para fprintf...
+
+: 3: Esto es una prueba para fputs...
+
+Vamos a ver un poco más en detalle lo que ha ocurrido aquí. Primero, *fscanf()* lee solo *Esto* porque después de eso, encuentra un espacio, la segunda llamada es para *fgets()* el cual lee el resto de la línea hasta encontrar un fin de línea. Finalmente, la ultima llamada *fgets()* lee la segunda línea completamente. 
+
+
+** Funciones Binarias de Entrada/Salida
+
+Hay dos funciones, que pueden ser usadas para la entrada y salida binaria - 
+
+: size_t fread(void *ptr, size_t size_of_elements, size_t number_of_elements, FILE *a_file);
+              
+: size_t fwrite(const void *ptr, size_t size_of_elements, size_t number_of_elements, FILE *a_file);
+
+Ambas funciones pueden ser usadas para leer o escribir bloques de memoria - normalmente arrays o estructuras.
 
