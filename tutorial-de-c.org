@@ -4384,3 +4384,224 @@ Hay dos funciones, que pueden ser usadas para la entrada y salida binaria -
 
 Ambas funciones pueden ser usadas para leer o escribir bloques de memoria - normalmente arrays o estructuras.
 
+* C - Preprocesadores
+
+
+Los *Preprocesadores de C* no son parte del compilador, pero es un paso separado en el proceso de compilación. En terminos simples, un Preprocesador C es solo una herramienta de sustitución de texto y le da instrucciones al compilador para hacer el pre-procesamiento requerido antes de la verdadera compilación. Nos referiremos al Preprocesado de C como CPP. 
+
+Todos los comandos del preprocesador empiezan con un un símbolo almohadilla (#). El primer carácter no puede ser uno en blanco y por temas de legibilidad, una directiva preprocesado debe empezar en la primera columna. La siguiente lista muestra todas las directivas importantes de preprocesado. 
+
+| Nº | Directiva | Descripción                                                        |
+|----+-----------+--------------------------------------------------------------------|
+|  1 | #define   | Sustituye un preprocesador macro                                   |
+|  2 | #include  | Inserta una cabera particular desde otro archivo                   |
+|  3 | #undef    | No define un preprocesador macro                                   |
+|  4 | #ifdef    | Devuelve verdadera si la macro está definida                       |
+|  5 | #ifndef   | Devuelve verdadero si la macro no está definida                    |
+|  6 | #if       | Prueba si una condición en tiempo de compilacón es verdadera       |
+|  7 | #else     | La alternativa de #if                                              |
+|  8 | #elif     | #else e #if en una sola sentencia                                  |
+|  9 | #endif    | Finaliza el preprocesador condicional                              |
+| 10 | #error    | Escribe un mensaje de error  en stderr                             |
+| 11 | #pragma   | Emite un comando especial al compilador, usando un método estándar |
+
+
+** Ejemplo de preprocesadores 
+
+Analicemos los siguientes ejemplos para entender varias directivas 
+
+: #define MAX_ARRAY_LENGTH 20
+
+Esta driectiva le dice a CPP a reemplazar la instancia de MAX_ARRAY_LENGTH con 20. Usando #define para constatar el incremento de legibilidad. 
+
+: #include <stdio.h>
+: #include "myheader.h"
+
+Esas directivas le dicen al CPP que obtengan stdio.h desde el *sistema de bibliotecas* y añada el tecto al actual archivo fuente. La siguietne línea le dice al CPP que obtenga *myheader.h* desde el directorio local y añada el contenido al actual fichero fuente. 
+
+: #undef FILE_SIZE
+: #define FILE_SIZE 42
+
+Esto le dice al CPP que no defina la existente FILE_SIZE y lo defina como 42
+
+#+BEGIN_SRC C
+#ifndef  MESSAGE
+#define MESSAGE "Lo que desees!"
+#endif
+
+#+END_SRC
+
+Esto le dice al CPP que defina MESSAGE solo si MESSAGE no está ya definido 
+
+#+BEGIN_SRC C
+#ifdef DEBUG
+/* tu declaración de debug */
+#endif
+
+#+END_SRC
+
+Esto le dice al CPP que procese la declaracióń encerrada en if DEBUG está definido. Esto es útil si pasamos la bandera -DDEBUG al compilador gcc en tiempo de compilación. Esto definirá DEBUG, así podemos cambiar el debugging en on u off durante la compilación.
+
+** Macros Predefinidas
+
+ANSI C define un número de macros. Aunque cada uno está disponible para su uso en programación, las macros predefinidas no debería ser directamente modificadas. 
+
+| Nº | Macro    | Descripción                                                       |
+|  1 | \_DATE\_ | Fecha actual en formato "MMM DD YYYY "                            |
+|  2 | \_TIME\_ | Hora actual en formato "HH:MM:SS"                                 |
+|  3 | \_FILE\_ | Contiene el archivo actual como una cadena literal                |
+|  4 | \_LINE\_ | Contiene el número de línea actual como una constante decimal     |
+|  5 | \_STDC\_ | Definido como 1 cuando el compilador compila con el ANSI estándar |
+
+
+Veamos los siguiente ejemplos: 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  int main(){
+
+    printf("Archivo: %s\n", __FILE__);
+    printf("Fecha: %s\n", __DATE__);
+    printf("Hora: %s\n", __TIME__);
+    printf("Línea: %d\n", __LINE__);
+    printf("ANSI: %d\n", __STDC__);
+
+  }
+
+#+END_SRC
+
+
+Cuando el código anterior en un archivo llamado *test.c* sea compilado y ejecutado producirá el siguiente resultado 
+
+: Archivo: test.c
+: Fecha: May 18 2020
+: Hora: 18:34:25
+: Línea: 8
+: ANSI: 1 
+
+** Operadores de preprocesamiento 
+
+El preprocesador en C ofrece los siguiente operadores para ayudar a crear macros - 
+
+*** El operador de macro continuación (\)
+
+Un macro es normalmente confinado a una sola línea. El operador de macro continuación es usado para continuar un macro más allá de una simple línea. Por ejemplo - 
+
+#+BEGIN_SRC C
+
+  #define message_for(a, b)			\
+    printf(#a " y " #b ":Te queremos!\n")
+
+#+END_SRC
+
+*** El operador (#) que pasa a cadenas
+
+El operador #, cuando es usado en una definición de macro, convierte una parámetro de macro en una cadena de texto constante. Este operador puede ser usado solo en un macro teniendo un argumento específico o lista de parámetros. Por ejemplo - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  #define message_for(a, b)			\
+    printf(#a " y " #b ":Te queremos!\n")
+
+  int main(void){
+    message_for(Carole, Debra);
+    return 0;
+  }
+
+#+END_SRC
+
+Cuando compile y ejecute el código anterior, producirá el siguiente resultado - 
+
+: Carole y Debra: Te queremos!
+
+*** El operador (##) 
+
+El operador (##) con una definición de macro combina dos argumentos. Esto permite que dos tokens separados en la definición de macro sean unidas en un solo token. Por ejemplo - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  #define tokenpaster(n) printf("token" #n "= %d", token#n)
+
+  int main(void){
+    int token34 = 40;
+    tokenpaster(34);
+    return 0;
+  }
+
+#+END_SRC
+
+Cuando el código anterior sea compilado y ejecutado, producirá el siguiente resultado - 
+
+: token34 = 40
+
+Ocurre así porque este ejemplo resulta en la siguiente verdadera salida desde el preprocesado - 
+
+: printf ("token34 = %d", token34);
+
+Este ejemplo muestra como la concatenación del token ##n en el token34 y aquí hemos usado ambos *stringsize* y *token-pasting*. 
+
+*** El operador Defined()
+
+El operador de preprocesado *defined* es usado en expresiones constantes para determinar si un identificador es definido usando #define. Si el identificador especificado es definido, el valor es verdadero (no-cero). Si el símbolo no es definido, el valor es falso (cero). El operador definido es especificado como sigue - 
+
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  #if !define (MESSAGE)
+  #define MESSAGE "Lo que desees!"
+  #endif
+
+  int main(void){
+    printf("Este es el mensaje: %s\n", MESSAGE);
+    return 0;
+  }
+
+#+END_SRC
+
+Cuando compiles el código anterior y lo ejecutes, producirá el siguiente resultado - 
+
+: Este es el mensaje: Lo que desees!
+
+** Macros parametrizada 
+
+Una de las más poderosas funciones del CPP es la habilidad de simular funciones usando macros parametrizada. Por ejemplo, podemos tener algún código para sacar el cuadrado de un número de la siguiente manera - 
+
+#+BEGIN_SRC C
+
+  int cuadrado(int x){
+    return x * x;
+  }
+
+#+END_SRC
+
+Podemos reescribir el código anterior usando una macro - 
+
+: #define square(x) ((x) * (x))
+
+Los macros con argumentos deben ser definidos usando la directiva *#define* antes de poder ser usadas. La lista de argumentos está encerrada en paréntesis y debe seguir inmediatamente del nombre del macro. Los espacios no están permitidos entre el nombre del macro y el paréntesis. Por ejemplo - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  #define MAX(x,y) ((x) > (y) ? (x) : (y))
+
+  int main(void){
+    pirntf("El máximo entre 20 y 10 es %d\n", MAX(10, 20));
+    return 0;
+  }
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado  -
+
+: El máximo entre 20 y 10 es 20
+
