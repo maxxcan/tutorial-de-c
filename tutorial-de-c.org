@@ -4605,3 +4605,105 @@ Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resu
 
 : El máximo entre 20 y 10 es 20
 
+* C - Archivos de cabecera
+
+Un fichero de cabecera es un archivo con extensión *.h* que contiene declaraciones de funciones de C y definiciones de macros para ser compartidas entre varios archivos. Hay dos tipos de ficheros de cabecera; lo archivos que los programadores escriben y los que vienen con el compilador. 
+
+La petición de uso de un archivo de cabecera en el nuestro programa por inclusión de la directiva de preprocesado *#include*, como hemos visto la inclusión del archivo de cabecera  *stdio.h*, el cual viene con el compilador. 
+
+Incluir un archivo de cabecera es igual a copiar el contenido del archivo pero no lo hacemos porque causaría un error y no es una buena idea copiar el contenido de un archivo de cabecera en los archivos fuente, especialmente si hay varios archivos en un programa. 
+
+Una simple práctica en los programas de C o C++ es que se mantengan todas las constantes, macros, variables globales del sistema y funciones prototipo en los archivos de cabecera e incluirlos donde sea que sean requeridos. 
+
+** Sintaxis Include 
+
+Tanto las cabeceras del sistema como las del usuario son incluidas usando la directiva *#include*. Se hace siguiendo dos formas -
+
+: #include <file>
+
+Esta forma es usada para las cabeceras del sistema. Esto buscará el nombre del archivo en la lista estándar del sistema de directorios. Podemos añadir directorios a esta lista con la opción -I mientras se compila el código fuente. 
+
+: #include "file"
+
+Esta forma es usada para las cabeceras de tu propio programa. Esto buscará el archivo del nombre dado en el directorio donde se encuentre el mismo archivo. Podemos añadir directorios a esta lista con la opción -I mientras se compila el código fuente.
+
+** Operación Include 
+
+La directiva *#include* funciona direccionando la directiva de preprocesado escaneando el archivo especificado como entrada antes de continuar con el resto del archivo fuente. La salida desde el preprocesado contiene la salida generada, seguido de la salida del resultado desde el archivo incluido, seguido de la salida que viene desde el texto después de la directiva *#include*. Por ejemplo, si tenemos el siguiente archivo de cabecera header.h - 
+
+: char *test (void);
+
+Y un un programa principal llamado program.c que usa el fichero de cabecera, como esto - 
+
+#+BEGIN_SRC C
+
+  int x;
+  #include "header.h"
+
+  int main(void){
+    puts (test());
+  }
+
+#+END_SRC
+
+el compilador verá el token de flujo como si el programa program.c leyera 
+
+#+BEGIN_SRC C
+
+  int x;
+  char *test (void);
+
+  int main(void){
+    puts (test());
+  }
+
+#+END_SRC
+
+** Cabeceras de un solo uso
+
+Si una cabecera se intenta ser incluida dos veces, el compilador procesará su contenido dos veces y devolverá un error. La forma estándar para prevenir esto es encerrar el contenido real en un condicional de la siguiente manera - 
+
+#+BEGIN_SRC C
+
+  #ifndef HEADER_FILE
+  #define HEADER_FILE
+
+  La cabecera entera
+
+  #endif
+
+
+#+END_SRC
+
+Esta construcción es comúnmente conocida como un envoltura *#ifndef*. Cuando la cabecera es incluída de nuevo, el condicional será falso, porque el HEADER_FILE es definido. El preprocesador saltará el contenido de este archivo, y así evitará el error. 
+
+** Includes computados 
+
+Algunas veces es necesario seleccionar uno de varias cabeceras diferentes para ser incluídas en nuestro programa. Para instanciar, se podría especificar los parámetros de configuración que deben ser usados en diferenntes momentos del sistema operativo. Se podrían añadir una serie de condicionales de la forma que sigue - 
+
+#+BEGIN_SRC C
+
+  #if SYSTEM_1
+  # include "system_1.h"
+  #elif SYSTEM_2
+  # include "system_2.h"
+  #elif SYSTEM_3
+  ...
+  #endif
+
+#+END_SRC
+
+Pero si esto crece, se vuelve tedioso, en vez de eso el preprocesador ofrece la habilidad de usar una macro para los nombres de las cabeceras. Esto es llamado *include computado*. En vez de escribir un nombre de cabecera como el argumento directo de *#include*, simplemente se pone un nombre de macro - 
+
+#+BEGIN_SRC C
+#define SYSTEM_H "system_1.h"
+...
+#include SYSTEM_H
+
+#+END_SRC
+
+SYSTEM_H será expandido, y el preprocesador buscará por system_1.h como si el *#include* hubiera sido escrito de la forma original. SYSTEM_H podría ser definido por su Makefile con una opción -D. 
+
+
+* C - Conversión de tipos
+
