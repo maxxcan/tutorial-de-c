@@ -4704,6 +4704,100 @@ Pero si esto crece, se vuelve tedioso, en vez de eso el preprocesador ofrece la 
 
 SYSTEM_H será expandido, y el preprocesador buscará por system_1.h como si el *#include* hubiera sido escrito de la forma original. SYSTEM_H podría ser definido por su Makefile con una opción -D. 
 
-
 * C - Conversión de tipos
+
+Convertir un tipo de dato en otro es conocido como un tipo conversión. Por ejemplo, si queremos guardar un valor 'long' en un simple entero entonces pueden convertir 'long'en 'int'. Podemos convertir los valores desde un tipo a otro explicitamente usando los *operadores de conversión* de la siguiente manera - 
+
+: (type_name) expression
+
+Consideremos el siguiente ejemplo donde el operador de conversión causa la división de una variable entera en otra por la operación de punto-flotante. 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  main(){
+
+    int suma = 17, conteo = 5;
+    double media;
+
+    media = (double) suam / conteo;
+    printf("El valor de la media: %f\n", media);
+
+  }
+
+
+#+END_SRC 
+
+Cuando el código anterior es compìlado y ejecutado, produce el siguiente resultado - 
+
+: El valor de la media: 3.40000
+
+Se puede ver que la operación de conversión ha precedido sobre la división, así el valor de la suma es primero convertido a *double* y finalmente se divide por el conteo que es un valor doble. 
+
+La conversión de tipos puede ser implícito lo que es ejecutado por el compilador automaticamente, o puede ser especificado explícitamente a través del usod de los *operadores de conversón*. Es considerado una buena práctica de programación el usar la conversión de tipos cuando sea necesario.
+
+** Promoción Entero
+
+la promoción entero es el proceso por el cual los valores de los enteros tipo "más pequeños" que *int* o *unsigned int* son convertidos a *int* o *unsigned int*. Consideremos un ejemplo añadiendo un carácter con un entero - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  main(){
+
+    int i = 17;
+    char c = 'c'; /* su ascii valor es 99 */ 
+    int suma;
+
+    suma = i + c;
+    printf("El valor de la suma: %d\n", suma);
+
+  }
+
+
+#+END_SRC
+
+
+Cuando el código anterior sea compilado y ejecutado, producirá el siguiente resultado - 
+
+: El valor de la suam: 116
+
+Aquí, el valor de la suma es 116 porque el compilador está convirtiendo el valor de 'c' a ASCII antes de hacer la suma. 
+
+
+** Conversión artimética habitual
+
+La *conversión aritmética habitual* es implícitamente desarrollada para convertir sus valores en un tipo común. El compilador primero hace la promoción a entero; si los operandos aún tienen diferentes tipos, son convertidos al tipo que aparece más alto en la siguiente jerarquía. 
+
+# imagen 
+
+La conversión habitual no funciona en operadores de asignación, u operadores lógicos como && o ||. Veamos el siguiente ejemplo para entender el concepto. 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+
+  main(){
+
+    int i = 17;
+    char c = 'c'; /* el valor de en ascii es 99 */ 
+    float suma;
+
+    suma = i + c;
+    printf("El valor de la suma: %f\n", suma);
+
+  }
+
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el código anterior  producirá el siguiente resultado - 
+
+: El valor de la suma: 116.0000000
+
+Aquí, es simple de entender que primero c se convierte a entero, pero el valor final es doble, la conversión aritmética habitual aplicada y el compilador convierte i y c en 'float' y los añade al resultado en 'float' también. 
+
 
