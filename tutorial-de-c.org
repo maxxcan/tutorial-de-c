@@ -4,322 +4,322 @@
 
 * C - Introducción
 
-Este tutorial es una traducción del tutorial que podemos encontrar en [[https://www.tutorialspoint.com/cprogramming/index.htm][Tutorialspoint]]
+  Este tutorial es una traducción del tutorial que podemos encontrar en [[https://www.tutorialspoint.com/cprogramming/index.htm][Tutorialspoint]]
 
 * C - Resumen
 
-C es un lenguaje de propósito general, un lenguaje de alto nivel que fue originalmente desarrollado por *Dennis M. Ritchie* para desarrollar el sistema operativo UNIX en los laboratorios Bell. C fue originalmente implementado para la computadora DEC PDP-11 en 1972. 
+  C es un lenguaje de propósito general, un lenguaje de alto nivel que fue originalmente desarrollado por *Dennis M. Ritchie* para desarrollar el sistema operativo UNIX en los laboratorios Bell. C fue originalmente implementado para la computadora DEC PDP-11 en 1972. 
 
-En 1979, Brian Kerninghan y Dennis Ritchie produjeron la primera descripción de C para el público, ahora conocido como el estándar K&R. 
+  En 1979, Brian Kerninghan y Dennis Ritchie produjeron la primera descripción de C para el público, ahora conocido como el estándar K&R. 
 
-El sistema operativo UNIX, el compilador de C y esencialmente todas las aplicaciones UNIX han sido escritas en C. C es un lenguaje ampliamente usado como lenguaje profesional por varias razones
+  El sistema operativo UNIX, el compilador de C y esencialmente todas las aplicaciones UNIX han sido escritas en C. C es un lenguaje ampliamente usado como lenguaje profesional por varias razones
 
-+ Fácil de aprender
-+ Lenguaje estructurado
-+ Produce programas eficientes
-+ Puede manejar actividades a bajo nivel
-+ Se puede compilar para una amplia variedad de plataformas
+  + Fácil de aprender
+  + Lenguaje estructurado
+  + Produce programas eficientes
+  + Puede manejar actividades a bajo nivel
+  + Se puede compilar para una amplia variedad de plataformas
 
 ** Hechos sobre C 
 
- + C fue inventado para escribir un sistema operativo llamado UNIX
- + C es un sucesor del lenguaje B el cual fue introducido sobre los tempranos 1970
- + El lenguaje fue formalizado en 1988 por el Instituto Nacional Americano de Estándares (ANSI)
- + El sistema operativo UNIX está totalmente escrito en C
- + A día de hoy C es el lenguaje más usado y popular como Lenguaje de Sistemas
- + Muchos de los estados de arte han sido implementados usando C
- + A día de hoy muchos de los populares Sistemas Operativos Linux o bases de datos como MySQL han sido escritos en C
+   + C fue inventado para escribir un sistema operativo llamado UNIX
+   + C es un sucesor del lenguaje B el cual fue introducido sobre los tempranos 1970
+   + El lenguaje fue formalizado en 1988 por el Instituto Nacional Americano de Estándares (ANSI)
+   + El sistema operativo UNIX está totalmente escrito en C
+   + A día de hoy C es el lenguaje más usado y popular como Lenguaje de Sistemas
+   + Muchos de los estados de arte han sido implementados usando C
+   + A día de hoy muchos de los populares Sistemas Operativos Linux o bases de datos como MySQL han sido escritos en C
 
 ** Por qué usar C
 
-C fue inicialmente usado para el trabajo de desarrollo de sistemas, particularmente la programación de sistemas operativos. C fue adoptado como un lenguaje de desarrollo de sistemas porque producía código que corría casi tan rápido como código escrito en lenguaje ensamblador. Algunos ejemplos de uso de C podrían ser - 
+   C fue inicialmente usado para el trabajo de desarrollo de sistemas, particularmente la programación de sistemas operativos. C fue adoptado como un lenguaje de desarrollo de sistemas porque producía código que corría casi tan rápido como código escrito en lenguaje ensamblador. Algunos ejemplos de uso de C podrían ser - 
 
-+ Sistemas Operativos 
-+ Compiladores de Lenguajes
-+ Ensambladores
-+ Editores de texto
-+ Gestores de impresión
-+ Controladores de Red
-+ Programas modernos
-+ Bases de datos
-+ Lenguajes interpretados
-+ Utilidades
+   + Sistemas Operativos 
+   + Compiladores de Lenguajes
+   + Ensambladores
+   + Editores de texto
+   + Gestores de impresión
+   + Controladores de Red
+   + Programas modernos
+   + Bases de datos
+   + Lenguajes interpretados
+   + Utilidades
 
 ** Programas en C
 
-Un programa en C puede variar desde 3 líneas a millones de líneas y puede ser escrito en una o más ficheros de texto con la extensión *".c"*; por ejemplo, /hello.c/. Podemos usar "vi", "vim" o cualquier editor de texto para escribir tu programa C en un archivo.
+   Un programa en C puede variar desde 3 líneas a millones de líneas y puede ser escrito en una o más ficheros de texto con la extensión *".c"*; por ejemplo, /hello.c/. Podemos usar "vi", "vim" o cualquier editor de texto para escribir tu programa C en un archivo.
 
-Este tutorial asume que conoces como editar un fichero de texto y escribir código fuente en un archivo de programa. 
+   Este tutorial asume que conoces como editar un fichero de texto y escribir código fuente en un archivo de programa. 
 
 * C - Configurando el entorno
 
-Si queremos configurar nuestro entorno de para programar en el lenguaje C, necesitamos las dos siguientes herramientas de software en nuestro computador; un Editor y el Compilador de C.
+  Si queremos configurar nuestro entorno de para programar en el lenguaje C, necesitamos las dos siguientes herramientas de software en nuestro computador; un Editor y el Compilador de C.
 
 ** Editor de texto
 
-Será usado para escribir nuestro programa. Ejemplos de algunos editores incluyen Windows Notepad, OS Edit command, Brief, Epsilon, EMACS, y vim o vi. 
+   Será usado para escribir nuestro programa. Ejemplos de algunos editores incluyen Windows Notepad, OS Edit command, Brief, Epsilon, EMACS, y vim o vi. 
 
-El nombre y la versión del editor de texto puede variar en diferentes sistemas operativos. Por ejemplo, Notepad será usado en Windows, y vim o vi puede ser usado en windows y también en Linux o UNIX.
+   El nombre y la versión del editor de texto puede variar en diferentes sistemas operativos. Por ejemplo, Notepad será usado en Windows, y vim o vi puede ser usado en windows y también en Linux o UNIX.
 
-Los archivos que creemos con el editor de texto son llamados archivos fuente y ellos contienen los códigos fuente. Los archivos fuente para los programas C son típicamente nombrados con la extensión *".c"*. 
+   Los archivos que creemos con el editor de texto son llamados archivos fuente y ellos contienen los códigos fuente. Los archivos fuente para los programas C son típicamente nombrados con la extensión *".c"*. 
 
-Antes de empezar nuestro programa, tendremos que estar seguro que usamos un editor de texto con el cual tendremos suficiente experiencia para escribir programas, salvarlos, compilarlos y finalmente ejecutarlos.
+   Antes de empezar nuestro programa, tendremos que estar seguro que usamos un editor de texto con el cual tendremos suficiente experiencia para escribir programas, salvarlos, compilarlos y finalmente ejecutarlos.
 
 ** El compilador C
 
-El código fuente escrito en el archivo fuente es la fuente humanamente leíble para nuestro programa. Pero necesita ser "compilado", en lenguaje máquina para que nuestra CPU puede realmente ejecutar el programa. 
+   El código fuente escrito en el archivo fuente es la fuente humanamente leíble para nuestro programa. Pero necesita ser "compilado", en lenguaje máquina para que nuestra CPU puede realmente ejecutar el programa. 
 
-El compilador compila el código fuente en el programa ejecutable final. El compilador más frecuentemente usado y de libre acceso es el compilador de GNU C/C++, en caso distinto tenemos los compiladores de HP o Solaris si tenemos los sistemas operativos respectivos. 
+   El compilador compila el código fuente en el programa ejecutable final. El compilador más frecuentemente usado y de libre acceso es el compilador de GNU C/C++, en caso distinto tenemos los compiladores de HP o Solaris si tenemos los sistemas operativos respectivos. 
 
-En la sección siguiente explicaremos como instalar el compilador GNU C/C++ en varios Sistemas Operativos. Mencionamos juntos C/C++ porque el compilador GNU Gcc funciona para ambos lenguajes. 
+   En la sección siguiente explicaremos como instalar el compilador GNU C/C++ en varios Sistemas Operativos. Mencionamos juntos C/C++ porque el compilador GNU Gcc funciona para ambos lenguajes. 
 
 ** Instalación en UNIX/Linux
 
-Si estás usando *Linux o UNIX*, entonces comprobaremos si GCC está instalado en el sistema introduciendo el siguiente comando  - 
+   Si estás usando *Linux o UNIX*, entonces comprobaremos si GCC está instalado en el sistema introduciendo el siguiente comando  - 
 
-: $ gcc -v
+   : $ gcc -v
 
-Si el compilador  está instalado, entonces imprimirá el siguiente mensaje - 
+   Si el compilador  está instalado, entonces imprimirá el siguiente mensaje - 
 
-#+BEGIN_SRC shell
-Using built-in specs.
-Target: i386-redhat-linux
-Configured with: ../configure --prefix=/user ......
-Thread model: posix
-gcc version 4.1.2 200080704 (Red Hat 4.1.2-46)
-#+END_SRC
+   #+BEGIN_SRC shell
+     Using built-in specs.
+     Target: i386-redhat-linux
+     Configured with: ../configure --prefix=/user ......
+     Thread model: posix
+     gcc version 4.1.2 200080704 (Red Hat 4.1.2-46)
+   #+END_SRC
 
-Si GCC no está instalado, entonces tendremos que instalarlo por nosotros mismos usando las detalladas instrucciones disponibles en [[https://gcc.gnu.org/install/][la página de gcc]]. 
+   Si GCC no está instalado, entonces tendremos que instalarlo por nosotros mismos usando las detalladas instrucciones disponibles en [[https://gcc.gnu.org/install/][la página de gcc]]. 
 
-Este tutorial ha sido escrito basado en Linux y todos los ejemplos han sido compilados  en la distribución Cent OS del sistema Linux.
+   Este tutorial ha sido escrito basado en Linux y todos los ejemplos han sido compilados  en la distribución Cent OS del sistema Linux.
 
 ** Instalación en Mac OS
 
-Si usas un Mac OS X, la forma más sencilla de obtener GCC es descargándose el entorno de desarrollo Xcode desde la página de Apple y seguir las instrucciones. Una vez hayas configurado Xcode, serás capaz de usar el Compilador GNU C/C++.
+   Si usas un Mac OS X, la forma más sencilla de obtener GCC es descargándose el entorno de desarrollo Xcode desde la página de Apple y seguir las instrucciones. Una vez hayas configurado Xcode, serás capaz de usar el Compilador GNU C/C++.
 
 ** Instalación en Windows
 
-Para instalar GCC en Windows, se necesita instalar MinGW. Para instalar MinGW, es necesario ir a su [[http://www.mingw.org/][página]], y seguir el enlace a su página de descarga.
+   Para instalar GCC en Windows, se necesita instalar MinGW. Para instalar MinGW, es necesario ir a su [[http://www.mingw.org/][página]], y seguir el enlace a su página de descarga.
 
-Mientras se instala Min GW, al mínimo, se debe instalar gcc-core, gcc-g++, binutils, y el MinGW runtime, pero se podrían instalar más cosas.
+   Mientras se instala Min GW, al mínimo, se debe instalar gcc-core, gcc-g++, binutils, y el MinGW runtime, pero se podrían instalar más cosas.
 
-Añadiremos el subdirectorio *bin* de la instalación a la variable *PATH*, así como especificar las herramientas a usar. 
+   Añadiremos el subdirectorio *bin* de la instalación a la variable *PATH*, así como especificar las herramientas a usar. 
 
-Después de que la instalación se haya completado, serás capaz de ejecutar gcc, g++, ranlib, diltool y varias otras herramientas de GNU en la línea de Comandos de Windows.
+   Después de que la instalación se haya completado, serás capaz de ejecutar gcc, g++, ranlib, diltool y varias otras herramientas de GNU en la línea de Comandos de Windows.
 
 * C - Estructura del programa
 
-Antes de que estudiemos los bloques básicos del programa C, echemos un ojo la estructura mínima de un programa en C que tomaremos de referencia en los siguientes capítulos. 
+  Antes de que estudiemos los bloques básicos del programa C, echemos un ojo la estructura mínima de un programa en C que tomaremos de referencia en los siguientes capítulos. 
 
 ** Ejemplo - Hola Mundo - 
 
-Un programa en C básicamente consiste de las siguientes partes - 
+   Un programa en C básicamente consiste de las siguientes partes - 
 
-+ Comandos de preprocesado
-+ Funciones
-+ Variables
-+ Declaraciones y expresiones
-+ Comentarios
+   + Comandos de preprocesado
+   + Funciones
+   + Variables
+   + Declaraciones y expresiones
+   + Comentarios
 
-Echemos un vistazo a un simple código que puede dibujar las palabras "Hola Mundo" -  
+   Echemos un vistazo a un simple código que puede dibujar las palabras "Hola Mundo" -  
 
-#+BEGIN_SRC C
-  #include <stdio.h>
+   #+BEGIN_SRC C
+     #include <stdio.h>
 
-  int main() {
-    /* mi primer programa en C*/
-    printf("Hola, Mundo! \n");
+     int main() {
+       /* mi primer programa en C*/
+       printf("Hola, Mundo! \n");
 
-    return 0
-      }
-#+END_SRC
+       return 0
+	 }
+   #+END_SRC
 
-Veamos las  distintas partes del programa - 
+   Veamos las  distintas partes del programa - 
 
-+ La primera línea del programa #include<stdio.h> es  un comando preprocesador, el cual le dice al compilador de C incluir stdio.h antes de empezar a compilar. 
+   * La primera línea del programa *#include<stdio.h>* es  un comando preprocesador, el cual le dice al compilador de C incluir stdio.h antes de empezar a compilar. 
 
-+ La siguiente línea /main()/ es la función principal donde la ejecución del programa comienza.
+   * La siguiente línea /main()/ es la función principal donde la ejecución del programa comienza.
 
-+ la siguiente línea /*..*/ será ignorada por el compilador y se usará para poner comentarios en el programa. Tales líneas son llamadas  comentarios en el programa.
+   * la siguiente línea /*..*/ será ignorada por el compilador y se usará para poner comentarios en el programa. Tales líneas son llamadas  comentarios en el programa.
 
-+ La próxima línea /printf(...)/ es otra función disponible en C la cual causa que el mensaje "Hola Mundo!" sea mostrado en la pantalla. 
+   * La próxima línea /printf(...)/ es otra función disponible en C la cual causa que el mensaje "Hola Mundo!" sea mostrado en la pantalla. 
 
-+ La siguiente línea *return 0*; termina la función main() y devuelve el valor 0.
+   * La siguiente línea *return 0*; termina la función main() y devuelve el valor 0.
 
 ** Compilando y ejecutando el programa C
 
-Vamos a ver cómo salvar el código fuente en un archivo, como compilarlo y ejecutarlo. Siguiendo unos simples pasos - 
+   Vamos a ver cómo salvar el código fuente en un archivo, como compilarlo y ejecutarlo. Siguiendo unos simples pasos - 
 
-+ Abrir el editor de texto y añadir el código antes mencionado
+   * Abrir el editor de texto y añadir el código antes mencionado
 
-+ Salvar el archivo como hola.c
+   * Salvar el archivo como hola.c
 
-+ Abrir una consola de comandos e ir al directorio donde se ha salvado el archivo
+   * Abrir una consola de comandos e ir al directorio donde se ha salvado el archivo
 
-+ Escribir gcc hola.c y presionar intro para compilar el código
+   * Escribir gcc hola.c y presionar intro para compilar el código
 
-+ si no hay errores en el código, la línea de comandos generará un fichero ejecutable a.out
+   * si no hay errores en el código, la línea de comandos generará un fichero ejecutable a.out
 
-+ Ahora, escribimos a.out para ejecutar el programa
+   * Ahora, escribimos a.out para ejecutar el programa
 
-+ Veremos la salida "Hola Mundo" dibujado en la pantalla
+   * Veremos la salida "Hola Mundo" dibujado en la pantalla
 
-: $ gcc hello.c
-: $ ./a.out
-: Hola Mundo!
+   : $ gcc hello.c
+   : $ ./a.out
+   : Hola Mundo!
 
 * C - Sintáxis básica 
 
-Hemos visto la estructura de un programa C, así que será fácil entender otros bloques de construcción del lenguaje C. 
+  Hemos visto la estructura de un programa C, así que será fácil entender otros bloques de construcción del lenguaje C. 
 
 ** Tokens en C
 
-Un programa en C consiste en varios tokens y un token puede ser una palabra clave, un identificador, una constante, una cadena de texto, o un símbolo. Por ejemplo, la siguiente declaración consiste de cinco tokens. - 
+   Un programa en C consiste en varios tokens y un token puede ser una palabra clave, un identificador, una constante, una cadena de texto, o un símbolo. Por ejemplo, la siguiente declaración consiste de cinco tokens. - 
 
-#+BEGIN_SRC C
-printf("Hola Mundo! \n");
-#+END_SRC
+   #+BEGIN_SRC C
+     printf("Hola Mundo! \n");
+   #+END_SRC
 
-Los tokens individuales son - 
+   Los tokens individuales son - 
 
-#+BEGIN_SRC C
-printf
-(
-"Hola Mundo! \n"
-)
-;
-#+END_SRC
+   #+BEGIN_SRC C
+     printf
+     (
+      "Hola Mundo! \n"
+      )
+     ;
+   #+END_SRC
 
 ** Punto y coma
 
-En un programa C, el punto y coma es una declaración de fin. Eso es, cada declaración individual debe ser terminada con una punto y coma. Ello indica el final de una entidad lógica.
+   En un programa C, el punto y coma es una declaración de fin. Eso es, cada declaración individual debe ser terminada con una punto y coma. Ello indica el final de una entidad lógica.
 
-Aquí vemos dos declaraciones diferentes - 
+   Aquí vemos dos declaraciones diferentes - 
 
-#+BEGIN_SRC C
-printf("Hola, Mundo! \n");
-return 0;
-#+END_SRC
+   #+BEGIN_SRC C
+     printf("Hola, Mundo! \n");
+     return 0;
+   #+END_SRC
 
 ** Comentarios
 
-Los comentarios son como textos de ayuda  en el programa y son ignorados por el compilador. Empiezan con /* y terminan con */ tal como se muestra a continuación.
+   Los comentarios son como textos de ayuda  en el programa y son ignorados por el compilador. Empiezan con /* y terminan con */ tal como se muestra a continuación.
 
-#+BEGIN_SRC C
-/* mi primer programa en C */
-#+END_SRC
+   #+BEGIN_SRC C
+     /* mi primer programa en C */
+   #+END_SRC
 
-No podemos tener comentarios dentro de comentarios y no pueden ocurrir con una cadena de caracteres.
+   No podemos tener comentarios dentro de comentarios y no pueden ocurrir con una cadena de caracteres.
 
 ** Identificadores 
 
-Un identificador en C es un nombre usado para identificar una variable, función, o cualquier otro item definido por el usuario. Un identificador empiezar con unal letra de la A a la Z, mayúsculo o minúscula o un guíon bajo '_' seguido por cero o más letras, guiones bajos y dígitos (de 0 a 9).
+   Un identificador en C es un nombre usado para identificar una variable, función, o cualquier otro item definido por el usuario. Un identificador empiezar con unal letra de la A a la Z, mayúsculo o minúscula o un guíon bajo '_' seguido por cero o más letras, guiones bajos y dígitos (de 0 a 9).
 
-C no permite caracteres de puntuación tales como @, $, y % en los identificadores. C es sensible a mayúsculas y minúsculas. Por lo que, Manpower y manpower son dos identificadores distintos en C. Aquí hay algunos ejemplos de identificadores aceptables - 
+   C no permite caracteres de puntuación tales como @, $, y % en los identificadores. C es sensible a mayúsculas y minúsculas. Por lo que, Manpower y manpower son dos identificadores distintos en C. Aquí hay algunos ejemplos de identificadores aceptables - 
 
-: mohd  zara abc move_name a_123
-: myname50 _temp j a23b9 retVal
+   : mohd  zara abc move_name a_123
+   : myname50 _temp j a23b9 retVal
 
 ** Palabras clave
 
-Las siguiente lista muestra las palabras reservadas en C. Esas palabras reservadas no deben ser usadas como constantes o variables o cualquier nombre de identificador. 
+   Las siguiente lista muestra las palabras reservadas en C. Esas palabras reservadas no deben ser usadas como constantes o variables o cualquier nombre de identificador. 
 
 
-| auto     | else   | long     | switch   |
-| break    | enum   | register | typedef  |
-| case     | extern | return   | union    |
-| char     | float  | short    | unsigned |
-| const    | for    | signed   | void     |
-| continue | goto   | sizeof   | volatile |
-| default  | if     | static   | while    |
-| do       | int    | struct   | _Packed  |
-| double   |        |          |          |
+   | auto     | else   | long     | switch   |
+   | break    | enum   | register | typedef  |
+   | case     | extern | return   | union    |
+   | char     | float  | short    | unsigned |
+   | const    | for    | signed   | void     |
+   | continue | goto   | sizeof   | volatile |
+   | default  | if     | static   | while    |
+   | do       | int    | struct   | _Packed  |
+   | double   |        |          |          |
 
 
 ** Espacios en blanco en C
 
-Una línea conteniendo solo espacios en blanco, posiblemente con un comentario, es conocida como línea en blanco y el compilador de C la ignora.
+   Una línea conteniendo solo espacios en blanco, posiblemente con un comentario, es conocida como línea en blanco y el compilador de C la ignora.
 
-Los espacios en blanco es el termino usado en C para describir espacio en blanco, tabulador, carácter de nueva línea y comentarios. Los espacios en blanco separa una parte de una declaración de otra y habilita al compilador a identificar donde un elemento en una declaración, tal como entero, finaliza y comienza el siguiente elemento.
+   Los espacios en blanco es el termino usado en C para describir espacio en blanco, tabulador, carácter de nueva línea y comentarios. Los espacios en blanco separa una parte de una declaración de otra y habilita al compilador a identificar donde un elemento en una declaración, tal como entero, finaliza y comienza el siguiente elemento.
 
-Por lo tanto, en la siguiente declaración - 
+   Por lo tanto, en la siguiente declaración - 
 
-: int edad;
+   : int edad;
 
-debe haber al menos un espacio en blanco (normalmente un espacio) entre int y edad para que el compilador sea capaz de distinguirlos. Por otro lado, en la siguiente declaración - 
+   debe haber al menos un espacio en blanco (normalmente un espacio) entre int y edad para que el compilador sea capaz de distinguirlos. Por otro lado, en la siguiente declaración - 
 
-: frutas = manzanas + naranjas; //  obtener el total de frutas
+   : frutas = manzanas + naranjas; //  obtener el total de frutas
 
-Los espacios en blanco no son necesarios entre fruta y el símbolo =, o entre el = y las manzanas, además somos libres de incluir alguno más si deseamos mayor legibilidad. 
+   Los espacios en blanco no son necesarios entre fruta y el símbolo =, o entre el = y las manzanas, además somos libres de incluir alguno más si deseamos mayor legibilidad. 
 
 * C - Tipos de datos 
 
-Los tipos de datos en C se refieren a un extensivo sistema usado para declarar variables o funciones de diferentes tipos. El tipo de variable determina cuanto espacio ocupará en memoria y como será el patrón de bits guardados interpretados. 
+  Los tipos de datos en C se refieren a un extensivo sistema usado para declarar variables o funciones de diferentes tipos. El tipo de variable determina cuanto espacio ocupará en memoria y como será el patrón de bits guardados interpretados. 
 
-Los tipos en C puede ser clasificados de las siguiente manera - 
+  Los tipos en C puede ser clasificados de las siguiente manera - 
 
-| Sr.No. | Tipos            | Descripción                                                                                             |
-|      1 | Tipos básicos    | Son tipos aritméticos y clasificados en: enteros y comas flotante.                                      |
-|      2 | Tipos enumerados | También son tipos aritméticos y son usados para definir variables que solo pueden ser valores discretos |
-|      3 | El tipo vacío    | El tipo vacío especifica que no tienen ningún valor                                                     |
-|      4 | Tipos derivados  | Incluyen punteros, arrays, estructuras, uniones y funciones                                             |
+  | Sr.No. | Tipos            | Descripción                                                                                             |
+  |      1 | Tipos básicos    | Son tipos aritméticos y clasificados en: enteros y comas flotante.                                      |
+  |      2 | Tipos enumerados | También son tipos aritméticos y son usados para definir variables que solo pueden ser valores discretos |
+  |      3 | El tipo vacío    | El tipo vacío especifica que no tienen ningún valor                                                     |
+  |      4 | Tipos derivados  | Incluyen punteros, arrays, estructuras, uniones y funciones                                             |
 
 
-Los arrays y las estructuras son referidos colectivamente como tipos agregados. Los tipos funciones especifican un tipo que devuelve la función. Veremos los tipos básicos en la siguiente sección, donde como otros tipos serán cubiertos en sucesivos capítulos. 
+  Los arrays y las estructuras son referidos colectivamente como tipos agregados. Los tipos funciones especifican un tipo que devuelve la función. Veremos los tipos básicos en la siguiente sección, donde como otros tipos serán cubiertos en sucesivos capítulos. 
 
 ** Tipos Enteros
 
-La siguiente tabla proporciona los detalles de los tipos enteros estándar con sus tamaños y rangos de valor - 
+   La siguiente tabla proporciona los detalles de los tipos enteros estándar con sus tamaños y rangos de valor - 
 
-| Tipo           | Tamaño      | Rango                                             |
-|----------------+-------------+---------------------------------------------------|
-| char           | 1 byte      | -128 a 127 o 0 a 255                              |
-| unsigned char  | 1 byte      | 0 a 255                                           |
-| signed char    | 1 byte      | -128 a 127                                        |
-| int            | 2 o 4 bytes | -32,768 a 32,768 o -2,147,483,648 a 2,147,483,647 |
-| unsigned it    | 2 o 4 bytes | 0 a 65,535 o 0 a 4,294,967,285                    |
-| short          | 2 bytes     | -32,768 a 32,767                                  |
-| unsigned short | 2 bytes     | 0 a 65,535                                        |
-| long           | 8 bytes     | -9223372036854775808 a 9223372036854775807        |
-| unsigned long  | 8 bytes     | 0 a 18446744073709551815                          |
+   | Tipo           | Tamaño      | Rango                                             |
+   |----------------+-------------+---------------------------------------------------|
+   | char           | 1 byte      | -128 a 127 o 0 a 255                              |
+   | unsigned char  | 1 byte      | 0 a 255                                           |
+   | signed char    | 1 byte      | -128 a 127                                        |
+   | int            | 2 o 4 bytes | -32,768 a 32,768 o -2,147,483,648 a 2,147,483,647 |
+   | unsigned it    | 2 o 4 bytes | 0 a 65,535 o 0 a 4,294,967,285                    |
+   | short          | 2 bytes     | -32,768 a 32,767                                  |
+   | unsigned short | 2 bytes     | 0 a 65,535                                        |
+   | long           | 8 bytes     | -9223372036854775808 a 9223372036854775807        |
+   | unsigned long  | 8 bytes     | 0 a 18446744073709551815                          |
 
 
-Para obtener exactamente el tamaño de un tipo de variable en una plataforma en particular, podemos usar el operador *sizeof*. La expresión /sizeof(type)/ produce el tamaño del objeto o tipo en bytes. Veremos un ejemplo para obtener el tamaño de varios tipos en una computadora usando diferentes constantes definidos en el archivo limits.h
+   Para obtener exactamente el tamaño de un tipo de variable en una plataforma en particular, podemos usar el operador *sizeof*. La expresión /sizeof(type)/ produce el tamaño del objeto o tipo en bytes. Veremos un ejemplo para obtener el tamaño de varios tipos en una computadora usando diferentes constantes definidos en el archivo limits.h
 
 
 *** Demo 
 
-#+BEGIN_SRC C
-  #include <stdio.h>
-  #include <stdlib.h>
-  #include <limits.h>
-  #include <float.h>
+    #+BEGIN_SRC C
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <limits.h>
+      #include <float.h>
 
-  int main(int argc, char** argv) {
+      int main(int argc, char** argv) {
 
-    printf("CHAR_BIT    :    %d\n", CHAR_BIT);
-    printf("CHAR_MAX    :    %d\n", CHAR_MAX);
-    printf("CHAR_MIN    :    %d\n", CHAR_MIN);
-    printf("INT_MAX     :    %d\n", INT_MAX);
-    printf("INT_MIN     :    %d\n", INT_MIN);
-    printf("LONG_MAX    :    %ld\n", (long) LONG_MAX);
-    printf("LONG_MIN    :    %ld\n", (long) LONG_MIN);
-    printf("SCHAR_MAX   :    %d\n", SCHAR_MAX);
-    printf("SCHAR_MIN   :    %d\n", SCHAR_MIN);
-    printf("SHRT_MAX    :    %d\n", SHRT_MAX);
-    printf("SHRT_MIN    :    %d\n", SHRT_MIN);
-    printf("UCHART_MAX  :    %d\n", UCHART_MAX);
-    printf("UINT_MAX    :    %u\n", (unsigned int) UINT_MAX);
-    printf("ULONG_MAX   :    %lu\n", (unsigned long) ULONG_MAX);
-   printf("USHRT_MAX   :    %d\n", (unsigned short) USHRT_MAX);
+	printf("CHAR_BIT    :    %d\n", CHAR_BIT);
+	printf("CHAR_MAX    :    %d\n", CHAR_MAX);
+	printf("CHAR_MIN    :    %d\n", CHAR_MIN);
+	printf("INT_MAX     :    %d\n", INT_MAX);
+	printf("INT_MIN     :    %d\n", INT_MIN);
+	printf("LONG_MAX    :    %ld\n", (long) LONG_MAX);
+	printf("LONG_MIN    :    %ld\n", (long) LONG_MIN);
+	printf("SCHAR_MAX   :    %d\n", SCHAR_MAX);
+	printf("SCHAR_MIN   :    %d\n", SCHAR_MIN);
+	printf("SHRT_MAX    :    %d\n", SHRT_MAX);
+	printf("SHRT_MIN    :    %d\n", SHRT_MIN);
+	printf("UCHART_MAX  :    %d\n", UCHART_MAX);
+	printf("UINT_MAX    :    %u\n", (unsigned int) UINT_MAX);
+	printf("ULONG_MAX   :    %lu\n", (unsigned long) ULONG_MAX);
+	printf("USHRT_MAX   :    %d\n", (unsigned short) USHRT_MAX);
 
-   return 0;
-  }
-#+END_SRC
+	return 0;
+      }
+    #+END_SRC
 
-Cuando compilemos y ejecutemos el programa, producirá el siguiente resultado en Linux - 
+    Cuando compilemos y ejecutemos el programa, producirá el siguiente resultado en Linux - 
 
-#+BEGIN_SRC 
+    #+BEGIN_SRC 
 CHAR_BIT    :   8
 CHAR_MAX    :   127
 CHAR_MIN    :   -128
@@ -335,1060 +335,1060 @@ UCHAR_MAX   :   255
 UINT_MAX    :   4294967295
 ULONG_MAX   :   18446744073709551615
 USHRT_MAX   :   65535
-#+END_SRC
+    #+END_SRC
 
 
 ** Tipos Coma flotante
 
-La siguiente tabla proporciona los detalles de los tipos comas flotante estándar  con sus tamaños y los valores de sus rangos y su precisión - 
+   La siguiente tabla proporciona los detalles de los tipos comas flotante estándar  con sus tamaños y los valores de sus rangos y su precisión - 
 
-| Tipo        | Tamaño  | Rango                 | Precisión     |
-|-------------+---------+-----------------------+---------------|
-| float       | 4 byte  | 1.2E-38 a 3.4E+38     | 6 decimales   |
-| double      | 8 byte  | 2.3E-308 a 1.7E+308   | 15 decimales  |
-| long double | 10 byte | 3.4E-4932 a 1.1E+4932 | 19  decimales |
+   | Tipo        | Tamaño  | Rango                 | Precisión     |
+   |-------------+---------+-----------------------+---------------|
+   | float       | 4 byte  | 1.2E-38 a 3.4E+38     | 6 decimales   |
+   | double      | 8 byte  | 2.3E-308 a 1.7E+308   | 15 decimales  |
+   | long double | 10 byte | 3.4E-4932 a 1.1E+4932 | 19  decimales |
 
-El fichero de cabecera float.h  define las macros que nos permite usar esas variables y otros detalles sobre la representación en binario de los números reales en nuestros programas. El siguiente ejemplo dibuja el espacio de guardado que toma los tipo coma flotante y su rango de valores. 
+   El fichero de cabecera float.h  define las macros que nos permite usar esas variables y otros detalles sobre la representación en binario de los números reales en nuestros programas. El siguiente ejemplo dibuja el espacio de guardado que toma los tipo coma flotante y su rango de valores. 
 
---Demo 
+   --Demo 
 
-#+BEGIN_SRC C
-  #include <stdio.h>
-  #include <stdlib.h>
-  #include <limits.h> 
-  #include <float.h>
+   #+BEGIN_SRC C
+     #include <stdio.h>
+     #include <stdlib.h>
+     #include <limits.h> 
+     #include <float.h>
 
-  int main(int argc, char*** argv) {
+     int main(int argc, char*** argv) {
 
-    printf("Espacio para el punto flotante: %d \n", sizeof(float));
-    printf("FLT_MAX     :   %g\n", (float) FLT_MAX);
-    printf("FLT_MIN     :   %g\n", (float) FLT_MIN);
-    printf("-FLT_MAX    :   %g\n", (float) -FLT_MAX);
-    printf("-FLT_MIN    :   %g\n", (float) -FLT_MIN);
-    printf("DBL_MAX     :   %g\n", (double) DBL_MAX);
-    printf("DBL_MIN     :   %g\n", (double) DBL_MIN);
-    printf("-DBL_MAX     :  %g\n", (double) -DBL_MAX);
-    printf("Valor de precisión: %d\n", FLT_DIG );
+       printf("Espacio para el punto flotante: %d \n", sizeof(float));
+       printf("FLT_MAX     :   %g\n", (float) FLT_MAX);
+       printf("FLT_MIN     :   %g\n", (float) FLT_MIN);
+       printf("-FLT_MAX    :   %g\n", (float) -FLT_MAX);
+       printf("-FLT_MIN    :   %g\n", (float) -FLT_MIN);
+       printf("DBL_MAX     :   %g\n", (double) DBL_MAX);
+       printf("DBL_MIN     :   %g\n", (double) DBL_MIN);
+       printf("-DBL_MAX     :  %g\n", (double) -DBL_MAX);
+       printf("Valor de precisión: %d\n", FLT_DIG );
 
-    return 0;
+       return 0;
 
-  }
-#+END_SRC
+     }
+   #+END_SRC
 
-Cuando ejecutemos el programa obtendremos el siguiente resultado en Linux - 
+   Cuando ejecutemos el programa obtendremos el siguiente resultado en Linux - 
 
-#+BEGIN_SRC
-Espacio para el punto flotante: 4 
-FLT_MAX      :   3.40282e+38
-FLT_MIN      :   1.17549e-38
--FLT_MAX     :   -3.40282e+38
--FLT_MIN     :   -1.17549e-38
-DBL_MAX      :   1.79769e+308
-DBL_MIN      :   2.22507e-308
--DBL_MAX     :  -1.79769e+308
-Valor de precisión: 6
-#+END_SRC
+
+   : Espacio para el punto flotante: 4 
+   : FLT_MAX      :   3.40282e+38
+   : FLT_MIN      :   1.17549e-38
+   : -FLT_MAX     :   -3.40282e+38
+   : -FLT_MIN     :   -1.17549e-38
+   : DBL_MAX      :   1.79769e+308
+   : DBL_MIN      :   2.22507e-308
+   : -DBL_MAX     :  -1.79769e+308
+   : Valor de precisión: 6
+
 
 ** El tipo void
 
-El tipo void especifica que ningún valor está disponible. Es usado en tres tipos de situaciones - 
+   El tipo void especifica que ningún valor está disponible. Es usado en tres tipos de situaciones - 
 
-+ La función devuelve void. 
-  Hay varias funciones en C las cuales no devuelven ningún valor o que podemos decir que devuelvan void. Una función con ningún valor de retorno tiene el tipo de retorno como void. Por ejemplo *void exit(int status);* 
+   * La función devuelve void. 
+     Hay varias funciones en C las cuales no devuelven ningún valor o que podemos decir que devuelvan void. Una función con ningún valor de retorno tiene el tipo de retorno como void. Por ejemplo *void exit(int status);* 
 
-+ Argumento de función como void. 
-Hay varias funciones en C las cuales no aceptan ningún parámetro. Una función sin ningún parámetro puede aceptar un void. Por ejemplo *int rand(void);* 
+   * Argumento de función como void. 
+   Hay varias funciones en C las cuales no aceptan ningún parámetro. Una función sin ningún parámetro puede aceptar un void. Por ejemplo *int rand(void);* 
 
-+ Punteros a void. 
-Un puntero de tipo void representa la dirección de un objeto, pero no su tipo. Por ejemplo, una función de asiganción *void \*malloc( size_t size);* devuelve un puntero a void el cual puede ser referenciado a cualquier tipo de dato.
+   * Punteros a void. 
+   Un puntero de tipo void representa la dirección de un objeto, pero no su tipo. Por ejemplo, una función de asignación *void \*malloc( size_t size);* devuelve un puntero a void el cual puede ser referenciado a cualquier tipo de dato.
 * C - Variables
 
-Una variable no es nada más que un nombre que se le da a un área de almacenamiento que nuestro programa puede manipular. Cada variable en C tiene un tipo específico, el cual determina el tamaño la capa de la variable de memoria; el ragon de valores que puede ser guardado en esa memoria; y el conjunto de operaciones que pueden ser aplicadas a la variable.
+  Una variable no es nada más que un nombre que se le da a un área de almacenamiento que nuestro programa puede manipular. Cada variable en C tiene un tipo específico, el cual determina el tamaño la capa de la variable de memoria; el ragon de valores que puede ser guardado en esa memoria; y el conjunto de operaciones que pueden ser aplicadas a la variable.
 
-El nombre de una variable puede estar compuesto de letras, dígitos, y guiones bajos. Deben empezar por una letra o un guión bajo. C distingue entre letras mayúsculas y minúsculas ya que C es case-sensitivo. Basandose en los tipos básicos explicados en el capítulo anterior, veremos los siguientes tipos de variables. 
+  El nombre de una variable puede estar compuesto de letras, dígitos, y guiones bajos. Deben empezar por una letra o un guión bajo. C distingue entre letras mayúsculas y minúsculas ya que C es case-sensitivo. Basandose en los tipos básicos explicados en el capítulo anterior, veremos los siguientes tipos de variables. 
 
-| Nº | Tipo     | Descripción                                          |
-|----+----------+------------------------------------------------------|
-|  1 | Caracter | Típicamente un octeto (un byte). Es un tipo entero   |
-|  2 | Entero   | El tipo más natural de tamaño entero para la máquina |
-|  3 | Flotante | Un simple precisión flotante Valor                   |
-|  4 | double   | Una doble precisión flotante valor                   |
-|  5 | void     | Representa la ausencia de tipo                       |
+  | Nº | Tipo     | Descripción                                          |
+  |----+----------+------------------------------------------------------|
+  |  1 | Caracter | Típicamente un octeto (un byte). Es un tipo entero   |
+  |  2 | Entero   | El tipo más natural de tamaño entero para la máquina |
+  |  3 | Flotante | Un simple precisión flotante Valor                   |
+  |  4 | double   | Una doble precisión flotante valor                   |
+  |  5 | void     | Representa la ausencia de tipo                       |
 
-El lenguaje C también permite definir otros varios tipos de variables, las cuales serán cubiertas en los subsecuentes capítulos como Enumeración, Punteros, Arrays, Estructuras, Uniones, etc. Por este capítulo, vamos a estudiar solo los tipos básicos.
+  El lenguaje C también permite definir otros varios tipos de variables, las cuales serán cubiertas en los subsecuentes capítulos como Enumeración, Punteros, Arrays, Estructuras, Uniones, etc. Por este capítulo, vamos a estudiar solo los tipos básicos.
 
 ** Definición de variable en C 
 
-Una definición de variable le dice al compilador donde y cuanto de grande es el almacenamiento por crear para la variable. La definición de variable especifica un tipo de dato y contiene una lista de uno o más variables de esos tipos, como sigue -- 
+   Una definición de variable le dice al compilador donde y cuanto de grande es el almacenamiento por crear para la variable. La definición de variable especifica un tipo de dato y contiene una lista de uno o más variables de esos tipos, como sigue -- 
 
-: tipo lista_de_variables;
+   : tipo lista_de_variables;
 
-Aquí *tipo* debe ser un dato C válido incluyendo char, w_char, int, float, double, bool, o cualquier tipo de objeto definido por el usuario; una *lista_de_variables* que consistirá en uno o más nombres identificadores separados por comas. Algunas declaraciones válidas son mostradas aquí - 
+   Aquí *tipo* debe ser un dato C válido incluyendo char, w_char, int, float, double, bool, o cualquier tipo de objeto definido por el usuario; una *lista_de_variables* que consistirá en uno o más nombres identificadores separados por comas. Algunas declaraciones válidas son mostradas aquí - 
 
 
-#+BEGIN_SRC C
-int i, j, k;
-char c, ch;
-float f, salario;
-double d;
+   #+BEGIN_SRC C
+     int i, j, k;
+     char c, ch;
+     float f, salario;
+     double d;
 
-#+END_SRC
+   #+END_SRC
 
-En la primera línea declaramos las variables i,j y k; las cuales le damos las instrucciones al compilador el crear variables llamadas i,j y k del tipo entero.
+   En la primera línea declaramos las variables i,j y k; las cuales le damos las instrucciones al compilador el crear variables llamadas i,j y k del tipo entero.
 
-Las variables pueden ser inicializadas (asignándoles un valor inicial) en esa declaración.  La inicialización consiste en un signo igual seguido de una expresión constante tal como sigue -
+   Las variables pueden ser inicializadas (asignándoles un valor inicial) en esa declaración.  La inicialización consiste en un signo igual seguido de una expresión constante tal como sigue -
 
-: tipo nombre_variable = valor;
+   : tipo nombre_variable = valor;
 
-Algunos ejemplos serían --
+   Algunos ejemplos serían --
 
-#+BEGIN_SRC C
+   #+BEGIN_SRC C
 
-extern int d = 3, f = 5;  // declaración de d y f.
-int d = 3, f = 5;  // definición e inicialización de d y f.
-byte z = 22;   // definición e inicialización de z.
-char x = 'x';   // la variable x tiene el valor 'x'.
+     extern int d = 3, f = 5;  // declaración de d y f.
+     int d = 3, f = 5;  // definición e inicialización de d y f.
+     byte z = 22;   // definición e inicialización de z.
+     char x = 'x';   // la variable x tiene el valor 'x'.
 
-#+END_SRC
+   #+END_SRC
 
-Para definir sin inicializar: las variables con almacenamiento de duración estático son implícitamente inicializados con NULL (todos los bytes tienen el valor 0); el valor inicial de todos las otras variables son indefinidos.
+   Para definir sin inicializar: las variables con almacenamiento de duración estático son implícitamente inicializados con NULL (todos los bytes tienen el valor 0); el valor inicial de todos las otras variables son indefinidos.
 
 ** Declaración de variables en C 
 
-Una declaración de variable proporciona garantía al compilador de que existe una variable con el tipo dado y el nombre así que el compilador puede proceder más rápido a la compilación sin requerir el completo detalle sobre la variable. Una definición de variable tiene su significado en el momento de compilación solo, el compilador necesita una definición de variable en el momento del linkado del programa. 
+   Una declaración de variable proporciona garantía al compilador de que existe una variable con el tipo dado y el nombre así que el compilador puede proceder más rápido a la compilación sin requerir el completo detalle sobre la variable. Una definición de variable tiene su significado en el momento de compilación solo, el compilador necesita una definición de variable en el momento del linkado del programa. 
 
-Una declaración de variable es muy útil cuando usamos múltiples archivos y definimos nuestra variable en uno de los archivos el cual debe ser accesible en el momento del linkado de el programa. Usaremos la palabra clave *extern* para declarar una variable en un lugar. Además podemos declarar una variable muchas veces en nuestro programa C, ello puede ser definido solo una vez en un archivo, una función o un bloque de código.
+   Una declaración de variable es muy útil cuando usamos múltiples archivos y definimos nuestra variable en uno de los archivos el cual debe ser accesible en el momento del linkado de el programa. Usaremos la palabra clave *extern* para declarar una variable en un lugar. Además podemos declarar una variable muchas veces en nuestro programa C, ello puede ser definido solo una vez en un archivo, una función o un bloque de código.
 
 *** Ejemplo   
 
-Veamos el siguiente ejemplo, donde las variables han sido declaradas al principio, pero han sido definidas e inicializadas dentro de la función principal - 
+    Veamos el siguiente ejemplo, donde las variables han sido declaradas al principio, pero han sido definidas e inicializadas dentro de la función principal - 
 
-#+BEGIN_SRC C
-  #inclue <stdio.h>
+    #+BEGIN_SRC C
+      #inclue <stdio.h>
 
-  // declaración de variables
-  extern int a, b;
-  extern int c;
-  extern float f;
+      // declaración de variables
+      extern int a, b;
+      extern int c;
+      extern float f;
 
-  int main() {
+      int main() {
 
-    /* definición de variables */
-    int a, b;
-    int c;
-    float f;
+	/* definición de variables */
+	int a, b;
+	int c;
+	float f;
 
-    /* verdadera inicialización */
-    a = 10;
-    b = 20;
+	/* verdadera inicialización */
+	a = 10;
+	b = 20;
 
-    c = a + b;
-    printf("el valor de c : %d \n", c);
+	c = a + b;
+	printf("el valor de c : %d \n", c);
 
-    f = 70.0/3.0;
-    printf("el valor de f : %f \n", f);
+	f = 70.0/3.0;
+	printf("el valor de f : %f \n", f);
 
-    return 0;
+	return 0;
 
-  }
-
-#+END_SRC
-
-Cuando compilemos y ejecutemos el código anterior, se producirá el siguiente resultado - 
-
-: el valor de c : 30
-: el valor de f : 23.3333334
-
-El mismo concepto aplicado en las declaraciones de funciones donde proveeremos el nombre de una función al mismo tiempo que su declaración y su verdadera definición puede ser dada en cualquier sitio más. Por ejemplo - 
-
-#+BEGIN_SRC C
-  // declaración de función
-  int func();
-
-  int main() {
-
-    //llamada a la función
-    int i = func()
       }
 
-  //definición de función
-  int func(){
-    return 0;
-  }
+    #+END_SRC
 
-#+END_SRC
+    Cuando compilemos y ejecutemos el código anterior, se producirá el siguiente resultado - 
 
-Valor-L y Valor-R en C 
+    : el valor de c : 30
+    : el valor de f : 23.3333334
 
-Hay dos tipos de expresiones en C - 
+    El mismo concepto aplicado en las declaraciones de funciones donde proveeremos el nombre de una función al mismo tiempo que su declaración y su verdadera definición puede ser dada en cualquier sitio más. Por ejemplo - 
 
-- l-valor - Las expresiones que se refieren a la posición de memoria son llamadas expresiones "l-valor". Una l-valor puede aparecer tanto como mano izquierda o mano derecha de una asignación.
+    #+BEGIN_SRC C
+      // declaración de función
+      int func();
 
-- r-valor - El termino r-valor se refiere a un valor de datos que es guardado en una dirección de memoria. Un r-valor es una expresión que no puede tener un valor asignado a ello lo cual significa que un r-valor puede aparecer a la derecha pero no a la izquierda de una asignación.
+      int main() {
 
-Las variables son l-valores y así pueden aparecer en el lado izquierdo de una asignación. Los literales numéricos son r-valores y así ellos no deben ser asignados y no pueden aparecer en el lado izquierdo de una asignación. Echemos un vistazo a una declaración válida y a otra inválida.
+	//llamada a la función
+	int i = func()
+	  }
 
-: int g = 20; //declaración válida
-: 10 = 20 // declaración inválida; generará un error en tiempo de compilación
+      //definición de función
+      int func(){
+	return 0;
+      }
+
+    #+END_SRC
+
+    Valor-L y Valor-R en C 
+
+    Hay dos tipos de expresiones en C - 
+
+    - l-valor - Las expresiones que se refieren a la posición de memoria son llamadas expresiones "l-valor". Una l-valor puede aparecer tanto como mano izquierda o mano derecha de una asignación.
+
+    - r-valor - El termino r-valor se refiere a un valor de datos que es guardado en una dirección de memoria. Un r-valor es una expresión que no puede tener un valor asignado a ello lo cual significa que un r-valor puede aparecer a la derecha pero no a la izquierda de una asignación.
+
+    Las variables son l-valores y así pueden aparecer en el lado izquierdo de una asignación. Los literales numéricos son r-valores y así ellos no deben ser asignados y no pueden aparecer en el lado izquierdo de una asignación. Echemos un vistazo a una declaración válida y a otra inválida.
+
+    : int g = 20; //declaración válida
+    : 10 = 20 // declaración inválida; generará un error en tiempo de compilación
 
 * C - Constantes y literales 
 
 
-Constantes se refire a valores fijos que el programa no puede alterar durante su ejecución. Esos valores fijos son también llamados *literales*. 
+  Constantes se refire a valores fijos que el programa no puede alterar durante su ejecución. Esos valores fijos son también llamados *literales*. 
 
-Las constantes pueden ser cualquier tipo de dato básico como una /constante entera, una punto flotante, cadena de caractéres o un carácter/. Hay enumeraciones constantes también. 
+  Las constantes pueden ser cualquier tipo de dato básico como una /constante entera, una punto flotante, cadena de caracteres o un carácter/. Hay enumeraciones constantes también. 
 
-Las constantes son tratadas como variables normales excepto que sus valores no pueden sere modificados después de su definición. 
+  Las constantes son tratadas como variables normales excepto que sus valores no pueden sere modificados después de su definición. 
 
 ** Literales enteros 
 
-Un literal entero puede ser una constante decimal, octal o hexadecimal. Un prefijo especifica la base o la base: 0x o 0X para hexadecimal, 0 para octal y nada para decimal. 
+   Un literal entero puede ser una constante decimal, octal o hexadecimal. Un prefijo especifica la base o la base: 0x o 0X para hexadecimal, 0 para octal y nada para decimal. 
 
-Un literal entero puede tambijén tener un sufijo que es una combinación de U y L, para sin signo o largo, respectivamente. El sufijo puede ser uppercase o lowercase y puede estar en cualquier orden. 
+   Un literal entero puede tambijén tener un sufijo que es una combinación de U y L, para sin signo o largo, respectivamente. El sufijo puede ser uppercase o lowercase y puede estar en cualquier orden. 
 
-Aquí hay algunos ejemplos de literales enteros - 
+   Aquí hay algunos ejemplos de literales enteros - 
 
-#+BEGIN_SRC C
-3.14159       /* Legal */
-314159E-5L    /* Legal */
-510E          /* Ilegal: exponente incompleto */
-210f          /* Ilegal: sin decimal o sin exponente */
-.e55          /* Ilegal: sin fracción o entero */
-#+END_SRC
+   #+BEGIN_SRC C
+     3.14159       /* Legal */
+     314159E-5L    /* Legal */
+     510E          /* Ilegal: exponente incompleto */
+     210f          /* Ilegal: sin decimal o sin exponente */
+     .e55          /* Ilegal: sin fracción o entero */
+   #+END_SRC
 
 ** Constantes carácter 
 
-Los literales carácter son encerrados con comillas simples, ejemplo, 'x' y pueden ser guardadas en una variable simple de tipo *char*. 
+   Los literales carácter son encerrados con comillas simples, ejemplo, 'x' y pueden ser guardadas en una variable simple de tipo *char*. 
 
-Un literal carácter puede ser un carácter plano (ejemplo, 'x'), una secuencia de escape (ejemplo, '\t') o un carácter universal (ejemplo, '\u02C0).
+   Un literal carácter puede ser un carácter plano (ejemplo, 'x'), una secuencia de escape (ejemplo, '\t') o un carácter universal (ejemplo, '\u02C0).
 
-hay ciertos caracteres en C que representan un significado especial cuando son precedidos por una barra invertido, como una nueva linea (\n) o un tabulador (\t). 
+   hay ciertos caracteres en C que representan un significado especial cuando son precedidos por una barra invertido, como una nueva linea (\n) o un tabulador (\t). 
 
 *** Lista de secuencias de escape 
 
-| Secuencia de escape | Significado                         |
-|---------------------+-------------------------------------|
-| \\                  | carácter \                          |
-| \'                  | carácter '                          |
-| \"                  | carácter "                          |
-| \?                  | carácter ?                          |
-| \a                  | alerta o campana                    |
-| \b                  | espacio para atrás                  |
-| \f                  | Alimentador de informe              |
-| \n                  | nueva línea                         |
-| \r                  | salto de carro                      |
-| \t                  | tabulador horizontal                |
-| \v                  | tabulador vertical                  |
-| \ooo                | número octal de 1 a 3 dígitos       |
-| \xhh                | número hexadecimal de 1 a 3 dígitos |
+    | Secuencia de escape | Significado                         |
+    |---------------------+-------------------------------------|
+    | \\                  | carácter \                          |
+    | \'                  | carácter '                          |
+    | \"                  | carácter "                          |
+    | \?                  | carácter ?                          |
+    | \a                  | alerta o campana                    |
+    | \b                  | espacio para atrás                  |
+    | \f                  | Alimentador de informe              |
+    | \n                  | nueva línea                         |
+    | \r                  | salto de carro                      |
+    | \t                  | tabulador horizontal                |
+    | \v                  | tabulador vertical                  |
+    | \ooo                | número octal de 1 a 3 dígitos       |
+    | \xhh                | número hexadecimal de 1 a 3 dígitos |
 
-En el siguiente ejemplo mostraremos unas pocas secuencias de escape 
+    En el siguiente ejemplo mostraremos unas pocas secuencias de escape 
 
---demo 
+    --demo 
 
-#+BEGIN_SRC C 
-  #include <stdio.h>
+    #+BEGIN_SRC C 
+      #include <stdio.h>
 
-  int main() {
-    printf("Hola\tMundo\n\n");
+      int main() {
+	printf("Hola\tMundo\n\n");
 
-    return 0
-      }
-#+END_SRC
+	return 0
+	  }
+    #+END_SRC
 
-Cuando ejecutemos el código y lo ejecutemos, producirá el siguiente resultado --
+    Cuando ejecutemos el código y lo ejecutemos, producirá el siguiente resultado --
 
-: Hola Mundo 
+    : Hola Mundo 
 
 ** Literales cadenas de caracteres
 
 
-Los literales cadena de texto o constantes son encerrados en dobles comillas "". Una cadena de texto contiene caracteres que son similares a los caracteres literales: caracteres planos, secuencias de escape y caracteres universales. 
+   Los literales cadena de texto o constantes son encerrados en dobles comillas "". Una cadena de texto contiene caracteres que son similares a los caracteres literales: caracteres planos, secuencias de escape y caracteres universales. 
 
-Vamos a ver algunos ejemplos de cadenad de texto literales. Estas tres formas son idénticas. 
+   Vamos a ver algunos ejemplos de cadenad de texto literales. Estas tres formas son idénticas. 
 
-#+BEGIN_SRC C
-"hola, señor"
+   #+BEGIN_SRC C
+     "hola, señor"
 
-"hola, \
-señor"
+     "hola, \
+     señor"
 
-"hola, " "s" "eñor"
-#+END_SRC
+     "hola, " "s" "eñor"
+   #+END_SRC
 
 ** Definiendo constantes
 
-Hay dos simples formas en C de definir constantes - 
+   Hay dos simples formas en C de definir constantes - 
 
-+ Usando el preprocesador *#define* 
+   * Usando el preprocesador *#define* 
 
-+ Usando la palabra clave *const* 
+   * Usando la palabra clave *const* 
 
 *** El preprocesador #define 
 
-Dado la siguiente forma de usar #define para definir una constante - 
+    Dado la siguiente forma de usar #define para definir una constante - 
 
-#+BEGIN_SRC C
-#define identificador valor
-#+END_SRC
+    #+BEGIN_SRC C
+      #define identificador valor
+    #+END_SRC
 
-El siguiente ejemplo lo explica en detalle 
+    El siguiente ejemplo lo explica en detalle 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  #include <stdio.h>
+      #include <stdio.h>
 
-  #define LENGTH 10
-  #define WIDTH 5
-  #define NEWLINE '\n'
+      #define LENGTH 10
+      #define WIDTH 5
+      #define NEWLINE '\n'
 
-  int main(){
+      int main(){
 
-    int area;
+	int area;
 
-    area = LENGTH * WIDTH;
-    printf("el valor del area es: %d", area);
-    printf("%c", NEWLINE)
+	area = LENGTH * WIDTH;
+	printf("el valor del area es: %d", area);
+	printf("%c", NEWLINE)
 
-      return 0;
-  }
+	  return 0;
+      }
 
-#+END_SRC
+    #+END_SRC
 
-Cuando el código anterior es compilado y ejecutado, producirá el siguiente resultado. 
+    Cuando el código anterior es compilado y ejecutado, producirá el siguiente resultado. 
 
-: el valor del area es: 50
+    : el valor del area es: 50
 
 ***  La palabra clave const
 
-Podemos usar el prefijo *const* para declarar constantes con un tipo específico de la siguiente manera - 
+    Podemos usar el prefijo *const* para declarar constantes con un tipo específico de la siguiente manera - 
 
-: const tipo variable = valor;
+    : const tipo variable = valor;
 
-El siguiente ejemplo lo explica en detalle - 
+    El siguiente ejemplo lo explica en detalle - 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  #include <stdio.h>
+      #include <stdio.h>
 
-  int main(){
-    const int LENGTH = 10;
-    const int  WIDTH = 5;
-    const char NEWLINE = '\n';
-    int area;
+      int main(){
+	const int LENGTH = 10;
+	const int  WIDTH = 5;
+	const char NEWLINE = '\n';
+	int area;
 
-    area = LENGTH * WIDTH;
-    printf("el valor del area es: %d", area);
-    printf("%c", NEWLINE);
+	area = LENGTH * WIDTH;
+	printf("el valor del area es: %d", area);
+	printf("%c", NEWLINE);
 
-    return 0;
-  }
+	return 0;
+      }
 
-#+END_SRC
+    #+END_SRC
 
 
-El código anterior una vez compilado y ejecutado producirá el siguiente resultado - 
+    El código anterior una vez compilado y ejecutado producirá el siguiente resultado - 
 
-: el valor del area es : 50
+    : el valor del area es : 50
 
-Es una practica de buen programador definir las constantes en mayúsculas 
+    Es una practica de buen programador definir las constantes en mayúsculas 
 
 * C - Clases de almacenamiento
 
-Una clase de almacenamiento define el ámbito (visibilidad) y tiempo de vida de una variable y/o función en un progama de C. Preceden el tipo que modifican. Hay cuatro diferentes clases de almacenamiento en C 
+  Una clase de almacenamiento define el ámbito (visibilidad) y tiempo de vida de una variable y/o función en un programa de C. Preceden el tipo que modifican. Hay cuatro diferentes clases de almacenamiento en C 
 
-+ auto
+  * auto
 
-+ register
+  * register
 
-+ static
+  * static
 
-+ extern 
+  * extern 
 
 ** La clase de almacenamiento auto 
 
-La clase de almacenamiento auto es la clase por defecto para todas la variables locales. 
+   La clase de almacenamiento auto es la clase por defecto para todas la variables locales. 
 
-#+BEGIN_SRC C
-  {
-    int mount;
-    auto in month;
-  }
-#+END_SRC
+   #+BEGIN_SRC C
+     {
+       int mount;
+       auto in month;
+     }
+   #+END_SRC
 
-El ejemplo anterior define dos variables con la misma clase de almacenamiento. Solo se puede usar dentro de funciones, es decir, variables locales. 
+   El ejemplo anterior define dos variables con la misma clase de almacenamiento. Solo se puede usar dentro de funciones, es decir, variables locales. 
 
 ** La clase de almacenamiento register 
 
-La clase de almacenamiento *register* es usado para definir variables locales que podŕian ser guardadas en un registro en vez de en RAM. Esto significa que la variable tiene un tamaño máximo igual al tamaño del registro (normalmente una palabra) y no puede tener el operador unario '&' aplicado a él (como no tiene una dirección de memoria).
+   La clase de almacenamiento *register* es usado para definir variables locales que podŕian ser guardadas en un registro en vez de en RAM. Esto significa que la variable tiene un tamaño máximo igual al tamaño del registro (normalmente una palabra) y no puede tener el operador unario '&' aplicado a él (como no tiene una dirección de memoria).
 
-#+BEGIN_SRC C
-  {
-    register int kilómetros;
-  }
-#+END_SRC
+   #+BEGIN_SRC C
+     {
+       register int kilómetros;
+     }
+   #+END_SRC
 
-Register solo debería ser usado para variables que requiere un acceso rápido tales como contares. Esto podría ser también que definir un 'registro' no significa que la variable vaya a ser guardada en un registro. Esto significa que podría ser guardado en un registro dependiendo del hardware y las restricciones de la implementación.
+   Register solo debería ser usado para variables que requiere un acceso rápido tales como contares. Esto podría ser también que definir un 'registro' no significa que la variable vaya a ser guardada en un registro. Esto significa que podría ser guardado en un registro dependiendo del hardware y las restricciones de la implementación.
 
 ** La clase de almacenamiento static 
 
-La clase de almacenamiento *static* le da instrucciones al compilador de mantener una variable local en existencia durante el tiempo de vida del programa en vez de crear y destruir la cada vez que se sale o entra del ámbito. Además, haciendo variables locales estáticas les permiten mantener sus valores entre las llamadas a funciones.
+   La clase de almacenamiento *static* le da instrucciones al compilador de mantener una variable local en existencia durante el tiempo de vida del programa en vez de crear y destruir la cada vez que se sale o entra del ámbito. Además, haciendo variables locales estáticas les permiten mantener sus valores entre las llamadas a funciones.
 
-El modificador 'static' puede también ser aplicado a variables globales. Cuando se hace esto, causa que el ámbito de la variable sea restrictiva al archivo en el que se ha declarado. 
+   El modificador 'static' puede también ser aplicado a variables globales. Cuando se hace esto, causa que el ámbito de la variable sea restrictiva al archivo en el que se ha declarado. 
 
-En programación C, cuando *static* es usado en una variable global, causa solo una copia de el miembro que será compartido por todos los objetos de su clase. 
+   En programación C, cuando *static* es usado en una variable global, causa solo una copia de el miembro que será compartido por todos los objetos de su clase. 
 
 *** Demo 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  #include <stdio.h>
+      #include <stdio.h>
 
-  /* declaracion de funciones */
-  void function(void);
+      /* declaracion de funciones */
+      void function(void);
 
-  static int conteo = 5; /* variable global */
+      static int conteo = 5; /* variable global */
 
-  main(){
-    while(count--){
-      func();
-    }
+      main(){
+	while(count--){
+	  func();
+	}
 
-    return 0;
-  }
+	return 0;
+      }
 
-  /* definicion de funciones */
-  void func( void ) {
+      /* definicion de funciones */
+      void func( void ) {
 
-    static int i = 5; /* variable local static */
-    i++;
+	static int i = 5; /* variable local static */
+	i++;
 
-    printf("i es %d y conteo es %d\n ", i, conteo);
-  }
+	printf("i es %d y conteo es %d\n ", i, conteo);
+      }
 
-#+END_SRC
+    #+END_SRC
 
 
-Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
+    Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
 
-#+BEGIN_SRC C
-i es 6 y conteo es 4
-i es 7 y conteo es 3
-i es 8 y conteo es 2
-i es 9 y conteo es 1
-i es 10 y conteo es 0
+    #+BEGIN_SRC C
+      i es 6 y conteo es 4
+      i es 7 y conteo es 3
+      i es 8 y conteo es 2
+      i es 9 y conteo es 1
+      i es 10 y conteo es 0
 
-#+END_SRC
+    #+END_SRC
 
 ** La clase de almacenamiento extern 
 
 
-La clase de almacenamiento *extern* es usada para dar una referencia de una variable global que es visible para todos los archivos del programa. Cuando usamos 'extern', la variable no puede ser inicializada sin embargo, esto apunta el nombre de la variable a una dirección de memoria que ha sido previamente definida. 
+   La clase de almacenamiento *extern* es usada para dar una referencia de una variable global que es visible para todos los archivos del programa. Cuando usamos 'extern', la variable no puede ser inicializada sin embargo, esto apunta el nombre de la variable a una dirección de memoria que ha sido previamente definida. 
 
-Cuando tenemos múltiples archivos y definimos una variable o función global, la cual es también usada en otros archivos, entonces /extern/ será usado en otro archivo para definir la referencia de la vairable o función definida. Para entender esto, /extern/ es usado para declara una variable o función global en otro archivo. 
+   Cuando tenemos múltiples archivos y definimos una variable o función global, la cual es también usada en otros archivos, entonces /extern/ será usado en otro archivo para definir la referencia de la vairable o función definida. Para entender esto, /extern/ es usado para declara una variable o función global en otro archivo. 
 
-El modificador /extern/ es muy comúnmente usado cuando hay dos o más archivos compartiendo las mismas funciones o variables globales como se ha explicado anteriormente. 
+   El modificador /extern/ es muy comúnmente usado cuando hay dos o más archivos compartiendo las mismas funciones o variables globales como se ha explicado anteriormente. 
 
-*Primer fichero: main.c* 
+   *Primer fichero: main.c* 
 
-#+BEGIN_SRC C
+   #+BEGIN_SRC C
 
-  #include <stdio.h>
+     #include <stdio.h>
 
-  int conteo;
-  extern void write_extern();
+     int conteo;
+     extern void write_extern();
 
-  main() {
-    conteo = 5;
-    write_extern();
-  }
+     main() {
+       conteo = 5;
+       write_extern();
+     }
 
-#+END_SRC
+   #+END_SRC
 
-*Segundo fichero: support.c* 
+   *Segundo fichero: support.c* 
 
-#+BEGIN_SRC C
+   #+BEGIN_SRC C
 
-  #include <stdio.h>
+     #include <stdio.h>
 
-  extern int conteo;
+     extern int conteo;
 
-  void write_extern(void) {
-    printf("conteo es %d\n", conteo);
-  }
+     void write_extern(void) {
+       printf("conteo es %d\n", conteo);
+     }
 
-#+END_SRC
+   #+END_SRC
 
-Aquí /extern/, está siendo usado para declarar /conteo/ en el segundo archivo, donde tiene su definición en el primer archivo, main.c. Ahora, compila esos dos archivos como sigue -- 
+   Aquí /extern/, está siendo usado para declarar /conteo/ en el segundo archivo, donde tiene su definición en el primer archivo, main.c. Ahora, compila esos dos archivos como sigue -- 
 
-: $ gcc main.c support.c
+   : $ gcc main.c support.c
 
-Esto producirá el programa ejecutable *a.out*. Cuando este programa sea ejecutado, producirá el siguiente resultado - 
+   Esto producirá el programa ejecutable *a.out*. Cuando este programa sea ejecutado, producirá el siguiente resultado - 
 
-: conteo es 5
+   : conteo es 5
 
 * C - Operadores 
 
-Un operardor es un símbolo que le dice al compilador como realizar algunas funciones específicas matemáticas o lógicas. El lenguaje C es rico en operadores y proporciona los siguientes tipos - 
+  Un operardor es un símbolo que le dice al compilador como realizar algunas funciones específicas matemáticas o lógicas. El lenguaje C es rico en operadores y proporciona los siguientes tipos - 
 
-+ Operadores Aritméticos
+  * Operadores Aritméticos
 
-+ Operadores Relacionales
+  * Operadores Relacionales
 
-+ Operadores Lógicos 
+  * Operadores Lógicos 
 
-+ Operadores a nivel de Bits
+  * Operadores a nivel de Bits
 
-+ Operadores de Asignación
+  * Operadores de Asignación
 
-+ Operadores varios 
+  * Operadores varios 
 
-Veremos en este capítulo la forma en la que cada operador funciona. 
+  Veremos en este capítulo la forma en la que cada operador funciona. 
 
 ** Operadores Aritméticos 
 
-La siguiente tabla  muestra todos los operadores aritméticos soportados por C. Asumimos la variable A guarda 10 y B guarda 20, entonces - 
+   La siguiente tabla  muestra todos los operadores aritméticos soportados por C. Asumimos la variable A guarda 10 y B guarda 20, entonces - 
 
 
-| Operador | Descripción                            | Ejemplo      |
-|----------+----------------------------------------+--------------|
-| +        | Suma dos operandos                     | A + B = 30   |
-| -        | Resta el segundo al primero            | A - B = -10  |
-| \*       | Multiplica ambos operandos             | A \* B = 200 |
-| \/       | Divide el numerador por el denominador | B\/A = 2     |
-| %        | Modulo operador                        | B % A = 0    |
-| ++       | Incrementa por uno                     | A++ = 11     |
-| --       | Decrementa por uno                     | A-- = 9      |
+   | Operador | Descripción                            | Ejemplo      |
+   |----------+----------------------------------------+--------------|
+   | +        | Suma dos operandos                     | A + B = 30   |
+   | -        | Resta el segundo al primero            | A - B = -10  |
+   | \*       | Multiplica ambos operandos             | A \* B = 200 |
+   | \/       | Divide el numerador por el denominador | B\/A = 2     |
+   | %        | Modulo operador                        | B % A = 0    |
+   | ++       | Incrementa por uno                     | A++ = 11     |
+   | --       | Decrementa por uno                     | A-- = 9      |
 
 *** Ejemplo 
 
-Veamos el siguiente ejemplo 
+    Veamos el siguiente ejemplo 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  #include <stdio.h>
+      #include <stdio.h>
 
-  main() {
+      main() {
 
-    int a = 21;
-    int b = 10;
-    int c ;
+	int a = 21;
+	int b = 10;
+	int c ;
 
-    c = a + b;
-    printf("Línea 1 - El valor de c es %d\n", c);
+	c = a + b;
+	printf("Línea 1 - El valor de c es %d\n", c);
 
-    c = a - b;
-    printf("Línea 2 - El valor de c es %d\n", c);
+	c = a - b;
+	printf("Línea 2 - El valor de c es %d\n", c);
 
-    c = a * b;
-    printf("Línea 3 - El valor de c es %d\n", c);
+	c = a * b;
+	printf("Línea 3 - El valor de c es %d\n", c);
 
-    c = a / b;
-    printf("Línea 4 - El valor de c es %d\n", c);
+	c = a / b;
+	printf("Línea 4 - El valor de c es %d\n", c);
 
-    c = a  % b;
-    printf("Línea 5 - El valor de c es %d\n", c);
+	c = a  % b;
+	printf("Línea 5 - El valor de c es %d\n", c);
 
-    c = a++;
-    printf("Línea 6 - El valor de c es %d\n", c);
+	c = a++;
+	printf("Línea 6 - El valor de c es %d\n", c);
 
-    c = a--;
-    printf("Línea 7 - El valor de c es %d\n", c);
+	c = a--;
+	printf("Línea 7 - El valor de c es %d\n", c);
 
-  }
+      }
 
-#+END_SRC
+    #+END_SRC
 
-#+BEGIN_SRC C
-Línea 1  - El valor de c es 31
-Línea 2  - El valor de c es 11
-Línea 3  - El valor de c es 210
-Línea 4  - El valor de c es 2
-Línea 5  - El valor de c es 1
-Línea 6  - El valor de c es 21
-Línea 7  - El valor de c es 22
-#+END_SRC
+    #+BEGIN_SRC C
+      Línea 1  - El valor de c es 31
+      Línea 2  - El valor de c es 11
+      Línea 3  - El valor de c es 210
+      Línea 4  - El valor de c es 2
+      Línea 5  - El valor de c es 1
+      Línea 6  - El valor de c es 21
+      Línea 7  - El valor de c es 22
+    #+END_SRC
 
 ** Operadores Relacionales 
 
-La siguiente tabla muestra todos los operadores relacionales soportados por C. Asumimos que A es 10 y B es 20, entonces -- 
+   La siguiente tabla muestra todos los operadores relacionales soportados por C. Asumimos que A es 10 y B es 20, entonces -- 
 
-| Operador | Descripción                                            | Ejemplo              |
-|----------+--------------------------------------------------------+----------------------|
-| \==      | Comprueba si dos operadores son iguales                | (A\==B) no es cierto |
-| \!=      | Compruebas si dos operadores no son iguales            | (A\!=B) es cierto    |
-| >        | Comprueba si un operador (izqda) es mayor que el otro  | (A>B) no es cierto   |
-| <        | Comprueba si un operador (izqda) es menor que el otro  | (A<B) es cierto      |
-| >=       | Comprueba si un operador es mayor o igual que el otro  | (A>=B) no es cierto  |
-| <=       | Compruebas si un operador es menor o igual que el otro | (A<=B) es cierto     |
+   | Operador | Descripción                                            | Ejemplo              |
+   |----------+--------------------------------------------------------+----------------------|
+   | \==      | Comprueba si dos operadores son iguales                | (A\==B) no es cierto |
+   | \!=      | Compruebas si dos operadores no son iguales            | (A\!=B) es cierto    |
+   | >        | Comprueba si un operador (izqda) es mayor que el otro  | (A>B) no es cierto   |
+   | <        | Comprueba si un operador (izqda) es menor que el otro  | (A<B) es cierto      |
+   | >=       | Comprueba si un operador es mayor o igual que el otro  | (A>=B) no es cierto  |
+   | <=       | Compruebas si un operador es menor o igual que el otro | (A<=B) es cierto     |
 
 
 
 *** Ejemplo 
 
-En el siguiente ejemplo entenderemos todos los operadores relacionales en C - 
+    En el siguiente ejemplo entenderemos todos los operadores relacionales en C - 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  #include <stdio.h>
+      #include <stdio.h>
 
-  main(){
+      main(){
 
-    int a = 20;
-    int b = 10;
-    int c ;
+	int a = 20;
+	int b = 10;
+	int c ;
 
-    if (a == b) {
-      printf("A es igual a B\n");
-    } else {
-      printf("A no es igual a B\n");
-    }
+	if (a == b) {
+	  printf("A es igual a B\n");
+	} else {
+	  printf("A no es igual a B\n");
+	}
 
-    if (a < b) {
-      printf("A es menor que B\n");
-    } else {
-      printf("A no es menor que B\n");
-    }
+	if (a < b) {
+	  printf("A es menor que B\n");
+	} else {
+	  printf("A no es menor que B\n");
+	}
 
-    if (a > b) {
-      printf("A es mayor que B\n");
-    }else {
-      printf("A no es mayor que B\n");
-    }
+	if (a > b) {
+	  printf("A es mayor que B\n");
+	}else {
+	  printf("A no es mayor que B\n");
+	}
 
-    /* cambiaremos los valores de a y b */
+	/* cambiaremos los valores de a y b */
 
-    a = 5;
-    b = 20;
+	a = 5;
+	b = 20;
 
-    if (a <= b) {
-      printf("A es al menos menor o igual que B\n");
-    }
+	if (a <= b) {
+	  printf("A es al menos menor o igual que B\n");
+	}
 
-    if (b >= a) {
-      printf("A es al menos mayor o igual que B");
-    }
-  }
-
-
-#+END_SRC
+	if (b >= a) {
+	  printf("A es al menos mayor o igual que B");
+	}
+      }
 
 
-Cuando compilemos y ejecutemos el siguiente programa, producirá el siguiente resultado - 
+    #+END_SRC
 
-: A no es igual a B
-: A no es menor que B
-: A es mayor que B
-: A es al menos menor o igual que B
-: B es al menos mayor o igual que B
+
+    Cuando compilemos y ejecutemos el siguiente programa, producirá el siguiente resultado - 
+
+    : A no es igual a B
+    : A no es menor que B
+    : A es mayor que B
+    : A es al menos menor o igual que B
+    : B es al menos mayor o igual que B
 
 
 
 ** Operadores lógicos 
 
-La siguiente tabla muestra todos los operadores lógicos soportados por C. Asumimos que A es 1 y B es 0, entonces - 
+   La siguiente tabla muestra todos los operadores lógicos soportados por C. Asumimos que A es 1 y B es 0, entonces - 
 
-| Operador | Descripción                                                                         | Ejemplo           |
-| &&       | Llamado AND, si los dos operadores son no cero,entonces la condición es verdadera   | (A&&B) es falso   |
-| ¦¦       | Llamado OR, si los cualquier operador es no cero,entonces la condición es verdadera | (AB) es verdadero |
-| \!       | Llamado NOT. Es usado para revertir el estado lógico de su operador.                |                   |
+   | Operador | Descripción                                                                         | Ejemplo           |
+   | &&       | Llamado AND, si los dos operadores son no cero,entonces la condición es verdadera   | (A&&B) es falso   |
+   | ¦¦       | Llamado OR, si los cualquier operador es no cero,entonces la condición es verdadera | (AB) es verdadero |
+   | \!       | Llamado NOT. Es usado para revertir el estado lógico de su operador.                |                   |
 
 
 *** Ejemplo 
 
-Veremos el siguiente ejemplo para intentar entender todos los operadores lógicos en C -- 
+    Veremos el siguiente ejemplo para intentar entender todos los operadores lógicos en C -- 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  #include <stdio.h>
+      #include <stdio.h>
 
-  main(){
+      main(){
 
-    int a = 5;
-    int b = 20;
-    int c ;
+	int a = 5;
+	int b = 20;
+	int c ;
 
-    if (a && b) {
-      printf("La condición es verdadera\n");
-    }
+	if (a && b) {
+	  printf("La condición es verdadera\n");
+	}
 
-    if (a || b) {
-      printf("La condición es verdadera\n");
-    }
+	if (a || b) {
+	  printf("La condición es verdadera\n");
+	}
 
-    /* vamos a cambiar los valores de a y b */
-    a = 0;
-    b = 10;
+	/* vamos a cambiar los valores de a y b */
+	a = 0;
+	b = 10;
 
-    if (a && b) {
-      printf("La condición es verdadera\n");
-    } else {
-      printf("La condición no es verdadera\n");
-    }
+	if (a && b) {
+	  printf("La condición es verdadera\n");
+	} else {
+	  printf("La condición no es verdadera\n");
+	}
 
-    if (!(a && b) ) {
-      pirntf("La condición es verdadera\n")
-        }
-  }
+	if (!(a && b) ) {
+	  pirntf("La condición es verdadera\n")
+	    }
+      }
 
-#+END_SRC
+    #+END_SRC
 
 
-Cuando compilemos  y ejecutemos el programa anterior, tendremos el siguiente resultado -- 
+    Cuando compilemos  y ejecutemos el programa anterior, tendremos el siguiente resultado -- 
 
-: La condición es verdadera
-: La condición es verdadera 
-: La condición no es verdadera
-: La condición es verdadera 
+    : La condición es verdadera
+    : La condición es verdadera 
+    : La condición no es verdadera
+    : La condición es verdadera 
 
 ** Operadores a nivel de bits
 
- Los operadores a nivel de bits funcionan sobre bits y producen operaciones bit a bit. Las verdaderas tablas para &, | y ^ son las siguientes -- 
+   Los operadores a nivel de bits funcionan sobre bits y producen operaciones bit a bit. Las verdaderas tablas para &, | y ^ son las siguientes -- 
 
- | p | q | p&q | p¦q | p^q |
- | 0 | 0 |   0 |   0 |   0 |
- | 0 | 1 |   0 |   1 |   1 |
- | 1 | 1 |   1 |   1 |   0 |
- | 1 | 0 |   0 |   1 |   1 |
-
-
- Si asumimos que A = 60 y B = 13 en formato binario, entonces -- 
-
- A = 0011 1100
- B = 0000 1101
-
- --------------
-
- A&B = 0000 1100
- A|B = 0011 1101
-
- A^B = 0011 0001
- ~A = 1100 0011
-
- La siguiente tabla listas los operadores soportados por C. Asumimos que A es 60 y B es 13, entonces -- 
-
- | Operador | descripción                                                   | Ejemplo                 |
- |----------+---------------------------------------------------------------+-------------------------|
- | &        | Binario AND copia 1 bit si existe en ambos operadores         | (A&B) = 12, 0000 1100   |
- | ¦        | Binario OR copia 1 bit si existe en cualquier operador        | (A¦B) = 61, 0011 1101   |
- | \^       | Binario XOR copia 1 bit si está en uno pero no en ambos       | (A\^B) = 49, 0011 0001  |
- | ~        | Binario 1 complemento tiene el efecto de invertir bits        | (~A) =  1100 0011       |
- | <<       | Binario desplazamiento izquierda. Mueve un valor a la izqda   | A << 2 = 240 1111 0000  |
- | >>       | Binario desplazamiento a la derecha. Mueve un valor a la dcha | A >> 2 = 151, 0000 1111 |
+   | p | q | p&q | p¦q | p^q |
+   | 0 | 0 |   0 |   0 |   0 |
+   | 0 | 1 |   0 |   1 |   1 |
+   | 1 | 1 |   1 |   1 |   0 |
+   | 1 | 0 |   0 |   1 |   1 |
 
 
+   Si asumimos que A = 60 y B = 13 en formato binario, entonces -- 
 
-*** Ejemplo 
+   A = 0011 1100
+   B = 0000 1101
 
-Vamos a probar el siguiente ejemplo para entender todos los operadores a nivel de bits de C --
+   --------------
 
-#+BEGIN_SRC C
+   A&B = 0000 1100
+   A|B = 0011 1101
 
-  #include <stdio.h>
+   A^B = 0011 0001
+   ~A = 1100 0011
 
-  main(){
+   La siguiente tabla listas los operadores soportados por C. Asumimos que A es 60 y B es 13, entonces -- 
 
-    unsigned int a = 60; /* 60 = 0011 1100 */
-    unsigned int b = 13; /* 13 = 0000 1101 */
-    int c = 0;
-
-    c = a & b;  /* 12 = 0000 1100 */
-    printf("El valor de c es %d\n", c); 
-
-    c = a | b; /* 61 = 0011 1101 */
-    printf("El valor de c es %d\n", c);
-
-    c = a ^ b;  /* 49 = 0011 0001 */
-    printf("El valor de c es %d\n", c);
-
-    c = ~a; /* 61 = 1100 0011 */
-    printf("El valor de c es %d\n", c);
-
-    c = a << 2;  /* 240 = 1111 0000 */
-    printf("El valor de c es %d\n", c);
-
-    c = a >> 2; /* 15 = 0000 1111 */
-    printf("El valor de c es %d\n", c);
-  }
+   | Operador | descripción                                                   | Ejemplo                 |
+   |----------+---------------------------------------------------------------+-------------------------|
+   | &        | Binario AND copia 1 bit si existe en ambos operadores         | (A&B) = 12, 0000 1100   |
+   | ¦        | Binario OR copia 1 bit si existe en cualquier operador        | (A¦B) = 61, 0011 1101   |
+   | \^       | Binario XOR copia 1 bit si está en uno pero no en ambos       | (A\^B) = 49, 0011 0001  |
+   | ~        | Binario 1 complemento tiene el efecto de invertir bits        | (~A) =  1100 0011       |
+   | <<       | Binario desplazamiento izquierda. Mueve un valor a la izqda   | A << 2 = 240 1111 0000  |
+   | >>       | Binario desplazamiento a la derecha. Mueve un valor a la dcha | A >> 2 = 151, 0000 1111 |
 
 
-#+END_SRC
-
-
-Cuando compilemos y ejecutemos el programa este producirá el siguiente resultado --- 
-
-: El valor de c es 12
-: El valor de c es 61
-: El valor de c es 49
-: El valor de c es -61
-: El valor de c es 240
-: El valor de c es 15
-
-** Operadores de asignación 
-
-La siguiente tabla lista todos los operaciones de asignación que soporte C -- 
-
-| Operador | Descripción                       | Ejemplo              |
-|----------+-----------------------------------+----------------------|
-| \=       | Operador simple de asignación     | C = A + B. A + B = C |
-| +=       | Añadimos y asignamos              | C += A. C = C + A    |
-| -=       | Sustraemos y asignamos            | C -= A. C = C - A    |
-| *=       | Multiplicamos y asignamos         | C *= A. C = C * A    |
-| \/=      | Dividimos y asignamos             | C \/= A. C = C / A   |
-| %=       | Modulo y asignación               | C %= A. C = C % A    |
-| <<=      | Desplazamiento y asignación izqda | C <<= 2. C = C << 2  |
-| >>=      | Desplazamiento y asignación dcha  | C >>= 2. C = C >> 2  |
-| &=       | AND Bit y asignación              | C &= 2. C = C & 2    |
-| \^=      | Exclusive OR Bit y asignación     | C ^= 2. C = C ^ 2    |
-| ¦=       | Inclusive OR Bit y asignación     | C ¦= 2. C = C ¦ 2    |
 
 *** Ejemplo 
 
-Veamos el siguiente ejemplo para entender todos los operadores de asignación de C -- 
+    Vamos a probar el siguiente ejemplo para entender todos los operadores a nivel de bits de C --
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  #include <stdio.h>
+      #include <stdio.h>
 
-  main() {
+      main(){
 
-    int a = 21;
-    int c ;
+	unsigned int a = 60; /* 60 = 0011 1100 */
+	unsigned int b = 13; /* 13 = 0000 1101 */
+	int c = 0;
 
-    c = a;
-    printf("Operador =. Valor de c = %d\n", c);
+	c = a & b;  /* 12 = 0000 1100 */
+	printf("El valor de c es %d\n", c); 
 
-    c += a;
-    printf("Operador +=. Valor de c = %d\n", c);
+	c = a | b; /* 61 = 0011 1101 */
+	printf("El valor de c es %d\n", c);
 
-    c -= a;
-    printf("Operador -=. Valor de c = %d\n", c);
+	c = a ^ b;  /* 49 = 0011 0001 */
+	printf("El valor de c es %d\n", c);
 
-    c *= a;
-    printf("Operador *=. Valor de c = %d\n", c);
+	c = ~a; /* 61 = 1100 0011 */
+	printf("El valor de c es %d\n", c);
 
-    c /= a;
-    printf("Operador /=. Valor de c = %d\n", c);
+	c = a << 2;  /* 240 = 1111 0000 */
+	printf("El valor de c es %d\n", c);
 
-    c %= a;
-    printf("Operador %=. Valor de c = %d\n", c);
-
-    c <<= 2;
-    printf("Operador <<=. Valor de c = %d\n", c);
-
-    c >>= 2;
-    printf("Operador >>=. Valor de c = %d\n", c);
-
-    c &= 2;
-    printf("Operador &=. Valor de c = %d\n", c);
-
-    c ^= 2;
-    printf("Operador ^=. Valor de c = %d\n", c);
-
-    c |= 2;
-    printf("Operador |=. Valor de c = %d\n", c) 
-
-
+	c = a >> 2; /* 15 = 0000 1111 */
+	printf("El valor de c es %d\n", c);
       }
 
 
-#+END_SRC
+    #+END_SRC
 
 
-Cuando compilemos y ejecutemos el programa anterior, producirá el siguiente resultado -- 
+    Cuando compilemos y ejecutemos el programa este producirá el siguiente resultado --- 
 
-: Operador =. Valor de c 21  
-: Operador +=. Valor de c 42 
-: Operador -=. Valor de c 21 
-: Operador *=. Valor de c 441 
-: Operador /=. Valor de c 21 
-: Operador %=. Valor de c 11 
-: Operador <<=. Valor de c 44 
-: Operador >>=. Valor de c 11 
-: Operador &=. Valor de c 2 
-: Operador ^=. Valor de c 0 
-: Operador |=. Valor de c 2 
+    : El valor de c es 12
+    : El valor de c es 61
+    : El valor de c es 49
+    : El valor de c es -61
+    : El valor de c es 240
+    : El valor de c es 15
 
-** Operadores mixtos &map; sizeof y ternary
+** Operadores de asignación 
 
-Además de los Operador ya vistos hay unos pocos importantes operadores incluyendo *sizeof* y *?* : soportados por C
+   La siguiente tabla lista todos los operaciones de asignación que soporte C -- 
 
-| Operador | Descripción                          | Ejemplo                                    |
-|----------+--------------------------------------+--------------------------------------------|
-| sizeof() | Devuelve el valor de la variable     | sizeof(a), devolverá 4                     |
-| &        | Devuelve la dirección de la variable | &a, devolverá su dirección                 |
-| ,*       | Puntero a una variable               | *a;                                        |
-| ? :      | Expresión condicional                | Si la condición es true entonces X, sino Y |
+   | Operador | Descripción                       | Ejemplo              |
+   |----------+-----------------------------------+----------------------|
+   | \=       | Operador simple de asignación     | C = A + B. A + B = C |
+   | +=       | Añadimos y asignamos              | C += A. C = C + A    |
+   | -=       | Sustraemos y asignamos            | C -= A. C = C - A    |
+   | *=       | Multiplicamos y asignamos         | C *= A. C = C * A    |
+   | \/=      | Dividimos y asignamos             | C \/= A. C = C / A   |
+   | %=       | Modulo y asignación               | C %= A. C = C % A    |
+   | <<=      | Desplazamiento y asignación izqda | C <<= 2. C = C << 2  |
+   | >>=      | Desplazamiento y asignación dcha  | C >>= 2. C = C >> 2  |
+   | &=       | AND Bit y asignación              | C &= 2. C = C & 2    |
+   | \^=      | Exclusive OR Bit y asignación     | C ^= 2. C = C ^ 2    |
+   | ¦=       | Inclusive OR Bit y asignación     | C ¦= 2. C = C ¦ 2    |
 
 *** Ejemplo 
 
-Vamos a ver el siguiente ejemplo para entender todos los operadores mixtos disponibles en C -- 
+    Veamos el siguiente ejemplo para entender todos los operadores de asignación de C -- 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  #include <stdio.h>
+      #include <stdio.h>
 
-  main(){
+      main() {
 
-    int a = 4;
-    short b;
-    double c;
-    int* ptr;
+	int a = 21;
+	int c ;
 
-    /* ejemplo del operador sizeof */
-    printf("El tamaño de la variable a es %d\n", sizeof(a));
-    printf("El tamaño de la variable b es %d\n", sizeof(b));
-    printf("El tamaño de la variable c es %d\n", sizeof(c));
+	c = a;
+	printf("Operador =. Valor de c = %d\n", c);
 
-    /* ejemplo de los operadores & y * */
+	c += a;
+	printf("Operador +=. Valor de c = %d\n", c);
 
-    ptr = &a; /* 'ptr' ahora contiene la dirección de 'a' */
-    printf("El valor de a es %d\n", a);
-    printf("*ptr es %d.\n", *ptr);
+	c -= a;
+	printf("Operador -=. Valor de c = %d\n", c);
 
-    /*ejemplo de operadores ternarios */
-    a = 10;
-    b = (a == 1) ? 20: 30;
-    printf("El valor de b es %d\n, b");
+	c *= a;
+	printf("Operador *=. Valor de c = %d\n", c);
 
-    b = (a == 10) ? 20: 30;
-    printf("El valor de b es %d\n", b);
-  }
+	c /= a;
+	printf("Operador /=. Valor de c = %d\n", c);
 
-#+END_SRC
+	c %= a;
+	printf("Operador %=. Valor de c = %d\n", c);
 
-Cuando compilemos y ejecutemos el programa anterior, obtendremos el siguiente resultado -- 
+	c <<= 2;
+	printf("Operador <<=. Valor de c = %d\n", c);
 
-: El tamaño de la variable a es 4
-: El tamaño de la variable b es 2
-: El tamaño de la variable c es 8
-: El valor de a es 4
-: *ptr es 4.
-: El valor de b es 30
-: El valor de b es 20
+	c >>= 2;
+	printf("Operador >>=. Valor de c = %d\n", c);
+
+	c &= 2;
+	printf("Operador &=. Valor de c = %d\n", c);
+
+	c ^= 2;
+	printf("Operador ^=. Valor de c = %d\n", c);
+
+	c |= 2;
+	printf("Operador |=. Valor de c = %d\n", c) 
+
+
+	  }
+
+
+    #+END_SRC
+
+
+    Cuando compilemos y ejecutemos el programa anterior, producirá el siguiente resultado -- 
+
+    : Operador =. Valor de c 21  
+    : Operador +=. Valor de c 42 
+    : Operador -=. Valor de c 21 
+    : Operador *=. Valor de c 441 
+    : Operador /=. Valor de c 21 
+    : Operador %=. Valor de c 11 
+    : Operador <<=. Valor de c 44 
+    : Operador >>=. Valor de c 11 
+    : Operador &=. Valor de c 2 
+    : Operador ^=. Valor de c 0 
+    : Operador |=. Valor de c 2 
+
+** Operadores mixtos &map; sizeof y ternary
+
+   Además de los Operador ya vistos hay unos pocos importantes operadores incluyendo *sizeof* y *?* : soportados por C
+
+   | Operador | Descripción                          | Ejemplo                                    |
+   |----------+--------------------------------------+--------------------------------------------|
+   | sizeof() | Devuelve el valor de la variable     | sizeof(a), devolverá 4                     |
+   | &        | Devuelve la dirección de la variable | &a, devolverá su dirección                 |
+   | ,*       | Puntero a una variable               | *a;                                        |
+   | ? :      | Expresión condicional                | Si la condición es true entonces X, sino Y |
+
+*** Ejemplo 
+
+    Vamos a ver el siguiente ejemplo para entender todos los operadores mixtos disponibles en C -- 
+
+    #+BEGIN_SRC C
+
+      #include <stdio.h>
+
+      main(){
+
+	int a = 4;
+	short b;
+	double c;
+	int* ptr;
+
+	/* ejemplo del operador sizeof */
+	printf("El tamaño de la variable a es %d\n", sizeof(a));
+	printf("El tamaño de la variable b es %d\n", sizeof(b));
+	printf("El tamaño de la variable c es %d\n", sizeof(c));
+
+	/* ejemplo de los operadores & y * */
+
+	ptr = &a; /* 'ptr' ahora contiene la dirección de 'a' */
+	printf("El valor de a es %d\n", a);
+	printf("*ptr es %d.\n", *ptr);
+
+	/*ejemplo de operadores ternarios */
+	a = 10;
+	b = (a == 1) ? 20: 30;
+	printf("El valor de b es %d\n, b");
+
+	b = (a == 10) ? 20: 30;
+	printf("El valor de b es %d\n", b);
+      }
+
+    #+END_SRC
+
+    Cuando compilemos y ejecutemos el programa anterior, obtendremos el siguiente resultado -- 
+
+    : El tamaño de la variable a es 4
+    : El tamaño de la variable b es 2
+    : El tamaño de la variable c es 8
+    : El valor de a es 4
+    : *ptr es 4.
+    : El valor de b es 30
+    : El valor de b es 20
 
 
 ** Precedencia de operadores 
 
-La precedencia de operadores determina el agrupamiento de terminos en una expresión y decide cómo una expresión es evaluada. Ciertos operadores tienen mayor precedencia que otros; por ejemplo, el operador de multiplicación tiene mayor precedencia que el operador de suma. 
+   La precedencia de operadores determina el agrupamiento de terminos en una expresión y decide cómo una expresión es evaluada. Ciertos operadores tienen mayor precedencia que otros; por ejemplo, el operador de multiplicación tiene mayor precedencia que el operador de suma. 
 
-Por ejemplo, x = 7 + 3 * 2; aquí, x es asignado a 13, no 20 porque el operador * tiene mayor precedencia que +, así primero se multiplica 3*2 y después se añade 7.
+   Por ejemplo, x = 7 + 3 * 2; aquí, x es asignado a 13, no 20 porque el operador * tiene mayor precedencia que +, así primero se multiplica 3*2 y después se añade 7.
 
-Aquí, operadores con mayor precedencia aparecen arriba de la tabla, y los que tienen menos aparecen al fondo. En una expresión, los de más alta precedencia será evaluados primero. 
+   Aquí, operadores con mayor precedencia aparecen arriba de la tabla, y los que tienen menos aparecen al fondo. En una expresión, los de más alta precedencia será evaluados primero. 
 
-| Categoria       | Operador                         | Asociatividad       |
-|-----------------+----------------------------------+---------------------|
-| Sufijos         | ()[]->.++--                      | Izquierda a Derecha |
-| Unarios         | + - ! ~ ++ -- (type)* & sizeof   | Derecha a Izquierda |
-| Multiplicativos | * / %                            | Izquierda a Derecha |
-| Aditivos        | + -                              | Izquierda a Derecha |
-| Desplazamiento  | << >>                            | Izquierda a Derecha |
-| Relacionales    | < <= > >=                        | Izquierda a Derecha |
-| Equidad         | \== !=                           | Izquierda a Derecha |
-| AND Bit         | &                                | Izquierda a Derecha |
-| XOR Bit         | ^                                | Izquierda a Derecha |
-| OR Bit          | ¦                                | Izquierda a Derecha |
-| AND Logico      | &&                               | Izquierda a Derecha |
-| OR Logico       | ¦¦                               | Izquierda a Derecha |
-| Condicional     | ?:                               | Derecha a Izquierda |
-| Asignación      | \= += -= *= /= %=>>= <<= &= ^=¦= | Derecha a Izquierda |
-| Coma            | ,                                | Izquierda a Derecha |
+   | Categoria       | Operador                         | Asociatividad       |
+   |-----------------+----------------------------------+---------------------|
+   | Sufijos         | ()[]->.++--                      | Izquierda a Derecha |
+   | Unarios         | + - ! ~ ++ -- (type)* & sizeof   | Derecha a Izquierda |
+   | Multiplicativos | * / %                            | Izquierda a Derecha |
+   | Aditivos        | + -                              | Izquierda a Derecha |
+   | Desplazamiento  | << >>                            | Izquierda a Derecha |
+   | Relacionales    | < <= > >=                        | Izquierda a Derecha |
+   | Equidad         | \== !=                           | Izquierda a Derecha |
+   | AND Bit         | &                                | Izquierda a Derecha |
+   | XOR Bit         | ^                                | Izquierda a Derecha |
+   | OR Bit          | ¦                                | Izquierda a Derecha |
+   | AND Logico      | &&                               | Izquierda a Derecha |
+   | OR Logico       | ¦¦                               | Izquierda a Derecha |
+   | Condicional     | ?:                               | Derecha a Izquierda |
+   | Asignación      | \= += -= *= /= %=>>= <<= &= ^=¦= | Derecha a Izquierda |
+   | Coma            | ,                                | Izquierda a Derecha |
 
 *** Ejemplo
 
-Veremos el siguiente ejemplo para entender la precedencia en los operadores en C -- 
+    Veremos el siguiente ejemplo para entender la precedencia en los operadores en C -- 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  #include <stdio.h>
+      #include <stdio.h>
 
-  main(){
+      main(){
 
-    int a = 20;
-    int b = 10;
-    int c = 15;
-    int d = 5;
-    int e;
+	int a = 20;
+	int b = 10;
+	int c = 15;
+	int d = 5;
+	int e;
 
-    e = (a + b) * c / d; // (30 * 15 ) / 5
-    printf("El valor de (a + b) * c / d es : %d\n", e);
+	e = (a + b) * c / d; // (30 * 15 ) / 5
+	printf("El valor de (a + b) * c / d es : %d\n", e);
 
-    e = ((a + b) * c) / d;  // (30 * 15) / 5
-    printf("El valor de ((a +  b) * c) / d es : %d\n", e);
+	e = ((a + b) * c) / d;  // (30 * 15) / 5
+	printf("El valor de ((a +  b) * c) / d es : %d\n", e);
 
-    e = (a + b) * (c / d); // (30) * (15/5)
-    printf("El valor de (a + b) * (c / d) es : %d\n", e);
+	e = (a + b) * (c / d); // (30) * (15/5)
+	printf("El valor de (a + b) * (c / d) es : %d\n", e);
 
-    e = a + (b * c) / d; // 20 + (150/5)
-    printf("El valor de a + (b * c) / d es : %d\n", e);
+	e = a + (b * c) / d; // 20 + (150/5)
+	printf("El valor de a + (b * c) / d es : %d\n", e);
 
-    return 0;
+	return 0;
 
-  }
+      }
 
-#+END_SRC
-
-
-Cuando compilemos y ejecutemos el programa anterior producirá el siguiente resultado -- 
+    #+END_SRC
 
 
-: El valor de  (a + b) * c / d  es : 90
-: El valor de  ((a + b) * c) /  es : 90
-: El valor de  (a + b) * (c / d es : 90
-: El valor de  a + (b * c) / d  es : 50
+    Cuando compilemos y ejecutemos el programa anterior producirá el siguiente resultado -- 
+
+
+    : El valor de  (a + b) * c / d  es : 90
+    : El valor de  ((a + b) * c) /  es : 90
+    : El valor de  (a + b) * (c / d es : 90
+    : El valor de  a + (b * c) / d  es : 50
 
 * C - Tomando decisiones 
 
-Las estructuras  para tomar decisiones requieren que el programador especifique una o más condiciones para ser evaluadas o testadas por el programa, a lo largo con una declaracón o declaraciones para ser ejecutadas si la condición es determinadas a ser cierta, y opcionalmente, otra declaración para ser ejecutada si la condición es determinada a ser falsa. 
+  Las estructuras  para tomar decisiones requieren que el programador especifique una o más condiciones para ser evaluadas o testadas por el programa, a lo largo con una declaracón o declaraciones para ser ejecutadas si la condición es determinadas a ser cierta, y opcionalmente, otra declaración para ser ejecutada si la condición es determinada a ser falsa. 
 
-Mostramos abajo un forma general de la estructura de toma de decisiones encontrada en la mayoría de los lenguajes de programación - 
+  Mostramos abajo un forma general de la estructura de toma de decisiones encontrada en la mayoría de los lenguajes de programación - 
 
-# image
+  # image
 
-El lenguaje de programación C proporciona los siguientes tipos de declaraciones para toma de decisiones. 
+  El lenguaje de programación C proporciona los siguientes tipos de declaraciones para toma de decisiones. 
 
-| Nº | Declaración           | Descripción                                                                        |
-|----+-----------------------+------------------------------------------------------------------------------------|
-|  1 | declaración if        | consiste en una expresión buleana seguida de una o más declaraciones               |
-|  2 | declaración if...else | Es un if con un else opcional que ejecuta una declaración si la expresión es falsa |
-|  3 | if anidados           | Se pueden usar if o else if anidados                                               |
-|  4 | declaración switch    | Se compara contra una lista de valores                                             |
-|  5 | switch anidados       | se puede usar un switch dentro de otro                                             |
+  | Nº | Declaración           | Descripción                                                                        |
+  |----+-----------------------+------------------------------------------------------------------------------------|
+  |  1 | declaración if        | consiste en una expresión buleana seguida de una o más declaraciones               |
+  |  2 | declaración if...else | Es un if con un else opcional que ejecuta una declaración si la expresión es falsa |
+  |  3 | if anidados           | Se pueden usar if o else if anidados                                               |
+  |  4 | declaración switch    | Se compara contra una lista de valores                                             |
+  |  5 | switch anidados       | se puede usar un switch dentro de otro                                             |
 
 
 ** El operador ?:
 
-Ya hemos cubierto el *operador condicional ?:* en el capítulo anterior el cual puede ser usado para reemplazar la declaración *if...else*. Su forma general es -- 
+   Ya hemos cubierto el *operador condicional ?:* en el capítulo anterior el cual puede ser usado para reemplazar la declaración *if...else*. Su forma general es -- 
 
-: Exp1 ? Exp2 : Exp3;
+   : Exp1 ? Exp2 : Exp3;
 
-Donde Exp1, Exp2 y Exp3 son expresiones. 
+   Donde Exp1, Exp2 y Exp3 son expresiones. 
 
-El valor de la expresión ? es determinadas como esto - 
+   El valor de la expresión ? es determinadas como esto - 
 
-+ Exp1 es evaluada. Si es verdadera, entonces Exp2 es evaluada y se convierte el valor de la expresión ?
+   * Exp1 es evaluada. Si es verdadera, entonces Exp2 es evaluada y se convierte el valor de la expresión ?
 
-+ Si Exp1 es falso, entonces Exp3 es evaludado y su valor se convierte en el valor de la expresión
+   * Si Exp1 es falso, entonces Exp3 es evaludado y su valor se convierte en el valor de la expresión
 
 * C - Bucles 
 
 
-Nos podemos encontrar situaciones, donde un bloque de código necesita ser ejecutado un cierto número de veces. En general, las declaraciones son ejecutadas secuencialmente: la primera declaración en una función es ejecutada primero, seguido de la segunda y así. 
+  Nos podemos encontrar situaciones, donde un bloque de código necesita ser ejecutado un cierto número de veces. En general, las declaraciones son ejecutadas secuencialmente: la primera declaración en una función es ejecutada primero, seguido de la segunda y así. 
 
-Los lenguajes de programación proporcionan varias estructuras de control que permiten caminos de ejecución más complicados. 
+  Los lenguajes de programación proporcionan varias estructuras de control que permiten caminos de ejecución más complicados. 
 
-Una declaración bucle nos permite ejecutar una declaración o grupo de ellas muchas veces. Dado la siguiente forma general de una declaración bucle en la mayoría de lenguajes de programación  -- 
+  Una declaración bucle nos permite ejecutar una declaración o grupo de ellas muchas veces. Dado la siguiente forma general de una declaración bucle en la mayoría de lenguajes de programación  -- 
 
-# imagen 
+  # imagen 
 
-El lenguaje de programación C proporciona los siguientes tipos de bucles - 
+  El lenguaje de programación C proporciona los siguientes tipos de bucles - 
 
-| Nº | Tipo de Bucle    | Descripción                                                                                |
-|----+------------------+--------------------------------------------------------------------------------------------|
-|  1 | bucle while      | repite una declaración mientras una condición dada sea cierta.                             |
-|  2 | bucle for        | Ejecuta una secuncia de declaraciones muchas veces y abrevia el código que maneja el bucle |
-|  3 | bucle do...while | Es más como un bucle while, solo que se testea la condición al final del bucle             |
-|  4 | bucles anidados  | Se puede usar un bucle dentro de otro                                                      |
+  | Nº | Tipo de Bucle    | Descripción                                                                                |
+  |----+------------------+--------------------------------------------------------------------------------------------|
+  |  1 | bucle while      | repite una declaración mientras una condición dada sea cierta.                             |
+  |  2 | bucle for        | Ejecuta una secuncia de declaraciones muchas veces y abrevia el código que maneja el bucle |
+  |  3 | bucle do...while | Es más como un bucle while, solo que se testea la condición al final del bucle             |
+  |  4 | bucles anidados  | Se puede usar un bucle dentro de otro                                                      |
 
 *** Bucle while en C 
 
@@ -1396,20 +1396,20 @@ Un bucle *while* en C repetidamente ejecuta una declaración objetivo mientras l
 
 **** Sintaxis 
 
-La sintaxis de un bucle *while* en C es - 
+     La sintaxis de un bucle *while* en C es - 
 
-#+BEGIN_SRC C
+     #+BEGIN_SRC C
 
-  while(condicion) {
-    declaracion(es);
-  }
+       while(condicion) {
+	 declaracion(es);
+	}
 
-#+END_SRC
+     #+END_SRC
 
 
-Aquí, *declaracion(es) puede ser una sola declaración o un bloque de declaraciones. La *condición* puede ser cualquier expresión, y verdadero es cualquier valor no cero. El bucle itera mientras la condición sea cierta.
+     Aquí, *declaracion(es) puede ser una sola declaración o un bloque de declaraciones. La *condición* puede ser cualquier expresión, y verdadero es cualquier valor no cero. El bucle itera mientras la condición sea cierta.
 
-Cuando la condición se convierte en falsa, el programa pasa el control a la linea inmediatamente después del bucle.
+     Cuando la condición se convierte en falsa, el programa pasa el control a la linea inmediatamente después del bucle.
 
 **** Diagrama de Flujo 
 
@@ -1417,115 +1417,115 @@ Cuando la condición se convierte en falsa, el programa pasa el control a la lin
 # imagen
 
 
-Aquí, el punto clave a notar es que un bucle while puede que no se ejecute. Cuando la condición es comprobada y su resutado es falso, el cuerpo del bucle será omitido y la primera declaración después de que el bucle while sea ejecutado. 
+Aquí, el punto clave a notar es que un bucle while puede que no se ejecute. Cuando la condición es comprobada y su resultado es falso, el cuerpo del bucle será omitido y la primera declaración después de que el bucle while sea ejecutado. 
 
 **** Ejemplo  
 
-#+BEGIN_SRC C
+     #+BEGIN_SRC C
 
-  #include <stdio.h>
+       #include <stdio.h>
 
-  int main() {
+       int main() {
 
-    /* definimos las variables locales */
-    int a = 10;
+	 /* definimos las variables locales */
+	 int a = 10;
 
-    /* ejecución del bucle while */ 
-    while( a < 20 ) {
-      printf("el valor de a es: %d\n", a);
-      a++;
-    }
+	 /* ejecución del bucle while */ 
+	 while( a < 20 ) {
+	   printf("el valor de a es: %d\n", a);
+	   a++;
+	 }
 
-  return 0;
-  }
-#+END_SRC
+	 return 0;
+       }
+     #+END_SRC
 
-Cuando compilamos el código y lo ejecutamos producirá el siguiente resultado - 
+     Cuando compilamos el código y lo ejecutamos producirá el siguiente resultado - 
 
-: el valor de a es : 10
-: el valor de a es : 11
-: el valor de a es : 12
-: el valor de a es : 13
-: el valor de a es : 14
-: el valor de a es : 15
-: el valor de a es : 16
-: el valor de a es : 17
-: el valor de a es : 18
-: el valor de a es : 19
+     : el valor de a es : 10
+     : el valor de a es : 11
+     : el valor de a es : 12
+     : el valor de a es : 13
+     : el valor de a es : 14
+     : el valor de a es : 15
+     : el valor de a es : 16
+     : el valor de a es : 17
+     : el valor de a es : 18
+     : el valor de a es : 19
 
 *** Bucle For en C 
 
-Un bucle *for* es una estructura de control de repetición que permiete eficazmente escribir bucles que se necesiten ejecutar un número específico de veces. 
+    Un bucle *for* es una estructura de control de repetición que permiete eficazmente escribir bucles que se necesiten ejecutar un número específico de veces. 
 
 **** Sintaxis 
 
-La sintaxis de un bucle *for* en C es - 
+     La sintaxis de un bucle *for* en C es - 
 
-#+BEGIN_SRC C
+     #+BEGIN_SRC C
 
-  for (inicio; condición; incremento) {
-    declaracion(es);
-   }
+       for (inicio; condición; incremento) {
+	 declaracion(es);
+	}
 
-#+END_SRC
+     #+END_SRC
 
-Vamos a ver el flujo de control de un bucle 'for' - 
+     Vamos a ver el flujo de control de un bucle 'for' - 
 
-+ El paso *inicial* es ejecutado primero, y solo una vez. Este paso nos permite declarar e inicializar cualquier variable de control del bucle. No es obligatorio poner una declaración aquí, así como un punto y como aparece.
+     + El paso *inicial* es ejecutado primero, y solo una vez. Este paso nos permite declarar e inicializar cualquier variable de control del bucle. No es obligatorio poner una declaración aquí, así como un punto y como aparece.
 
-+ Siguiente, la *condición* es evaluada. Si es verdadero, el cuerpo del bucle es ejecutado. Si es falso, no se ejecuta y el flujo de control salta a la siguiente declaración justo después del bucle 'for'. 
+     + Siguiente, la *condición* es evaluada. Si es verdadero, el cuerpo del bucle es ejecutado. Si es falso, no se ejecuta y el flujo de control salta a la siguiente declaración justo después del bucle 'for'. 
 
-+ Después de que el cuerpo del bucle es ejecutado, el flujo de control salta atrás a la declaración *incremento*. Esta declaración nos permite actualizar las variables de control del bucle. Esta declaración se puede dejar en blanco, poniendo un punto y como después de la condición.
+     + Después de que el cuerpo del bucle es ejecutado, el flujo de control salta atrás a la declaración *incremento*. Esta declaración nos permite actualizar las variables de control del bucle. Esta declaración se puede dejar en blanco, poniendo un punto y como después de la condición.
 
-+ La condición ahora es evaluada de nuevo. Si es verdadero, el bucle se ejecuta y el proceso se repite de nuevo. Después de que la condición se convierta en falso, el bucle 'for' termina.
+     + La condición ahora es evaluada de nuevo. Si es verdadero, el bucle se ejecuta y el proceso se repite de nuevo. Después de que la condición se convierta en falso, el bucle 'for' termina.
 
 **** Diagrama de Flujo 
 
-# imagen
+     # imagen
 
 **** Ejemplo 
 
 
-#+BEGIN_SRC C
+     #+BEGIN_SRC C
 
-  #include <stdio.h>
+       #include <stdio.h>
 
-  int main () {
+       int main () {
 
-    int a;
+	 int a;
 
-    /* ejecución del bucle for */
-    for (a = 10; a < 20; a = a + 1){
-      printf("el valor de a es: %d\n", a);
-    }
+	 /* ejecución del bucle for */
+	 for (a = 10; a < 20; a = a + 1){
+	   printf("el valor de a es: %d\n", a);
+	 }
 
-  return 0;
-  }
+	 return 0;
+       }
 
-#+END_SRC
+     #+END_SRC
 
 
 *** Bucle do...while 
 
-A diferencia de los bucles *for* y *while*, los cuales comprueban la condición del bucle al principio del bucle, el bucle *do...while* comprueba la condicion al final. 
+    A diferencia de los bucles *for* y *while*, los cuales comprueban la condición del bucle al principio del bucle, el bucle *do...while* comprueba la condicion al final. 
 
-Un bucle *do...while* es similar a un bucle *while*, excepto por el hecho de que está garantizado que se ejecute al menos una vez.
+    Un bucle *do...while* es similar a un bucle *while*, excepto por el hecho de que está garantizado que se ejecute al menos una vez.
 
 **** Sintaxis 
 
-La sintaxis del bucle *do...while* es la siguiente - 
+     La sintaxis del bucle *do...while* es la siguiente - 
 
-#+BEGIN_SRC C
+     #+BEGIN_SRC C
 
-  do {
-    declaracion(es);
-   } while (condición);
+       do {
+	 declaracion(es);
+	} while (condición);
 
-#+END_SRC
+     #+END_SRC
 
-Vamos a fijarnos que la expresión de la condición aparece al final del bucle, así la declaración(es) en el bucle se ejecuta al menos una vez antes de que la condición sea comprobada. 
+     Vamos a fijarnos que la expresión de la condición aparece al final del bucle, así la declaración(es) en el bucle se ejecuta al menos una vez antes de que la condición sea comprobada. 
 
-Si la condición es verdadera, el flujo de control salta para atrás al principio del bucle, y así la declaración se ejecuta de nuevo. Este proceso se repite hasta que la condición dada sea falsa. 
+     Si la condición es verdadera, el flujo de control salta para atrás al principio del bucle, y así la declaración se ejecuta de nuevo. Este proceso se repite hasta que la condición dada sea falsa. 
 
 **** Diagrama de Flujo 
 
@@ -1533,134 +1533,134 @@ Si la condición es verdadera, el flujo de control salta para atrás al principi
 
 **** Ejemplo 
 
-#+BEGIN_SRC C
+     #+BEGIN_SRC C
 
-  #include <stdio.h>
+       #include <stdio.h>
 
-  int main() {
-    /* definición de variables locales */
-    int a = 10;
+       int main() {
+	 /* definición de variables locales */
+	 int a = 10;
 
-    /* ejecutar el bucle */
-    do {
-      printf("el valor de a es: %d\n", a);
-      a = a + 1;
-    }while( a < 20 );
+	 /* ejecutar el bucle */
+	 do {
+	   printf("el valor de a es: %d\n", a);
+	   a = a + 1;
+	 }while( a < 20 );
 
-    return 0;
+	 return 0;
 
-  }
-#+END_SRC
+       }
+     #+END_SRC
 
-Cuando compilemos y ejecutemos el código anterior tendremos el siguiente resultado - 
+     Cuando compilemos y ejecutemos el código anterior tendremos el siguiente resultado - 
 
-: el valor de a es: 10
-: el valor de a es: 11
-: el valor de a es: 12
-: el valor de a es: 13
-: el valor de a es: 14
-: el valor de a es: 15
-: el valor de a es: 16
-: el valor de a es: 17
-: el valor de a es: 18
-: el valor de a es: 19
+     : el valor de a es: 10
+     : el valor de a es: 11
+     : el valor de a es: 12
+     : el valor de a es: 13
+     : el valor de a es: 14
+     : el valor de a es: 15
+     : el valor de a es: 16
+     : el valor de a es: 17
+     : el valor de a es: 18
+     : el valor de a es: 19
 
 
 
 *** Bucles anidados 
 
-C permite el uso de bucles anidados. La siguiente sección muestra unos pocos ejemplos para ilustrar este concepto. 
+    C permite el uso de bucles anidados. La siguiente sección muestra unos pocos ejemplos para ilustrar este concepto. 
 
 **** Sintaxis 
 
-La sintaxis para un  *bucles anidados for* es la siguiente - 
+     La sintaxis para un  *bucles anidados for* es la siguiente - 
 
-#+BEGIN_SRC C
-  for ( inicialización; condición; incremento) {
-    for (inicialización; condición; incremento) {
-      declaraciones;
-    }
-    declaraciones;
-   }
+     #+BEGIN_SRC C
+       for ( inicialización; condición; incremento) {
+	 for (inicialización; condición; incremento) {
+	   declaraciones;
+	 }
+	 declaraciones;
+	}
 
-#+END_SRC
+     #+END_SRC
 
-La sintaxis para un *bucle anidado while* es  la siguiente -
+     La sintaxis para un *bucle anidado while* es  la siguiente -
 
-#+BEGIN_SRC C
-  while(condición){
-    while(condición){
-      declaraciones;
-    }
-    declaraciones;
-   }
-#+END_SRC
+     #+BEGIN_SRC C
+       while(condición){
+	 while(condición){
+	   declaraciones;
+	 }
+	 declaraciones;
+	}
+     #+END_SRC
 
-La sintaxis para un *bucle anidado do...while* es la siguiente - 
+     La sintaxis para un *bucle anidado do...while* es la siguiente - 
 
-#+BEGIN_SRC C
+     #+BEGIN_SRC C
 
-  do {
-    declaraciones;
-    do {
-      declaraciones;
-    }while (condición);
-   } while (condición);
+       do {
+	 declaraciones;
+	 do {
+	   declaraciones;
+	 }while (condición);
+	} while (condición);
 
-#+END_SRC
+     #+END_SRC
 
-Una nota final acerca de los bucles anidados es que podemos poner cualquier tipo de bucle dentro de otro.Por ejemplo un bucle 'for' dentro de un bucle 'while' o viceversa. 
+     Una nota final acerca de los bucles anidados es que podemos poner cualquier tipo de bucle dentro de otro.Por ejemplo un bucle 'for' dentro de un bucle 'while' o viceversa. 
 
 **** Ejemplo 
 
-El siguiente programa usa un bucle anidado for para encontrar los números primos desde 2 a 100 - 
+     El siguiente programa usa un bucle anidado for para encontrar los números primos desde 2 a 100 - 
 
-#+BEGIN_SRC C
+     #+BEGIN_SRC C
 
-    #include <stdio.h>
+       #include <stdio.h>
 
-    int main () {
-      /* definiendo las variables locales */
-      int  i, j;
+       int main () {
+	 /* definiendo las variables locales */
+	 int  i, j;
 
-      for(i = 2; i<100; i++){
-        for(j = 2; j <= (i/j); j++)
-          if(!(i%j)) break; // si se encuentra el factor no es primo
-        if(j > (i/j)) printf("%d es primo/n", i);
-      }
+	 for(i = 2; i<100; i++){
+	   for(j = 2; j <= (i/j); j++)
+	     if(!(i%j)) break; // si se encuentra el factor no es primo
+	   if(j > (i/j)) printf("%d es primo/n", i);
+	 }
 
-      return 0;
-    }
+	 return 0;
+       }
 
-#+END_SRC
+     #+END_SRC
 
-Cuando compilemos y ejecutemos el siguiente código producirá el siguiente resultado - 
+     Cuando compilemos y ejecutemos el siguiente código producirá el siguiente resultado - 
 
-: 2 es primo 
-: 3 es primo 
-: 5 es primo 
-: 7 es primo 
-: 11 es primo 
-: 13 es primo 
-: 17 es primo 
-: 19 es primo 
-: 23 es primo 
-: 29 es primo 
-: 31 es primo 
-: 37 es primo 
-: 41 es primo 
-: 43 es primo 
-: 47 es primo 
-: 53 es primo 
-: 59 es primo 
-: 61 es primo 
-: 67 es primo 
-: 71 es primo 
-: 73 es primo 
-: 79 es primo 
-: 83 es primo 
-: 89 es primo 
-: 97 es primo 
+     : 2 es primo 
+     : 3 es primo 
+     : 5 es primo 
+     : 7 es primo 
+     : 11 es primo 
+     : 13 es primo 
+     : 17 es primo 
+     : 19 es primo 
+     : 23 es primo 
+     : 29 es primo 
+     : 31 es primo 
+     : 37 es primo 
+     : 41 es primo 
+     : 43 es primo 
+     : 47 es primo 
+     : 53 es primo 
+     : 59 es primo 
+     : 61 es primo 
+     : 67 es primo 
+     : 71 es primo 
+     : 73 es primo 
+     : 79 es primo 
+     : 83 es primo 
+     : 89 es primo 
+     : 97 es primo 
 
 
 ** Declaraciones para el control de bucles 
@@ -1673,21 +1673,23 @@ C soporta las siguientes declaraciones de control
 |----+------------------------+------------------------------------------------------------|
 |  1 | declaración break      | Termina el bucle o switch y lo transfiere al siguiente     |
 |  2 | declaración continue   | Causa que el bucle salga de su cuerpo y vuelva a testearse |
-|  3 | declaración goto       | Transfiere el control a una declaración nombrada           
+|  3 | declaración goto       | Transfiere el control a una declaración nombrada           |
+
+
 ** Declaración break
-La declaración *break* en C tiene dos usos - 
+   La declaración *break* en C tiene dos usos - 
 
-+ Cuando una declaración *break* es encontrada dentro de un bucle, el bucle termina de forma inmediata y el control del programa pasa a la siguiente declaración que sigue al bucle.
-+ Puede ser usado para terminar un caso en la declaración *switch* (que veremos en el próximo capítulo).
+   * Cuando una declaración *break* es encontrada dentro de un bucle, el bucle termina de forma inmediata y el control del programa pasa a la siguiente declaración que sigue al bucle.
+   * Puede ser usado para terminar un caso en la declaración *switch* (que veremos en el próximo capítulo).
 
-Si estamos usando bucles anidados, la declaración break parará la ejecución de bucle más interno y pasará a la siguiente línea del siguiente bloque. 
+   Si estamos usando bucles anidados, la declaración break parará la ejecución de bucle más interno y pasará a la siguiente línea del siguiente bloque. 
 
 *** Sintaxis 
-La sintaxis para *break* es la siguiente - 
+    La sintaxis para *break* es la siguiente - 
 
-#+BEGIN_SRC C
-  break;
-#+END_SRC
+    #+BEGIN_SRC C
+      break;
+    #+END_SRC
 
 *** Diagrama de Flujo 
 
@@ -1695,37 +1697,37 @@ La sintaxis para *break* es la siguiente -
 *** Ejemplo  
 
 
-#+BEGIN_SRC C
-  #include <stdio.h>
+    #+BEGIN_SRC C
+      #include <stdio.h>
 
-  int main(){
-    /* definiendo las variables locales */
-    int a = 10;
+      int main(){
+	/* definiendo las variables locales */
+	int a = 10;
 
-    /* ejecución del bucle while */
-    while(a < 20 ) {
-      printf("El valor de a: %d\n", a);
-      a++;
+	/* ejecución del bucle while */
+	while(a < 20 ) {
+	  printf("El valor de a: %d\n", a);
+	  a++;
 
-      if( a > 15) {
-        /* terminando el bucle con break */
-        break;
+	  if( a > 15) {
+	    /* terminando el bucle con break */
+	    break;
+	  }
+	}
+
+	return 0;
       }
-    }
 
-    return 0;
-  }
+    #+END_SRC
 
-#+END_SRC
+    Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
 
-Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
-
-: El valor de a: 10
-: El valor de a: 11
-: El valor de a: 12
-: El valor de a: 13
-: El valor de a: 14
-: El valor de a: 15
+    : El valor de a: 10
+    : El valor de a: 11
+    : El valor de a: 12
+    : El valor de a: 13
+    : El valor de a: 14
+    : El valor de a: 15
 
 
 ** Declaración continue 
@@ -1737,11 +1739,11 @@ Para el bucle *for*, *continue* causa que la comparación condicional y el incre
 *** Sintaxis  
  
 
- La sintaxis para *continue* es la siguiente - 
+    La sintaxis para *continue* es la siguiente - 
 
- #+BEGIN_SRC C
- continue;
- #+END_SRC
+    #+BEGIN_SRC C
+      continue;
+    #+END_SRC
 
 *** Diagrama de flujo 
 
@@ -1749,46 +1751,46 @@ Para el bucle *for*, *continue* causa que la comparación condicional y el incre
 
 *** Ejemplo 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  #include <stdio.h>
+      #include <stdio.h>
 
-  int main () {
-    /* definimos la variables locales */
-    int a = 10;
+      int main () {
+	/* definimos la variables locales */
+	int a = 10;
 
-    /* ejecutamos el bucle */
-    do {
+	/* ejecutamos el bucle */
+	do {
 
-      if( a == 15 ) {
-        /*salimos de la iteracion*/
-        a = a + 1;
-        continue;
+	  if( a == 15 ) {
+	    /*salimos de la iteracion*/
+	    a = a + 1;
+	    continue;
+	  }
+
+	  printf("El valor de a es: %d\n", a);
+	  a++;
+	} while ( a < 20);
+
+	return 0;
+
       }
 
-      printf("El valor de a es: %d\n", a);
-      a++;
-    } while ( a < 20);
-
-    return 0;
-
-  }
-
-#+END_SRC
+    #+END_SRC
 
 
-Cuando el código anterior sea compilado y ejecutado tendremos el siguiente resultado - 
+    Cuando el código anterior sea compilado y ejecutado tendremos el siguiente resultado - 
 
-: El valor de a es: 10
-: El valor de a es: 11
-: El valor de a es: 12
-: El valor de a es: 13
-: El valor de a es: 14
-: El valor de a es: 15
-: El valor de a es: 16
-: El valor de a es: 17
-: El valor de a es: 18
-: El valor de a es: 19
+    : El valor de a es: 10
+    : El valor de a es: 11
+    : El valor de a es: 12
+    : El valor de a es: 13
+    : El valor de a es: 14
+    : El valor de a es: 15
+    : El valor de a es: 16
+    : El valor de a es: 17
+    : El valor de a es: 18
+    : El valor de a es: 19
 
  
 
@@ -1796,371 +1798,375 @@ Cuando el código anterior sea compilado y ejecutado tendremos el siguiente resu
 ** Declaración goto
 
 
-La declaración *goto* en C proporciona un salto incondicional desde 'goto' hasta la declaracion nombrada en la misma función. 
+   La declaración *goto* en C proporciona un salto incondicional desde 'goto' hasta la declaracion nombrada en la misma función. 
 
-*NOTA* - Usar la declaración *goto** es altamente desaconsejado en cualquier lenguaje de programación porque hace difícil tracer el flujo de control de un programa, haciendo el programa difícil de entender y de modificar. Cualquier programa que use un goto puede ser reescrito sin ellos. 
+   *NOTA* - Usar la declaración *goto** es altamente desaconsejado en cualquier lenguaje de programación porque hace difícil tracer el flujo de control de un programa, haciendo el programa difícil de entender y de modificar. Cualquier programa que use un goto puede ser reescrito sin ellos. 
 
 *** Sintaxis    
 
-La sintaxis de la declaración *goto* en C es tal como sigue - 
+    La sintaxis de la declaración *goto* en C es tal como sigue - 
 
-#+BEGIN_SRC C
-goto label;
-..
-.
-label: declaración;
-#+END_SRC
+    #+BEGIN_SRC C
+      goto label;
+      ..
+      .
+      label: declaración;
+    #+END_SRC
 
-Aquí *etiqueta* puede ser cualquier texto plano excepto las palabras claves de C y puede estar en cualquier sitio en el programa antes o después de la declaración *goto*. 
+    Aquí *etiqueta* puede ser cualquier texto plano excepto las palabras claves de C y puede estar en cualquier sitio en el programa antes o después de la declaración *goto*. 
+
 *** Diagrama de Flujo 
 
 # imagen 
 
 *** Ejemplo 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-    #include <stdio.h>
+      #include <stdio.h>
 
-  int main () {
-    /* definición de las variables locales */
-    int a = 10;
+      int main () {
+	/* definición de las variables locales */
+	int a = 10;
 
-    /* ejecución del bucle */
-   LOOP:do {
+	/* ejecución del bucle */
+       LOOP:do {
 
-      if(a == 15){
-        /*salida de la interacción */
-        a = a + 1;
-        goto LOOP;
+	  if(a == 15){
+	    /*salida de la interacción */
+	    a = a + 1;
+	    goto LOOP;
+	  }
+
+	  printf("El valor de a es: %d\n", a);
+	  a++;
+	}while(a < 20 );
+
+	return 0;
       }
+    #+END_SRC
 
-      printf("El valor de a es: %d\n", a);
-      a++;
-    }while(a < 20 );
-
-    return 0;
-  }
-#+END_SRC
-
-Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
+    Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
 
 
-: El valor de a es: 10
-: El valor de a es: 11
-: El valor de a es: 12
-: El valor de a es: 13
-: El valor de a es: 14
-: El valor de a es: 15
-: El valor de a es: 16
-: El valor de a es: 17
-: El valor de a es: 18
-: El valor de a es: 19
+    : El valor de a es: 10
+    : El valor de a es: 11
+    : El valor de a es: 12
+    : El valor de a es: 13
+    : El valor de a es: 14
+    : El valor de a es: 15
+    : El valor de a es: 16
+    : El valor de a es: 17
+    : El valor de a es: 18
+    : El valor de a es: 19
 
  
 ** Bucle infinito 
 
-Un bucle se vuelve un bucle infinito si una condición nuna se convierte en falsa. El bucle *for* es tradicionalmente usado para este propósito. Desde que ninguna de las tres expresiones que forma el bucle 'for' son requeridos, podemos hacer un bucle sin fin dejando la expresión condicional vacía. 
+   Un bucle se vuelve un bucle infinito si una condición nuna se convierte en falsa. El bucle *for* es tradicionalmente usado para este propósito. Desde que ninguna de las tres expresiones que forma el bucle 'for' son requeridos, podemos hacer un bucle sin fin dejando la expresión condicional vacía. 
 
 
-#+BEGIN_SRC C
+   #+BEGIN_SRC C
 
-  #include <stdio.h>
+     #include <stdio.h>
 
-  int main(){
+     int main(){
 
-    for( ; ; ){
-      printf("Este bucle no tiene fin.\n");
-    }
+       for( ; ; ){
+	 printf("Este bucle no tiene fin.\n");
+       }
 
-    return 0;
+       return 0;
 
-  }
-
-
-#+END_SRC
+     }
 
 
-Cuando una expresión condicional está ausente, se asume que es cierta. Se podría tener una expresión de inicialización e incremento, pero los programadores de C más comúnmente usan el constructor for significar un bucle infinito.
+   #+END_SRC
+
+
+   Cuando una expresión condicional está ausente, se asume que es cierta. Se podría tener una expresión de inicialización e incremento, pero los programadores de C más comúnmente usan el constructor for significar un bucle infinito.
+
+
 * C - Funciones 
 
 
-Una función es un grupo de declaraciones que juntas realizan una tarea. Cada programa de C tiene al menos una función, la cual es *main()*, y todos la mayoría de programas triviales pueden definir funciones adicionales. 
+  Una función es un grupo de declaraciones que juntas realizan una tarea. Cada programa de C tiene al menos una función, la cual es *main()*, y todos la mayoría de programas triviales pueden definir funciones adicionales. 
 
-Podemos dividir nuestro código en funciones separadas. Cómo dividir nuestro código en diferentes funciones es cosa nuestra, pero lógicamente la división es de tal forma que cada función realice una tarea específica.
+  Podemos dividir nuestro código en funciones separadas. Cómo dividir nuestro código en diferentes funciones es cosa nuestra, pero lógicamente la división es de tal forma que cada función realice una tarea específica.
 
-Una función *declaración* le dice al compilador sobre el nombre de la función, devuelve el tipo, y los parámetros. Una función *definición* proporcional el verdadero cuerpo de la función.
+  Una función *declaración* le dice al compilador sobre el nombre de la función, devuelve el tipo, y los parámetros. Una función *definición* proporcional el verdadero cuerpo de la función.
 
-La biblioteca estándar de C proporciona numerosas funciones construidas que nuestro programa puede llamar. Por ejemplo, *strcat()* concatena dos cadenas de caracteres, *memcpy()* copia una locación de memoria a otra, y muchas más funciones. 
+  La biblioteca estándar de C proporciona numerosas funciones construidas que nuestro programa puede llamar. Por ejemplo, *strcat()* concatena dos cadenas de caracteres, *memcpy()* copia una locación de memoria a otra, y muchas más funciones. 
 
-Una función puede también referirse como un método o una sub-rutina o un procedimiento, etc. 
+  Una función puede también referirse como un método o una sub-rutina o un procedimiento, etc. 
 
 ** Definiendo una función
 
-La forma general de la definición de una función en C es como sigue -- 
+   La forma general de la definición de una función en C es como sigue -- 
 
-#+BEGIN_SRC C
+   #+BEGIN_SRC C
 
-  tipo_a_devolver nombre_funcion (lista de parámetros) {
-    cuerpo de la función
-  }
+     tipo_a_devolver nombre_funcion (lista de parámetros) {
+       cuerpo de la función
+	 }
 
-#+END_SRC
+   #+END_SRC
 
-La definición de una función consiste en la cabecera de la función y su cuerpo. Aquí están todas las partes de una función - 
+   La definición de una función consiste en la cabecera de la función y su cuerpo. Aquí están todas las partes de una función - 
 
-+  *Tipo de retorno* - Una función puede devolver un valor. Un *tipo_retorno* es el tipo de dato de el valor que la función devuelve. Algunas funciones realizan la operación deseada sin devolver un valor. En este caso, el tipo_retorno es la palabra clave *void*. 
+   * *Tipo de retorno* - Una función puede devolver un valor. Un *tipo_retorno* es el tipo de dato de el valor que la función devuelve. Algunas funciones realizan la operación deseada sin devolver un valor. En este caso, el tipo_retorno es la palabra clave *void*. 
 
-+ *Nombre de la función* - Este es el verdadero nombre de la función. El nombre de la función y la lista de los parámetros juntos constituyen la firma de la función.
+   * *Nombre de la función* - Este es el verdadero nombre de la función. El nombre de la función y la lista de los parámetros juntos constituyen la firma de la función.
 
-+ *Parámetros* - Un parámetro es como un marcador. Cuando una función es invocada, le pasamos un valor al parámetro. Este valor es referido como el verdadero parámetro o argumento. La lista de parámetros se refiere al tipo, orden y número de parámetros de una función. Los parámetros son opcionales; esto es, una función puede no contener parámetros.
+   * *Parámetros* - Un parámetro es como un marcador. Cuando una función es invocada, le pasamos un valor al parámetro. Este valor es referido como el verdadero parámetro o argumento. La lista de parámetros se refiere al tipo, orden y número de parámetros de una función. Los parámetros son opcionales; esto es, una función puede no contener parámetros.
 
 *** Ejemplo 
 
-Dado el siguiente código fuente para una función llamada *max()*. Esta función toma dos parámetros num1 y num2 y devuelve el valor máximo entre los dos - 
+    Dado el siguiente código fuente para una función llamada *max()*. Esta función toma dos parámetros num1 y num2 y devuelve el valor máximo entre los dos - 
 
-#+BEGIN_SRC C
+    #+BEGIN_SRC C
 
-  /* la función devuelve el máxido de dos números */
-  int max((int num1, int num2){
+      /* la función devuelve el máxido de dos números */
+      int max((int num1, int num2){
 
-      /* declaración de variables locales */
-      int resultado;
+	  /* declaración de variables locales */
+	  int resultado;
 
-      if(num1 > num2)
-        result = num1;
-      else
-        resultado = num2;
+	  if(num1 > num2)
+	    result = num1;
+	  else
+	    resultado = num2;
 
-      return result;
-    }
-#+END_SRC
+	  return result;
+	}
+    #+END_SRC
 
 
 ** Declaración de función
 
-Una declaración de función le dice al compilador sobre el nombre de la función y como llamar a la función. El verdadero cuerpo de la funcion puede ser definido separadamente. 
+   Una declaración de función le dice al compilador sobre el nombre de la función y como llamar a la función. El verdadero cuerpo de la funcion puede ser definido separadamente. 
 
-Una declaración de función tiene las siguientes partes - 
+   Una declaración de función tiene las siguientes partes - 
 
-: int max(int num1, int num2);
+   : int max(int num1, int num2);
 
-Los nombres de los parámetros no son importantes en la declaración de la función solo su tipo es requerido, así lo siguiente también es válido - 
+   Los nombres de los parámetros no son importantes en la declaración de la función solo su tipo es requerido, así lo siguiente también es válido - 
 
-:int max(int, int);
+   :int max(int, int);
 
-La declaración de la función es  requerida cuando definimos una función en un archivo fuente y llamamos a la función desde otro archivo. En tal caso, podríamos declarar la función arriba del archivo llamando a la función.
+   La declaración de la función es  requerida cuando definimos una función en un archivo fuente y llamamos a la función desde otro archivo. En tal caso, podríamos declarar la función arriba del archivo llamando a la función.
 
 ** Llamando a una función
 
-Mientras creamos un función en C, le damos una definición de lo que la función tiene que hacer. Para usar una función, llamaremos a esa función para realizar una tarea definida. 
+   Mientras creamos un función en C, le damos una definición de lo que la función tiene que hacer. Para usar una función, llamaremos a esa función para realizar una tarea definida. 
 
-Cuando un programa llama a una función, el control de programa es transferido a la función llamada. Una función llamada realiza una tarea definida y cuando es devuelta la declaración es ejecutada o cuando la función alcanza el final, se devuelve el control al programa principal.
+   Cuando un programa llama a una función, el control de programa es transferido a la función llamada. Una función llamada realiza una tarea definida y cuando es devuelta la declaración es ejecutada o cuando la función alcanza el final, se devuelve el control al programa principal.
 
-Para llamar a una función,, simplemente necesitamos pasar el los parámetros requeridos con el nombre de la función, y si la función devuelve un valor, entonces podemos guardar el valor devuelto. Por ejemplo - 
+   Para llamar a una función,, simplemente necesitamos pasar el los parámetros requeridos con el nombre de la función, y si la función devuelve un valor, entonces podemos guardar el valor devuelto. Por ejemplo - 
 
-#+BEGIN_SRC C
+   #+BEGIN_SRC C
 
-  #include <stdio.h>
+     #include <stdio.h>
 
-  /* declaración de la función */
-  int max(int num1, int num2);
+     /* declaración de la función */
+     int max(int num1, int num2);
 
-  int main(){
+     int main(){
 
-    /*definiendo las variables locales*/
-    int a = 100;
-    int b = 200;
-    int ret;
+       /*definiendo las variables locales*/
+       int a = 100;
+       int b = 200;
+       int ret;
 
-    /*llamando a la función que obtiene el valor máximo*/
-    ret = max(a,b);
+       /*llamando a la función que obtiene el valor máximo*/
+       ret = max(a,b);
 
-    printf("El valor máximo es: %d\n", ret);
+       printf("El valor máximo es: %d\n", ret);
 
-    return 0;
-  }
+       return 0;
+     }
 
-  /* función que devuelve el máximo número de dos */
-  int max(int num1, int num2) {
+     /* función que devuelve el máximo número de dos */
+     int max(int num1, int num2) {
 
-    /* declaración de variables locales */
-    int result;
+       /* declaración de variables locales */
+       int result;
 
-    if (num1 > num2)
-      result = num1;
-    else
-      result = num2;
+       if (num1 > num2)
+	 result = num1;
+       else
+	 result = num2;
 
-    return result;
-  }
-
-
-#+END_SRC
+       return result;
+     }
 
 
-Una vez compilado y ejecutado el código fuente obtendremos el siguiente resultado - 
+   #+END_SRC
 
-: El valor máximo es: 200
+
+   Una vez compilado y ejecutado el código fuente obtendremos el siguiente resultado - 
+
+   : El valor máximo es: 200
 
 ** Argumentos de la función
 
-Si una función va a usar argumentos, se deberán declarar las variables que aceptaran los valores de los argumentos. Esas variables son llamadas los *parámetros formales* de la función.
+   Si una función va a usar argumentos, se deberán declarar las variables que aceptaran los valores de los argumentos. Esas variables son llamadas los *parámetros formales* de la función.
 
-Los parámetros formales se comportan como otras variables locales dentro de la función y son creadas cuando se entra en la función y se destruyen al salir.
+   Los parámetros formales se comportan como otras variables locales dentro de la función y son creadas cuando se entra en la función y se destruyen al salir.
 
-Mientras llamamos a una función, hay dos formas en las cuales los argumentos pueden ser pasados a la función - 
+   Mientras llamamos a una función, hay dos formas en las cuales los argumentos pueden ser pasados a la función - 
 
-| Nº | Tipo llamada           | Descripción                                                                                                                                                                                                                                                |
-|----+------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  1 | Llamada por valor      | Este método copia el valor verdadero de un argumento en el parámetro formal de la función. En este caso, los cambios hechos a el parámetro dentro de la función no tiene efecto en el argumento                                                            |
-|  2 | Llamada por referencia | Este método copia la dirección de un argumento dentro del parámetro formal. Dentro de la función, la dirección es usada para acceder al verdadero argumento usado en al llamada. Esto significa que los cambios hechos a el parámetro afectan al argumento |
-|                                                                                                                                                                                                                                                            |
+   | Nº | Tipo llamada           | Descripción                                                                                                                                                                                                                                                |
+   |----+------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |  1 | Llamada por valor      | Este método copia el valor verdadero de un argumento en el parámetro formal de la función. En este caso, los cambios hechos a el parámetro dentro de la función no tiene efecto en el argumento                                                            |
+   |  2 | Llamada por referencia | Este método copia la dirección de un argumento dentro del parámetro formal. Dentro de la función, la dirección es usada para acceder al verdadero argumento usado en al llamada. Esto significa que los cambios hechos a el parámetro afectan al argumento |
+   |                                                                                                                                                                                                                                                            |
 
-Por defecto, C usa *llamada por valor* para pasar los argumentos. En general, significa que el código en la función no puede alterar el argumento usado para llamar a la función.
+   Por defecto, C usa *llamada por valor* para pasar los argumentos. En general, significa que el código en la función no puede alterar el argumento usado para llamar a la función.
 
 ** Llamada por valor 
 
-El método *llamada por valor*  de pasar argumentos a una función copia el valor actual de un argumento en el parámetro formal de la función. En este caso, los cambios hechos al parámetro dentro de la función no tienen efecto en el argumento.
+   El método *llamada por valor*  de pasar argumentos a una función copia el valor actual de un argumento en el parámetro formal de la función. En este caso, los cambios hechos al parámetro dentro de la función no tienen efecto en el argumento.
 
-Por defecto, los programas en C usar por defecto /la llamada por valor/. En general, esto significa que el código en la función no puede alterar los argumentos usados para llamar a la función. Vamos a considerar la función *intercambio()* como sigue 
+   Por defecto, los programas en C usar por defecto /la llamada por valor/. En general, esto significa que el código en la función no puede alterar los argumentos usados para llamar a la función. Vamos a considerar la función *intercambio()* como sigue 
 
-#+BEGIN_SRC C
+   #+BEGIN_SRC C
 
-  /* definición de la función para intercambiar los valores */
-  void intercambio(int x, int y) {
+     /* definición de la función para intercambiar los valores */
+     void intercambio(int x, int y) {
 
-    int temp;
+       int temp;
 
-    temp = x; /* salvamos el valor de x */ 
-    x = y;  /* ponemos y en x */
-    y = temp; /* ponemos temp en y */
+       temp = x; /* salvamos el valor de x */ 
+       x = y;  /* ponemos y en x */
+       y = temp; /* ponemos temp en y */
 
-    return;
+       return;
 
-  }
+     }
 
-#+END_SRC
+   #+END_SRC
 
-Ahora, vamos a llamar a la función *intercambio()* para pasarle los valores reales como sigue - 
+   Ahora, vamos a llamar a la función *intercambio()* para pasarle los valores reales como sigue - 
 
-#+BEGIN_SRC C
+   #+BEGIN_SRC C
 
-  #include <stdio.h>
+     #include <stdio.h>
 
-  /* declaración de la función */ 
-  void intercambio(int x, int y);
+     /* declaración de la función */ 
+     void intercambio(int x, int y);
 
-  int main() {
+     int main() {
 
-    /* definición de las variables locales */
-    int a = 100;
-    int b = 200;
+       /* definición de las variables locales */
+       int a = 100;
+       int b = 200;
 
-    printf("Antes del intercambio, el valor de a es: %d\n", a);
-    printf("Antes del intercambio, el valor de b es: %d\n", b);
+       printf("Antes del intercambio, el valor de a es: %d\n", a);
+       printf("Antes del intercambio, el valor de b es: %d\n", b);
 
-    /* llamada al intercambio de valores */
-    swap(a, b);
+       /* llamada al intercambio de valores */
+       swap(a, b);
 
-    printf("Después del intercambio, el valor de a es: %d\n", a);
-    printf("Después del intercambio, el valor de b es: %d\n", b);
+       printf("Después del intercambio, el valor de a es: %d\n", a);
+       printf("Después del intercambio, el valor de b es: %d\n", b);
 
-    return 0;
+       return 0;
 
-  }
+     }
 
-#+END_SRC
-
-
-Una vez compilado y ejecutado el código anterior tendremos el resultado - 
+   #+END_SRC
 
 
-: Antes del intercambio, el valor de a es: 100
-: Antes del intercambio, el valor de b es: 200
-: Después del intercambio, el valor de a es: 100 
-: Después del intercambio, el valor de b es: 200
+   Una vez compilado y ejecutado el código anterior tendremos el resultado - 
 
 
-Esto muestra que no hay cambio en los valores, una vez que ellos han sido cambiados dentro de la función. 
+   : Antes del intercambio, el valor de a es: 100
+   : Antes del intercambio, el valor de b es: 200
+   : Después del intercambio, el valor de a es: 100 
+   : Después del intercambio, el valor de b es: 200
+
+
+   Esto muestra que no hay cambio en los valores, una vez que ellos han sido cambiados dentro de la función. 
 
 
 ** Llamada por referencia 
 
 
-El método *llamada por referencia* de pasar argumentos a una función copia la dirección de un argumento dentro del parámetro formal. Dentro de la función, la dirección es usada para acceder al verdadero argumento usado en la llamada. Esto significa que los cambios hechos al parámetro afecta al argumento pasado. 
+   El método *llamada por referencia* de pasar argumentos a una función copia la dirección de un argumento dentro del parámetro formal. Dentro de la función, la dirección es usada para acceder al verdadero argumento usado en la llamada. Esto significa que los cambios hechos al parámetro afecta al argumento pasado. 
 
-Para pasar por referencia, los punteros a argumentos son pasados a la función solo como otro valor. Así en consecuencia, necesitamos declarar los parámetros de la función como tipo punteros en la siguiente función *intercambio()*, la cual cambiará el valor de las dos variables enteras, por sus argumentos. 
+   Para pasar por referencia, los punteros a argumentos son pasados a la función solo como otro valor. Así en consecuencia, necesitamos declarar los parámetros de la función como tipo punteros en la siguiente función *intercambio()*, la cual cambiará el valor de las dos variables enteras, por sus argumentos. 
 
-#+BEGIN_SRC C
+   #+BEGIN_SRC C
 
-    /* definición de función para cambiar los valores */ 
-  void intercambio(int *x, int *y) {
+     /* definición de función para cambiar los valores */ 
+     void intercambio(int *x, int *y) {
 
-    int temp;
-    temp = *x;  /* salvamos el valor de la dirección x */
-    ,*x = *y;    /* ponemos y en x */
-    ,*y = temp;  /* ponemos temp en y */
+       int temp;
+       temp = *x;  /* salvamos el valor de la dirección x */
+       ,*x = *y;    /* ponemos y en x */
+       ,*y = temp;  /* ponemos temp en y */
 
-    return;
+       return;
 
-  }
+     }
 
-#+END_SRC
+   #+END_SRC
 
-Ahora vamos a llamar a la función *intercambio()* pasándole los valores por referencias --
+   Ahora vamos a llamar a la función *intercambio()* pasándole los valores por referencias --
 
-#+BEGIN_SRC C
-
-
-  #include <stdio.h>
-
-  /* declaración de la función */
-  void intercambio(int *x, int *y);
-
-  int main(){
-
-    /* definición de las variables locales */
-    int a = 100;
-    int b = 200;
-
-    printf("Antes del intercambio, el valor de a es: %d\n", a);
-    printf("Antes del intercambio, el valor de a es: %d\n", b);
-
-    /* llamando a la función a cambiar los valores.
-       • &a indica puntero a a, e.i. la dirección de la variable a y
-       • &b indica puntero a b, e.i. la dirección de la variable b.
-    ,*/
-    intercambio(&a, &b);
-
-    printf("Después del intercambio, el valor de a es: %d\n", a);
-    printf("Después del intercambio, el valor de b es: %d\n", a);
-
-    return 0;
-
-  }
+   #+BEGIN_SRC C
 
 
-#+END_SRC
+     #include <stdio.h>
+
+     /* declaración de la función */
+     void intercambio(int *x, int *y);
+
+     int main(){
+
+       /* definición de las variables locales */
+       int a = 100;
+       int b = 200;
+
+       printf("Antes del intercambio, el valor de a es: %d\n", a);
+       printf("Antes del intercambio, el valor de a es: %d\n", b);
+
+       /* llamando a la función a cambiar los valores.
+	  • &a indica puntero a a, e.i. la dirección de la variable a y
+	  • &b indica puntero a b, e.i. la dirección de la variable b.
+       ,*/
+       intercambio(&a, &b);
+
+       printf("Después del intercambio, el valor de a es: %d\n", a);
+       printf("Después del intercambio, el valor de b es: %d\n", a);
+
+       return 0;
+
+     }
 
 
-Una vez compilado y ejecutado el código anterior, tendremos el siguiente resultado - 
+   #+END_SRC
 
-: Antes del intercambio, el valor de a es: 100
-: Antes del intercambio, el valor de b es: 200
-: Después del intercambio, el valor de a es: 200
-: Después del intercambio, el valor de b es: 100
 
-Esto muestra que los cambios se reflejan fuera de la función también, a diferencia de la llamada por valor donde los cambios no se reflejan fuera de la función. 
+   Una vez compilado y ejecutado el código anterior, tendremos el siguiente resultado - 
+
+   : Antes del intercambio, el valor de a es: 100
+   : Antes del intercambio, el valor de b es: 200
+   : Después del intercambio, el valor de a es: 200
+   : Después del intercambio, el valor de b es: 100
+
+   Esto muestra que los cambios se reflejan fuera de la función también, a diferencia de la llamada por valor donde los cambios no se reflejan fuera de la función. 
+
 * C - Reglas de ámbito
 
-Un ámbito en programación es una región del programa donde una variable definida puede tener su existencia y más allá de eso la variable no puede ser accedida. Hay tres lugares donde las variables pueden ser declaradas en C -
+  Un ámbito en programación es una región del programa donde una variable definida puede tener su existencia y más allá de eso la variable no puede ser accedida. Hay tres lugares donde las variables pueden ser declaradas en C -
 
-+ Dentro de una función o un bloque las cuales son llamadas variables *locales*.
-+ Fuera de todas las funciones las cuales son llamadas variables *globales*.
-+ En la definición de una función las cuales son llamados parámetros *formales*.
+  * Dentro de una función o un bloque las cuales son llamadas variables *locales*.
+  * Fuera de todas las funciones las cuales son llamadas variables *globales*.
+  * En la definición de una función las cuales son llamados parámetros *formales*.
 
-Entenderemos lo que son variables *locales* y *globales* y parámetros *formales*. 
+  Entenderemos lo que son variables *locales* y *globales* y parámetros *formales*. 
 
 ** Variables locales 
 
@@ -4799,5 +4805,133 @@ Cuando compilemos y ejecutemos el código anterior  producirá el siguiente resu
 : El valor de la suma: 116.0000000
 
 Aquí, es simple de entender que primero c se convierte a entero, pero el valor final es doble, la conversión aritmética habitual aplicada y el compilador convierte i y c en 'float' y los añade al resultado en 'float' también. 
+
+
+* C - Manejo de errores 
+
+Como tal, C no proporciona soporte directo para el manejo de errores pero siendo un sistema de lenguaje de programación, proporciona acceso a bajo nivel en la forma de retorno de valores. Muchas de las funciones de C o incluso de Unix devuelven -1 o NULL en caso de cualquier error y establecen un error code *errno*. Esto es como una variable global e indica un error ocurrido durante la llamada a una función. Podemos encontrar varios códigos de error definidios en el fichero de cabecera <error.h>.
+
+Así un programador de C puede comprobar los valores de retorno y tomar la acción apropiada dependiendo del valor devuelto. Es una buena práctica, establecer errno a 0 en el momento de inicializar un programa. Un valor de 0 indica que no hay errores en el programa. 
+
+** errno, perror() y strerror()
+
+C proporciona las funciones *perror()* y *strerror* las cuales pueden ser usadas para mostrar mensajes de texto asociados con *errno*. 
+
++ La función *perror()* muestra la cadena que le pasas, seguida de un punto y coma, un espacio, y entonces la representación textual del valor errno.
+
++ La función *strerror()*, devuelve un puntero a la representación textual del valor errno.
+
+Vamos a simular una condición de error e intentar abrir un fichero el cual no existe.
+
+#+BEGIN_SRC C
+  #include <stdio.h>
+  #include <errno.h>
+  #include <string.h>
+
+  extern int errno;
+
+  int main() {
+
+    FILE * pf;
+    int errnum;
+    pf = fopen ("unexist.txt", "rb");
+
+    if (pf == NULL){
+
+      errnum = errno;
+      fprintf(stderr, "Valor de errno: %d\n", errno);
+      perror("Error mostrado por perror");
+      fprintf(stderr, "Error abriendo archivo: %s\n", strerror( errnum ));
+
+    } else {
+
+      fclose(pf);
+
+    }
+
+    return 0;
+
+  }
+
+#+END_SRC
+
+
+Cuando el código anterior sea compilado y ejecutado, producirá el siguiente resultado - 
+
+: Valor de errno: 2
+: Error mostrado por perror: No such file or directory
+: Error  abriendo archivo: No such file or directory
+
+** Error de dividiro por cero
+
+Es un problema común que a la hora de dividir cualquier número, los programadores no comprueban si el divisor es cero y finalmente crea un error en tiempo de ejecución.
+
+El siguiente código arregla esto comprobando si el divisor es cero antes de dividir - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <stdlib.h> 
+
+  main(){
+
+    int dividendo = 20;
+    int divisor = 0;
+    int cociente;
+
+    if (divisor == 0){
+      fprintf(stderr, "División por cero! Saliendo...\n");
+      exit(-1);
+    }
+
+    cociente = dividendo / divisor;
+    fprintf(stderr, "El valor del cociente es: %d\n", cociente);
+
+    exit(0);
+
+  }
+
+
+#+END_SRC
+
+
+Cuando el código anterior sea compilado y ejecutado, producirá el siguiente resultado - 
+
+: División por cero! Saliendo...
+
+** Programa estatus salida 
+
+Es una práctica común salir con un valor de EXIT_SUCCESS en caso de que el programa venga después de una operación exitosa. Aquí, EXIT_SUCCESS es un macro y es definida como 0.
+
+Si tenemos una condición error en nuestro programa y venimos de ahí podemos salir con un estado EXIT_FAILURE el cual es definido como -1. Así vamos a escribir el siguiente  programa - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <stdlib.h>
+
+  main(){
+
+    int dividendo = 20;
+    int divisor = 5;
+    int cociente;
+
+    if( divisor == 0) {
+      fprintf(stderr, "División por cero! Saliendo...\n");
+      exit(EXIT_FAILURE);
+    }
+
+    cociente = dividendo / divisor;
+    fprintf(stderr, "Valor del cociente: %d\n", cociente);
+
+    exit(EXIT_SUCCESS);
+
+  }
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
+
+: Valor del cociente: 4
 
 
