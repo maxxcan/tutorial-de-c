@@ -1886,7 +1886,6 @@ Para el bucle *for*, *continue* causa que la comparación condicional y el incre
 
    Cuando una expresión condicional está ausente, se asume que es cierta. Se podría tener una expresión de inicialización e incremento, pero los programadores de C más comúnmente usan el constructor for significar un bucle infinito.
 
-
 * C - Funciones 
 
 
@@ -4806,7 +4805,6 @@ Cuando compilemos y ejecutemos el código anterior  producirá el siguiente resu
 
 Aquí, es simple de entender que primero c se convierte a entero, pero el valor final es doble, la conversión aritmética habitual aplicada y el compilador convierte i y c en 'float' y los añade al resultado en 'float' también. 
 
-
 * C - Manejo de errores 
 
 Como tal, C no proporciona soporte directo para el manejo de errores pero siendo un sistema de lenguaje de programación, proporciona acceso a bajo nivel en la forma de retorno de valores. Muchas de las funciones de C o incluso de Unix devuelven -1 o NULL en caso de cualquier error y establecen un error code *errno*. Esto es como una variable global e indica un error ocurrido durante la llamada a una función. Podemos encontrar varios códigos de error definidios en el fichero de cabecera <error.h>.
@@ -4933,5 +4931,101 @@ Si tenemos una condición error en nuestro programa y venimos de ahí podemos sa
 Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
 
 : Valor del cociente: 4
+
+
+* C - Recursión 
+
+La recursión es el proceso de repetir algo en una forma similar. En los lenguajes de proramación, si un programa nos permite llamar a una función dentro de la misma función, entonces esto es llamado una llamada recursiva de la función. 
+
+#+BEGIN_SRC C
+
+  void recursion(){
+    recursion(); /* función que se llama a sí misma */ 
+  }
+
+  int main(){
+    recursion();
+  }
+
+#+END_SRC
+
+C soporta recursión, es decir, una función puede llamarse a sí misma. Pero mientras el uso de la recursión, los programadores necesitan ser cautelosos para definir una condición de salida desde la función, de otra forma se ejecutará un bucle infinito. 
+
+Las funciones recursivas son muy útiles para resolver problemas matemáticos, tales como el cálculo de un número factorial, genera series de Fibonacci, etc.
+
+** Número factorial 
+
+El siguiente ejemplo calcula el factorial de un número dado usando una función recursiva. 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>*
+
+  unsigned long long int factorial(unsigned int i){
+    if(1 <= 1) {
+      return 1;
+    }
+    return i * factorial(i - 1);
+  }
+
+  int main(){
+    int i = 12;
+    printf("El factorial de %d es %d\n", i, factorial(i));
+    return 0;
+  }
+
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
+
+: El factorial de 12 es 479001600
+
+** Serie de Fibonacci
+
+El siguiiente ejemplo genera una serie de Fibonacci para un número dado usando una función recursiva - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  int fibonaci(int i){
+
+    if(i == 0){
+      return 0;
+    }
+
+    if(i == 1){
+      return 1;
+    }
+    return fibonacci(i-1) + fibonacci(i-2);
+  }
+
+  int main(){
+
+    int i;
+
+    for (i = 0; i < 10; i++){
+      printf("%d\t\n", fibonacci(i));
+    }
+
+    return 0;
+
+  }
+
+#+END_SRC
+
+
+Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resultado - 
+
+: 0
+: 1
+: 1
+: 2
+: 3
+: 5
+: 8
+: 13
+: 21
+: 34
 
 
