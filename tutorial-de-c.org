@@ -4932,8 +4932,7 @@ Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resu
 
 : Valor del cociente: 4
 
-
-* C - Recursión 
+* C - Recursividad 
 
 La recursión es el proceso de repetir algo en una forma similar. En los lenguajes de proramación, si un programa nos permite llamar a una función dentro de la misma función, entonces esto es llamado una llamada recursiva de la función. 
 
@@ -4949,7 +4948,7 @@ La recursión es el proceso de repetir algo en una forma similar. En los lenguaj
 
 #+END_SRC
 
-C soporta recursión, es decir, una función puede llamarse a sí misma. Pero mientras el uso de la recursión, los programadores necesitan ser cautelosos para definir una condición de salida desde la función, de otra forma se ejecutará un bucle infinito. 
+C soporta recursividad, es decir, una función puede llamarse a sí misma. Pero mientras el uso de la recursividad, los programadores necesitan ser cautelosos para definir una condición de salida desde la función, de otra forma se ejecutará un bucle infinito. 
 
 Las funciones recursivas son muy útiles para resolver problemas matemáticos, tales como el cálculo de un número factorial, genera series de Fibonacci, etc.
 
@@ -4983,7 +4982,7 @@ Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resu
 
 ** Serie de Fibonacci
 
-El siguiiente ejemplo genera una serie de Fibonacci para un número dado usando una función recursiva - 
+El siguiente ejemplo genera una serie de Fibonacci para un número dado usando una función recursiva - 
 
 #+BEGIN_SRC C
 
@@ -5028,4 +5027,78 @@ Cuando compilemos y ejecutemos el código anterior, producirá el siguiente resu
 : 21
 : 34
 
+
+* C - Argumentos variables 
+
+Algunas veces, nos podemos encontrar una situación, donde queramos tener una función, la cual toma un número variable de argumentos, es decir, parámetros, en vez de un número predefinido de parámetros. C proporciona la solución para esta situación y es que estamos permitidos a definir una función la cual pueda aceptar un número variable de número de parámetros basado en nuestros requerimientos. El siguiente ejemplo muestra la definición de la siguiente función. 
+
+#+BEGIN_SRC C
+
+  int func(int, ... ) {
+
+    .
+    .
+    .
+  }
+
+  int main(){
+    func(1, 2, 3);
+    func(1, 2, 3, 4);
+  }
+
+
+#+END_SRC
+
+Podemos ver que la función *func()* tiene su último argumento como paréntesis, es decir, tres puntos (...) y justo antes de los paréntesis está siempre un *int* el cual representa el número total variable de argumentos pasados. Para usar esta funcionalidad, necesitamos usar el archivo cabecera *stdarg.h* el cual proporciona las funciones y macros que implementan la funcionalidad de argumentos variables y sigue los siguientes pasos - 
+
++ Define una función con sus últimos parámetros como paréntesis y uno justo antes es siempre un *entero* el cual representa el número de argumentos.
+
++ Crea una variable tipo *va_list* en la definición de función. Este tipo es definido en el fichero de cabecera stdarg.h
+
++ El parámetro *int* y el macro *va_start* inicializa la variable *va_list* a una lista de argumentos. El macro va_start es definido en el fichero de cabecera stdarg.h.
+
++ Usamos el macro *va_arg* y la variable *va_list* para acceder a cada elemento en la lista de argumentos.
+
++ Usamos un macro *va_end* para limpiar la memoria asignada a la variable *va_list*
+
+Ahora vamos a escribir una simple función la cual puede tomar el número variable de parámetros y devolver sus medias - 
+
+#+BEGIN_SRC C
+
+  #include <stdio.h>
+  #include <stdarg.h>
+
+  double media(int num,...) {
+
+    va_list valist;
+    double sum = 0.0;
+    int i;
+
+    /* inicializando valist para num número de argumentos */
+    va_start(valist, num);
+
+    /* accediendo a todos los argumentos asignados a valist */
+    for (i = 0; i < num; i++){
+      sum += va_arg(valist, int);
+    }
+
+    /* limpiando memoria reservada para valist */ 
+    va_end(valist);
+
+    return sum/sum;
+
+  }
+
+  int main(){
+    printf("Media de 2, 3, 4, 5 = %f\n", media(4, 2,3,4,5));
+    printf("Media de 5, 10, 15 = %f\n", media(3, 5,10,15));
+  }
+
+
+#+END_SRC
+
+Cuando compilemos y ejecutemos el código, producirá el siguiente resultado. Notemos que la función media() ha sido llamada dos veces y cada vez el primer argumento representa el número total de argumentos variables que son pasados. Solo los paréntesis será usados para pasar el numero variable de argumentos.
+
+: Media de 2, 3, 4, 5 =  3.500000
+: Media de 5, 10, 15 = 10.00000
 
